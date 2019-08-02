@@ -6,10 +6,6 @@ main {
 	--invisibleColor:rgba(0,0,0,0);
 	--textColor:#ebebeb;
 	font-family: Roboto, Helvetica, sans-serif;
-	
-	display: grid;
-grid-gap: 10px;
-grid-template-columns: 110px 110px 110px;
 }
 a {
 	text-decoration:none;
@@ -18,8 +14,13 @@ a {
 	transition:0.3s;
 }
 img {
-  max-width: 80%;
-	padding:10%;
+	// max-width: 80%;
+	// padding:10%;
+	display: block;
+	max-height: 100px;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 figure {
 	margin: 0;
@@ -28,103 +29,130 @@ figure {
 }
 figcaption {
 	margin-top: -24px;
-  padding: 6px;
+	padding: 6px;
 	text-align: left;
 	font-size: 90%;
 }
 details {
 	display: none;
 }
+
+.tileGrid {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr;
+
+    // @media(max-width: 900px) and (min-width: 601px) {
+
+    // }
+
+    // @media(max-width: 600px) and (min-width: 381px) {
+
+    // }
+
+    @media(max-width: 380px) {
+		grid-template-columns: 1fr 1fr;
+    }
+
+}
+
 .border {
-	width:108px;
-	height:150px;
+	// width:108px;
+	// height:150px;
+	width: 100%;
+	height: 100%;
+
 	border-style: solid;
 	border-width: 2px;
 	border-color:var(--tileAccentColor10);
 	transition: 0.3s;
 	position: relative;
-}
-.border:hover, .border:active, .border:focus {
-	border-color:var(--tileAccentColor20);
-}
-.border:hover .flourish, .border:active .flourish, .border:focus .flourish {
-	width: 20px;
-	height:20px;
+	&:hover, &:active, &:focus {
+		border-color:var(--tileAccentColor20);
+		.flourish {
+			width: 20px;
+			height: 20px;
+		}
+	}
 }
 
 .flourish{
 	display:block;
-  position:absolute;
+	position:absolute;
 	width: 10px;
 	height:10px;
 	transition:0.3s;
 	--flourishBorder:solid 2px var(--tileAccentColor100);
-}
 
-.flourish:nth-child(1){
-	top:-2px;
-	left:-2px;
-	border-top:var(--flourishBorder);
-	border-left:var(--flourishBorder);
-}
-
-.flourish:nth-child(2){
-	top:-2px;
-	right:-2px;
-	border-top:var(--flourishBorder);
-	border-right:var(--flourishBorder);
-}
-
-.flourish:nth-child(3){
-	bottom:-2px;
-	left:-2px;
-	border-bottom:var(--flourishBorder);
-	border-left:var(--flourishBorder);
+	&:nth-child(1){
+		top:-2px;
+		left:-2px;
+		border-top:var(--flourishBorder);
+		border-left:var(--flourishBorder);
 	}
 
-.flourish:nth-child(4){
-	bottom:-2px;
-	right:-2px;
-	border-bottom:var(--flourishBorder);
-	border-right:var(--flourishBorder);
+	&:nth-child(2){
+		top:-2px;
+		right:-2px;
+		border-top:var(--flourishBorder);
+		border-right:var(--flourishBorder);
+	}
+
+	&:nth-child(3){
+		bottom:-2px;
+		left:-2px;
+		border-bottom:var(--flourishBorder);
+		border-left:var(--flourishBorder);
+	}
+
+	&:nth-child(4){
+		bottom:-2px;
+		right:-2px;
+		border-bottom:var(--flourishBorder);
+		border-right:var(--flourishBorder);
+	}
 }
-
-
-
 
 
 
 .linkTile {
-	width:102px;
-	height:144px;
+
+	height: calc(100% - 6px);
+
 	margin:3px;
 	transition: 0.3s;
 	background: linear-gradient(0deg, var(--tileAccentColor35) 0%, var(--invisibleColor) 25%, var(--invisibleColor) 75%, var(--tileAccentColor35) 100%);
 	overflow:hidden;
-}
-.linkTile:before {
-	content:'';
-	position:absolute;
-	top:3px;
-	background: linear-gradient(0deg, var(--invisibleColor) 0%, var(--invisibleColor) 70%, var(--tileAccentColor20) 100%);
-	height:0px;
-	width:102px;
-	transition:0.3s;
-}
-.linkTile:hover:before, .linkTile:active:before, .linkTile:focus:before {
-	height:144px;
-}
-.linkTile:after {
-	content:'';
-	position:absolute;
-	display:block;
-	top:147px;
-	background: linear-gradient(0deg, var(--tileAccentColor20) 0%, var(--invisibleColor) 30%, var(--invisibleColor) 100%);
-	height:0px;
-	width:102px;
-	transition:0.3s;
-}
-.linkTile:hover:after, .linkTile:active:after, .linkTile:focus:after {
-	height:144px;
-	top:3px;
+
+	&:before {
+		content:'';
+		position:absolute;
+		top: 3px;
+		background: linear-gradient(0deg, var(--invisibleColor) 0%, var(--invisibleColor) 70%, var(--tileAccentColor20) 100%);
+		height: 0;
+		width: 100%;
+		transition:0.3s;
+	}
+
+	&:after {
+		content:'';
+		position:absolute;
+		display:block;
+		bottom: 3px;
+		background: linear-gradient(0deg, var(--tileAccentColor20) 0%, var(--invisibleColor) 30%, var(--invisibleColor) 100%);
+		height: 0;
+		width: 100%;
+		transition:0.3s;
+	}
+
+	&:hover, &:active, &:focus {
+		&:before {
+			height:144px;
+		}
+		&:after {
+			height:144px;
+			bottom: 3px;
+		}
+	}
+
 }
