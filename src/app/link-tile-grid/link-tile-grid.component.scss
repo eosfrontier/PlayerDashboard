@@ -11,16 +11,10 @@ a {
 	text-decoration:none;
 	width:100%;
 	height:100%;
-	transition:0.3s;
 }
 img {
-	// max-width: 80%;
-	// padding:10%;
-	display: block;
-	max-height: 100px;
-	width: auto;
-	margin-left: auto;
-	margin-right: auto;
+	max-width: 80%;
+	padding:10%;
 }
 figure {
 	margin: 0;
@@ -32,36 +26,59 @@ figcaption {
 	padding: 6px;
 	text-align: left;
 	font-size: 90%;
+		@media only screen and (min-width: 616px) {
+			font-size:100%;
+		}
 }
-details {
-	display: none;
+aside {
+	display:none;
+	@media only screen and (min-width: 616px) {
+		display:block;
+		position:absolute;
+		padding:6px;
+		margin:3px;
+		background: linear-gradient(90deg, var(--tileAccentColor10) 0%, var(--invisibleColor) 50%, var(--invisibleColor) 100%);
+		top:0;
+		left:150px;
+		width:auto;
+		height:calc(100% - 18px);
+		color:var(--textColor);
+			&:before {
+				content:'';
+				height:calc(100% - 6px);
+				width:2px;
+				position:absolute;
+				top:3px;
+				left:-6px;
+				background:var(--tileAccentColor10);
+				transition:0.3s;
+				z-index:-1;
+			}
+			
+			&:hover, &:active, &:focus {
+				&:after {
+					background:var(--tileAccentColor20);
+				}
+	}
+	}
+	
 }
 
 .tileGrid {
 	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: 1fr 1fr 1fr;
-
-    // @media(max-width: 900px) and (min-width: 601px) {
-
-    // }
-
-    // @media(max-width: 600px) and (min-width: 381px) {
-
-    // }
-
-    @media(max-width: 380px) {
-		grid-template-columns: 1fr 1fr;
-    }
-
+	grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+	@media only screen and (min-width: 616px) {
+		grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+	}
 }
 
 .border {
-	// width:108px;
-	// height:150px;
-	width: 100%;
-	height: 100%;
-
+	width: auto;
+  height: auto;
+	@media only screen and (min-width: 616px) {
+		height:190px;
+	}
+  margin: 1% 3% 3% 1%;
 	border-style: solid;
 	border-width: 2px;
 	border-color:var(--tileAccentColor10);
@@ -116,42 +133,33 @@ details {
 
 
 .linkTile {
-
+	@media only screen and (min-width: 616px) {
+		width:140px;
+	}
 	height: calc(100% - 6px);
-
 	margin:3px;
 	transition: 0.3s;
 	background: linear-gradient(0deg, var(--tileAccentColor35) 0%, var(--invisibleColor) 25%, var(--invisibleColor) 75%, var(--tileAccentColor35) 100%);
 	overflow:hidden;
 
-	&:before {
-		content:'';
-		position:absolute;
-		top: 3px;
-		background: linear-gradient(0deg, var(--invisibleColor) 0%, var(--invisibleColor) 70%, var(--tileAccentColor20) 100%);
-		height: 0;
-		width: 100%;
-		transition:0.3s;
-	}
-
 	&:after {
 		content:'';
+		height:calc(100% - 6px);
+		width:calc(100% - 6px);
+		@media only screen and (min-width: 616px) {
+			width:140px;
+		}
 		position:absolute;
-		display:block;
-		bottom: 3px;
-		background: linear-gradient(0deg, var(--tileAccentColor20) 0%, var(--invisibleColor) 30%, var(--invisibleColor) 100%);
-		height: 0;
-		width: 100%;
+		top:3px;
+		background: linear-gradient(0deg, var(--tileAccentColor20) 0%, var(--invisibleColor) 25%, var(--invisibleColor) 75%, var(--tileAccentColor20) 100%);
 		transition:0.3s;
+		opacity:0;
+		z-index:-1;
 	}
 
 	&:hover, &:active, &:focus {
-		&:before {
-			height:144px;
-		}
 		&:after {
-			height:144px;
-			bottom: 3px;
+		opacity:1;
 		}
 	}
 
