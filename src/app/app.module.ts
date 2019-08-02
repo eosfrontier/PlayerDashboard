@@ -10,7 +10,7 @@ import { LinkTileGridComponent } from './link-tile-grid/link-tile-grid.component
   declarations: [
     AppComponent,
     OptionsMenuComponent,
-    LinkTileGridComponent,
+    LinkTileGridComponent
   ],
   imports: [
     BrowserModule,
