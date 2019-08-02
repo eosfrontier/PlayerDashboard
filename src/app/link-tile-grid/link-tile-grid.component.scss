@@ -41,6 +41,7 @@ aside {
 		top:0;
 		left:150px;
 		width:auto;
+		min-width: 110px;
 		height:calc(100% - 18px);
 		color:var(--textColor);
 			&:before {
