@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataRetrieverComponent } from './data-retriever.component';
+import { LinkTileGridComponent } from './link-tile-grid.component';
 
-describe('DataRetrieverComponent', () => {
-  let component: DataRetrieverComponent;
-  let fixture: ComponentFixture<DataRetrieverComponent>;
+describe('LinkTileGridComponent', () => {
+  let component: LinkTileGridComponent;
+  let fixture: ComponentFixture<LinkTileGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataRetrieverComponent ]
+      declarations: [ LinkTileGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataRetrieverComponent);
+    fixture = TestBed.createComponent(LinkTileGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
