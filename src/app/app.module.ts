@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OptionsMenuComponent } from './options-menu/options-menu.component';
 import { LinkTileGridComponent } from './link-tile-grid/link-tile-grid.component';
+import { PersonalBannerComponent } from './personal-banner/personal-banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OptionsMenuComponent,
-    LinkTileGridComponent
+    LinkTileGridComponent,
+    PersonalBannerComponent
   ],
   imports: [
     BrowserModule,

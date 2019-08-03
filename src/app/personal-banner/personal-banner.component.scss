@@ -1,0 +1,59 @@
+header {
+	width:100%;
+	--tileAccentColor10:rgba(51,192,255,0.1);
+	--tileAccentColor20:rgba(51,192,255,0.2);
+	--tileAccentColor35:rgba(51,192,255,0.35);
+	--tileAccentColor100:#33C0FF;
+	--invisibleColor:rgba(0,0,0,0);
+	--textColor:#ebebeb;
+	font-family: Roboto, Helvetica, sans-serif;
+	color:var(--textColor);
+	display:grid;
+	grid-template-columns: minmax(84px,15%) 8fr 1fr;
+	grid-template-areas: "icon text mail" "bar bar bar";
+}
+img {
+	width:96%;
+	margin:4%;
+	grid-area: icon;
+}
+section {
+	width:100%;
+	margin-left:5%;
+	grid-area: text;
+	overflow: hidden;
+}
+aside {
+	margin-top:25%;
+	margin-right:2%;
+	font-size:32px;
+	grid-area: mail;
+	position:relative;
+}
+.notificationDot {
+	position:relative;
+	bottom:36px;
+	left:20px;
+	background:red;
+	width:16px;
+	height:16px;
+	font-size:12px;
+	text-align:center;
+	border-radius: 50%;
+}
+.notificationCounter {
+	position:relative;
+	top:1px;
+}
+hr {
+	grid-area: bar;
+	transition:0.3s;
+	border-color:var(--tileAccentColor100);
+	width:90%;
+	@media(max-width: 932px) and (min-width: 658px) {
+		width:87.5%;
+	}
+	@media(max-width: 657px) {
+		width:75%;
+	}
+}
