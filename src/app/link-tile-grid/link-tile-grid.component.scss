@@ -1,11 +1,5 @@
 main {
-	--tileAccentColor10:rgba(51,192,255,0.1);
-	--tileAccentColor20:rgba(51,192,255,0.2);
-	--tileAccentColor35:rgba(51,192,255,0.35);
-	--tileAccentColor100:#33C0FF;
-	--invisibleColor:rgba(0,0,0,0);
-	--textColor:#ebebeb;
-	font-family: Roboto, Helvetica, sans-serif;
+	font-family: var(--fontTiles);
 }
 a {
 	text-decoration:none;

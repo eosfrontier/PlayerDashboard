@@ -1,5 +1,16 @@
 #thisisaMobileAppScrewWidescreen {
-	background-color:#13171f;
+
+	--tileAccentColor10:rgba(51,192,255,0.1);
+	--tileAccentColor20:rgba(51,192,255,0.2);
+	--tileAccentColor35:rgba(51,192,255,0.35);
+	--tileAccentColor100:#33C0FF;
+	--invisibleColor:rgba(0,0,0,0);
+	--textColor:#ebebeb;
+	--backgroundColor:#13171f;
+	--fontHeader:	Roboto, Helvetica, sans-serif;
+	--fontTiles: Roboto, Helvetica, sans-serif;
+
+	background-color:var(--backgroundColor);
 	min-height:98vh;
 	height: 100%;
 	margin-left: auto;
