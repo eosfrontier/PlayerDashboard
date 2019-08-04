@@ -1,9 +1,60 @@
+@font-face {
+	font-family:Aquila;
+	src: url('./assets/fonts/AquilaEthnocentric.ttf') format('truetype');
+	font-kerning: auto;
+}
+@font-face {
+	font-family:Dugo;
+	src: url(assets/fonts/DugoMadeInChina.ttf) format('truetype');
+}
+@font-face {
+	font-family:Ekanesh;
+	src: url(assets/fonts/EkaneshNasalization.ttf) format('truetype');
+}
+@font-face {
+	font-family:Pendzal;
+	src: url(assets/fonts/PendzalChemrea.ttf) format('truetype');
+}
+@font-face {
+	font-family:Sona;
+	src: url(assets/fonts/SonaXXIIArabian.ttf) format('truetype');
+}
+
+:root {
+	--tileAccentColor10:rgba(51,192,255,0.1);
+	--tileAccentColor20:rgba(51,192,255,0.2);
+	--tileAccentColor35:rgba(51,192,255,0.35);
+	--tileAccentColor100:#33C0FF;
+	--invisibleColor:rgba(0,0,0,0);
+	--textColor:#ebebeb;
+	--backgroundColor:#13171f;
+	--fontHeader:	Roboto, Helvetica, sans-serif;
+	--fontTiles: Roboto, Helvetica, sans-serif;
+
+	--fontAquila: Aquila, Roboto, Helvetica, sans-serif;
+	--fontDugo: Dugo, Roboto, Helvetica, sans-serif;
+	--fontEkanesh: Ekanesh, Roboto, Helvetica, sans-serif;
+	--fontPendzal: Pendzal, Roboto, Helvetica, sans-serif;
+	--fontSona: Sona, Roboto, Helvetica, sans-serif;
+	
+	--Ekanesh_tAC10:rgba(128,157,124,0.1);
+	--Ekanesh_tAC20:rgba(128,157,124,0.2);
+	--Ekanesh_tAC35:rgba(128,157,124,0.35);
+	--Ekanesh_tAC100:#926c56;
+	--Ekanesh_tC:#57774a;
+	--Ekanesh_bC:#000000;
+	
+	
+/*	--tileAccentColor10:var(--Ekanesh_tAC10);
+	--tileAccentColor20:var(--Ekanesh_tAC20);
+	--tileAccentColor35:var(--Ekanesh_tAC35);
+	--tileAccentColor100:var(--Ekanesh_tAC100);
+	--textColor:var(--Ekanesh_tC);
+	--backgroundColor:var(--Ekanesh_bC);
+	--fontHeader:var(--fontEkanesh);
+	--fontTiles:var(--fontEkanesh); */
+}
+
 body {
-	background: #13171f;
-	@media (prefers-color-scheme: light) {
-		background: #262e3e;
-	}
-	@media (prefers-color-scheme: dark) {
-		background: rgb(50, 54, 57);
-	}
+	background:var(--backgroundColor);
 }

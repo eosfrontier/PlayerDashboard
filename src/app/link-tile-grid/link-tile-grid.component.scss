@@ -47,7 +47,6 @@ aside {
 				left:-6px;
 				background:var(--tileAccentColor10);
 				transition:0.3s;
-				z-index:-1;
 			}
 			
 			&:hover, &:active, &:focus {
@@ -149,7 +148,6 @@ aside {
 		background: linear-gradient(0deg, var(--tileAccentColor20) 0%, var(--invisibleColor) 25%, var(--invisibleColor) 75%, var(--tileAccentColor20) 100%);
 		transition:0.3s;
 		opacity:0;
-		z-index:-1;
 	}
 
 	&:hover, &:active, &:focus {
