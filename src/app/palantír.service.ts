@@ -14,6 +14,25 @@ export class PalantírService {
 	
   constructor(private http: HttpClient) { }
 	
+	getSkills(id: string): Promise<any> {
+		const params = new HttpParams();
+		params.set('id', this.joomlaPlayerID);
+		params.set('token', this.dashboardAPIKey);
+		
+		return new Promise((resolve, reject) => {
+			this.http.post(this.skillAPI, { params}).subscribe(
+				(skills) => {
+					resolve(skills);
+				}, (error) => {
+					reject(error);
+				}
+			);
+		});
+	
+	async plsGeefSkills(id: string): Promise<void> {
+    const skills = await this.getSkillsFromAPI(joomlaPlayerID);
+    console.log(skills);
+  }
 	
 	/**
 	seemingly we're going to do something else
