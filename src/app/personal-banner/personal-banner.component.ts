@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PalantírService } from '../palantír.service';
 
 @Component({
   selector: 'app-personal-banner',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalBannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private palantirService: PalantírService) { }
 
   ngOnInit() {
+		this.palantirService.plsGeefNaam('131');
   }
 
 }

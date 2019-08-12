@@ -34,7 +34,7 @@ export class PalantírService {
     getNameFromAPI(id: string): Promise<any> {
         const body = {
             token: this.dashboardAPIKey,
-            id: id
+            char_id: id
         };
 
         return new Promise((resolve, reject) => {
@@ -50,7 +50,7 @@ export class PalantírService {
 
     async plsGeefSkills(id: string): Promise<void> {
         const skills = await this.getSkillsFromAPI(id);
-        console.log(skills);
+				console.log(skills);
     }
 
     async plsGeefNaam(id: string): Promise<void> {

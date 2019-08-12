@@ -8,11 +8,35 @@ import { PalantírService } from '../palantír.service';
 })
 export class LinkTileGridComponent implements OnInit {
 
+	skillIndex:any;
+	guns:boolean = false;
+	melee:boolean = false;
+	besch:boolean = false;
+	will:boolean = false;
+	cond:boolean = false;
+	engi:boolean = false;
+	it:boolean = false;
+	firstaid:boolean = false;
+	surgery:boolean = false;
+	tele:boolean = false;
+	intel:boolean = false;
+	politic:boolean = false;
+	eco:boolean = false;
+	geo:boolean = false;
+	chem:boolean = false;
+	dex:boolean = false;
+	
   constructor(private palantirService: PalantírService) { }
 
   ngOnInit() {
-    this.palantirService.plsGeefSkills('131');
-		this.palantirService.plsGeefNaam('131');
+		this.skillFilter();
   }
+	
+	skillFilter() {
+		this.skillIndex = this.palantirService.plsGeefSkills('161');
+		
+		for (let skill of this.skillIndex)
+			console.log(skill);
+	}
 
 }
