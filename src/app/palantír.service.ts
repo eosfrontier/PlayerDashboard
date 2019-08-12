@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PalantírService {
 		
-		readonly nameAPI = "https://api.eosfrontier.space/orthanc/character/";
-    readonly skillAPI = "https://api.eosfrontier.space/orthanc/character/skills/";
+		readonly env = environment;
+		readonly nameAPI = this.env.API.CHARACTER;
+    readonly skillAPI = this.env.API.SKILLS;
     readonly dashboardAPIKey = "uLr19LHV8ccNPW7hBlv3";
 
     constructor(private http: HttpClient) { }
@@ -19,7 +21,7 @@ export class PalantírService {
         };
 
         return new Promise((resolve, reject) => {
-            this.http.post(environment.API.SKILLS, JSON.stringify(body)).subscribe(
+            this.http.post(this.skillAPI, JSON.stringify(body)).subscribe(
                 (skills) => {
                     resolve(skills);
                 }, (error) => {
@@ -36,7 +38,7 @@ export class PalantírService {
         };
 
         return new Promise((resolve, reject) => {
-            this.http.post(environment.API.CHARACTER, JSON.stringify(body)).subscribe(
+            this.http.post(this.nameAPI, JSON.stringify(body)).subscribe(
                 (name) => {
                     resolve(name);
                 }, (error) => {
