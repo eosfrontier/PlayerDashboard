@@ -12,7 +12,11 @@ export class PalantírService {
 	readonly dashboardAPIKey = "uLr19LHV8ccNPW7hBlv3";
 	joomlaPlayerID = "131";
 	
-  constructor() { }
+  constructor(private http: HttpClient) { }
+	
+	
+	/**
+	seemingly we're going to do something else
 	
 	getDraft(id: string): Promise<any> {
     const params = new HttpParams().set('id', id);
@@ -33,7 +37,7 @@ export class PalantírService {
       const draft: SafetyForm = await this.draftHttp.getDraft(id);
 		}
 	}
-	
+	*/
 }
 
 /**
