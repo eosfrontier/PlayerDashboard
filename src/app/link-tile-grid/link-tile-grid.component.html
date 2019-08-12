@@ -95,6 +95,28 @@
 </div>
 </a>
 
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSf9pEf5oXJSmgMasLYgum8-Z_S5lRbMsJIttV8IOFtnAYeJjQ/viewform"  *ngIf="this.conclaveMembers.indexOf(this.characterICCNumber) !== -1">
+<div class="border">
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+
+	<section class="linkTile">
+			<figure class="icon">
+				<img src="../../assets/images/invoice.png" alt="A purple paper with red items and a green checkmark">
+				<figcaption>Budget<br>Besteding<br>Eos</figcaption>
+			</figure>
+			<aside>
+				As Conclave member you can asign your budget sonuren through this application.
+			</aside>
+	</section>
+</div>
+</a>
+
+
+
+
 <a href="https://cic.eosfrontier.space/">
 <div class="border">
 	<div class="flourish"></div>
@@ -133,7 +155,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/ems" *ngIf="this.skillBooleanIndex.indexOf('guns') !== -1 || this.skillBooleanIndex.indexOf('melee') !== -1">
+<a href="https://www.eosfrontier.space/ems" *ngIf="this.characterFaction.includes('dugo')">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>

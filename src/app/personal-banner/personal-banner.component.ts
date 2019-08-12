@@ -9,6 +9,7 @@ import { PalantírService } from '../palantír.service';
 export class PersonalBannerComponent implements OnInit {
 	
 	characterInformation:any;
+	characacterRank:string;
 	characterName:string;
 	characterFaction:string;
   constructor(private palantirService: PalantírService) { }
@@ -18,13 +19,10 @@ export class PersonalBannerComponent implements OnInit {
   }
 	
 	async characterPersonification() {
-		this.characterInformation = await this.palantirService.getNameFromAPI('127');
-			//console.log(this.characterInformation);
+		this.characterInformation = await this.palantirService.getNameFromAPI('117');
 		this.characacterRank = this.characterInformation.rank;
 		this.characterName = this.characterInformation.character_name;
 		this.characterFaction = this.characterInformation.faction;
-		//for (let item of this.characterInformation)
-			//console.log(item);
 	}
 
 }
