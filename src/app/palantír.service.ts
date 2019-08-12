@@ -47,15 +47,4 @@ export class PalantírService {
             );
         });
     }
-
-    async plsGeefSkills(id: string): Promise<void> {
-        const skills = await this.getSkillsFromAPI(id);
-				return skills
-    }
-
-    async plsGeefNaam(id: string): Promise<void> {
-        const name = await this.getNameFromAPI(id);
-        console.log(name);
-    }
-
 }

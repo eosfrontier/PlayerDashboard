@@ -7,11 +7,19 @@ import { PalantírService } from '../palantír.service';
   styleUrls: ['./personal-banner.component.scss']
 })
 export class PersonalBannerComponent implements OnInit {
-
+	
+	characterInformation:any;
   constructor(private palantirService: PalantírService) { }
 
   ngOnInit() {
-		this.palantirService.plsGeefNaam('161');
+		//this.characterPersonification();
   }
+	
+/**	async characterPersonification() {
+		this.characterInformation = await this.palantirService.getNameFromAPI('161');
+			console.log(this.characterInformation);
+		for (let item of this.characterInformation)
+			console.log(item);
+	} */
 
 }

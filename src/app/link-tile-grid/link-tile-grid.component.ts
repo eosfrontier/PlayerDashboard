@@ -7,24 +7,9 @@ import { PalantírService } from '../palantír.service';
   styleUrls: ['./link-tile-grid.component.scss']
 })
 export class LinkTileGridComponent implements OnInit {
-
+	
 	skillIndex:any;
-	guns:boolean = false;
-	melee:boolean = false;
-	besch:boolean = false;
-	will:boolean = false;
-	cond:boolean = false;
-	engi:boolean = false;
-	it:boolean = false;
-	firstaid:boolean = false;
-	surgery:boolean = false;
-	tele:boolean = false;
-	intel:boolean = false;
-	politic:boolean = false;
-	eco:boolean = false;
-	geo:boolean = false;
-	chem:boolean = false;
-	dex:boolean = false;
+	skillBooleanIndex:any[] = [];
 	
   constructor(private palantirService: PalantírService) { }
 
@@ -33,10 +18,10 @@ export class LinkTileGridComponent implements OnInit {
   }
 	
 	async skillFilter() {
-		this.skillIndex = this.palantirService.plsGeefSkills('161');
-			console.log(this.skillIndex);
+		this.skillIndex = await this.palantirService.getSkillsFromAPI('42');
+		//console.log(this.skillIndex);
 		for (let skill of this.skillIndex)
-			console.log(skill);
+			this.skillBooleanIndex.push(skill.name)
 	}
 
 }
