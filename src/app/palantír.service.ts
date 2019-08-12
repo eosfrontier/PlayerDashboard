@@ -10,6 +10,7 @@ export class PalantírService {
 	
 	readonly skillAPI = "https://api.eosfrontier.space/orthanc/character/skills/";
 	readonly dashboardAPIKey = "uLr19LHV8ccNPW7hBlv3";
+	joomlaPlayerID = "131";
 	
   constructor() { }
 	
