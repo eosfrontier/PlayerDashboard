@@ -12,12 +12,13 @@ export class PalantírService {
     constructor(private http: HttpClient) { }
 
     getSkillsFromAPI(id: string): Promise<any> {
-        const params = new HttpParams();
-				params.set('token', this.dashboardAPIKey);
-        params.set('id', id);
+        const body = {
+            token: this.dashboardAPIKey,
+            id: id
+        };
 
         return new Promise((resolve, reject) => {
-            this.http.post(this.skillAPI, { params }).subscribe(
+            this.http.post(this.skillAPI, { body }).subscribe(
                 (skills) => {
                     resolve(skills);
                 }, (error) => {
