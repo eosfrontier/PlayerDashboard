@@ -7,7 +7,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PalantírService {
-
+	
+	readonly skillAPI = "https://api.eosfrontier.space/orthanc/character/skills/";
+	readonly dashboardAPIKey = "uLr19LHV8ccNPW7hBlv3";
+	
   constructor() { }
 	
 	getDraft(id: string): Promise<any> {
