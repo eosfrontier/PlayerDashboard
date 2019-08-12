@@ -2,8 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const orthanc = 'https://api.eosfrontier.space/orthanc/';
+
 export const environment = {
-  production: false
+  production: false,
+  API: {
+    CHARACTER: `${orthanc}character/`,
+    SKILLS: `${orthanc}character/skills/`
+  }
 };
 
 /*

@@ -12,6 +12,7 @@ export class LinkTileGridComponent implements OnInit {
 
   ngOnInit() {
     this.palantirService.plsGeefSkills('131');
+		this.palantirService.plsGeefNaam('131');
   }
 
 }
