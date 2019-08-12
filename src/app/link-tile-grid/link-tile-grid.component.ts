@@ -32,9 +32,9 @@ export class LinkTileGridComponent implements OnInit {
 		this.skillFilter();
   }
 	
-	skillFilter() {
+	async skillFilter() {
 		this.skillIndex = this.palantirService.plsGeefSkills('161');
-		
+			console.log(this.skillIndex);
 		for (let skill of this.skillIndex)
 			console.log(skill);
 	}

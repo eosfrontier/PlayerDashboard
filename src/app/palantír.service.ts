@@ -50,7 +50,7 @@ export class PalantírService {
 
     async plsGeefSkills(id: string): Promise<void> {
         const skills = await this.getSkillsFromAPI(id);
-				console.log(skills);
+				return skills
     }
 
     async plsGeefNaam(id: string): Promise<void> {

@@ -11,7 +11,7 @@ export class PersonalBannerComponent implements OnInit {
   constructor(private palantirService: PalantírService) { }
 
   ngOnInit() {
-		this.palantirService.plsGeefNaam('131');
+		this.palantirService.plsGeefNaam('161');
   }
 
 }
