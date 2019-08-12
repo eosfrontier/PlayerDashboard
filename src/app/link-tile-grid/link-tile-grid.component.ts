@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PalantírService } from '../palantír.service';
 
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json';
+import researchJson from '../../assets/specialAccessLists/researchSkills.json';
 
 @Component({
   selector: 'app-link-tile-grid',
@@ -11,6 +12,8 @@ import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.js
 export class LinkTileGridComponent implements OnInit {
 	
 	conclaveMembers = conclaveListJson.conclaveMembers;
+	researchSkillList = researchJson.researchSkills;
+	researchUnlocked:boolean = false;
 	
 	skillIndex:any;
 	skillBooleanIndex:any[] = [];
@@ -25,14 +28,14 @@ export class LinkTileGridComponent implements OnInit {
   }
 	
 	async skillFilter() {
-		this.characterInformation = await this.palantirService.getNameFromAPI('117');
-		console.log(this.characterInformation)
+		this.characterInformation = await this.palantirService.getNameFromAPI('131');
 		this.characterFaction.push(this.characterInformation.faction);
 		this.characterICCNumber = this.characterInformation.ICC_number;
-		this.skillIndex = await this.palantirService.getSkillsFromAPI('117');
+		this.skillIndex = await this.palantirService.getSkillsFromAPI('131');
 		for (let skill of this.skillIndex) {
 			this.skillBooleanIndex.push(skill.name)
 		}
+		this.researchUnlocked = this.skillBooleanIndex.some(r=> this.researchSkillList.includes(r))
 	}
-
+	
 }

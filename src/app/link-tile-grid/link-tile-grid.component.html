@@ -105,7 +105,7 @@
 	<section class="linkTile">
 			<figure class="icon">
 				<img src="../../assets/images/invoice.png" alt="A purple paper with red items and a green checkmark">
-				<figcaption>Budget<br>Besteding<br>Eos</figcaption>
+				<figcaption>Budget<br>Spending<br>Eos</figcaption>
 			</figure>
 			<aside>
 				As Conclave member you can asign your budget sonuren through this application.
@@ -136,7 +136,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/eos_douane/index.php" *ngIf="this.skillBooleanIndex.indexOf('intel') !== -1">
+<a href="https://www.eosfrontier.space/eos_douane/index.php" *ngIf="this.skillBooleanIndex.indexOf('doaune') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -226,7 +226,26 @@
 				<figcaption>System<br>Central<br>Banks</figcaption>
 			</figure>
 			<aside>
-				All your banking needs are supplied too by the SCB.
+				All your banking needs are supplied by the SCB.
+			</aside>
+	</section>
+</div>
+</a>
+
+<a href="/" *ngIf="this.researchUnlocked">
+<div class="border">
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+
+	<section class="linkTile">
+			<figure class="icon">
+				<img src="../../assets/images/research.png" alt="Three stacked books with a bookmark in the middle one">
+				<figcaption><br>Research<br>System</figcaption>
+			</figure>
+			<aside>
+				You can access the research system here.
 			</aside>
 	</section>
 </div>
