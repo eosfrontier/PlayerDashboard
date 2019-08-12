@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PalantírService } from '../palantír.service';
 
 @Component({
   selector: 'app-link-tile-grid',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LinkTileGridComponent implements OnInit {
 
-  constructor() { }
+  constructor(private palantirService: PalantírService) { }
 
   ngOnInit() {
+    this.palantirService.plsGeefSkills('131');
   }
 
 }
