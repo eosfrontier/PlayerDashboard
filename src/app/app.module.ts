@@ -22,7 +22,6 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
 		HttpClientModule,
-		NgPipesModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
