@@ -24,6 +24,19 @@ figcaption {
 			font-size:100%;
 		}
 }
+#ExtraWord {
+	margin:0;
+	padding: 6px;
+	text-align: left;
+	position:absolute;
+	font-size: 90%;
+	bottom:4em;
+	@media only screen and (min-width: 658px) {
+		font-size:100%;
+		bottom:3.5em;
+	}
+
+}
 aside {
 	display:none;
 	@media only screen and (min-width: 658px) {

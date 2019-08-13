@@ -19,7 +19,7 @@ export class PersonalBannerComponent implements OnInit {
   }
 	
 	async characterPersonification() {
-		this.characterInformation = await this.palantirService.getNameFromAPI('131');
+		this.characterInformation = await this.palantirService.getNameFromAPI('107');
 		this.characacterRank = this.characterInformation.rank;
 		this.characterName = this.characterInformation.character_name;
 		this.characterFaction = this.characterInformation.faction;
