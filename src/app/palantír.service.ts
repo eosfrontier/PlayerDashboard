@@ -52,14 +52,12 @@ export class PalantírService {
         });
     }
 
-	getEosICTime(): Observable<any> {
-		return this.http.get(this.eosICTimeAPI).pipe(
-			map((result: any) => {
-				return result;
-			}),
-			catchError((error) => {
-				return error;
-				})
-		)
-	}
+		getEosICTime() {
+			this.http.get(this.eosICTimeAPI).subscribe(result => {
+				if (result) {
+					this.eosICTime = result;
+					return this.eosICTime;
+				}
+			});
+		}
 }

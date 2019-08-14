@@ -28,11 +28,9 @@ export class PersonalBannerComponent implements OnInit {
 		this.icTime();
   }
 
-	async icTime() {
-		this.palantirService.getEosICTime().subscribe((result) => {
-			this.eosICTime = result;
+	icTime() {
+			this.eosICTime = this.palantirService.getEosICTime();
 			console.log(this.eosICTime);
-		});
 	}
 
 
