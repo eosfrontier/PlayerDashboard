@@ -25,13 +25,18 @@ export class PersonalBannerComponent implements OnInit {
     }, 1000);
   }
 	
+
+	
+	
 	async characterPersonification() {
-		this.theJoomlaID = this.joomlaIDService.getJoomlaID();
+		this.joomlaIDService.getJoomlaID().subscribe((result) => {
+			this.theJoomlaID = result;
+			console.log(result);
+		});
 		this.characterInformation = await this.palantirService.getNameFromAPI('107');
 		this.characacterRank = this.characterInformation.rank;
 		this.characterName = this.characterInformation.character_name;
 		this.characterFaction = this.characterInformation.faction;
-		console.log(this.time);
 	}
 
 }

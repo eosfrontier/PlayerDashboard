@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,9 +13,14 @@ export class JoomlaIDService {
 	joomlaIDphp = "https://www.eosfrontier.space/id/id.php"
    constructor(private http: HttpClient) { }
 
-	getJoomlaID() {
-		this.theJoomlaID = this.http.get(this.joomlaIDphp);
-		console.log(this.theJoomlaID);
-		return this.theJoomlaID;
+	getJoomlaID(): Observable<any> {
+		return this.http.get(this.joomlaIDphp).pipe(
+			map((result: any) => {
+				return result;
+			}),
+			catchError((error) => {
+				return error;
+				})
+		)
 	}
 }
