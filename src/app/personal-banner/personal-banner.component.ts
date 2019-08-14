@@ -14,12 +14,13 @@ export class PersonalBannerComponent implements OnInit {
 	characacterRank:string;
 	characterName:string;
 	characterFaction:string;
+	idZeroWarning:string;
 	time = new Date();
 
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService) { }
 
   ngOnInit() {
-		this.characterPersonification();
+		this.resolveSession();
 		setInterval(() => {
        this.time = new Date();
     }, 1000);
@@ -29,14 +30,14 @@ export class PersonalBannerComponent implements OnInit {
 		this.joomlaIDService.getJoomlaID().subscribe((result) => {
 			this.characterID = result;
 				if (this.characterID == 0) {
-					this.characterID = 1;
+					this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				}
+			this.characterPersonification();
 		});
 	}
 
 
 	async characterPersonification() {
-		this.resolveSession();
 		console.log(this.characterID);
 		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
 		this.characacterRank = this.characterInformation.rank;

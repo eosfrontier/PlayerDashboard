@@ -1,5 +1,24 @@
 <main class="tileGrid">
 
+<a href="https://www.eosfrontier.space/" *ngIf="this.idZeroTile">
+<div class="border">
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+
+	<section class="linkTile">
+			<figure class="icon">
+				<img src="../../assets/images/CustomDashboard.png" alt="A hexagon made out of simplified keys with a wifi symbol in the center">
+				<figcaption>Enable<br>Custom<br>Dashboad</figcaption>
+			</figure>
+			<aside>
+				To enable your customized dashboard, please log in here.<br>If you already have, the system cannot identify you.
+			</aside>
+	</section>
+</div>
+</a>
+
 <a href="https://av.eosfrontier.space/" *ngIf="this.skillBooleanIndex.indexOf('it') !== -1">
 <div class="border">
 	<div class="flourish"></div>
@@ -19,7 +38,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/bic">
+<a href="https://www.eosfrontier.space/bic" *ngIf="!this.idZeroTile">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
