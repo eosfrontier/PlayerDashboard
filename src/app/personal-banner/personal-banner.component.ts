@@ -28,14 +28,16 @@ export class PersonalBannerComponent implements OnInit {
 		this.icTime();
   }
 
-	icTime() {
-			this.eosICTime = this.palantirService.getEosICTime();
+	async icTime() {
+		this.palantirService.getEosICTime().subscribe((result) => {
+			this.eosICTime = result;
 			console.log(this.eosICTime);
+		});
 	}
 
 
 	async resolveSession() {
-		this.joomlaIDService.getJoomlaID().subscribe((result) => {
+		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
 				if (this.characterID == 0) {
 					this.characterID = 1;

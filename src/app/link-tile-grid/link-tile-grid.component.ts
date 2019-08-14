@@ -31,7 +31,7 @@ export class LinkTileGridComponent implements OnInit {
   }
 	
 	async resolveSession() {
-		this.joomlaIDService.getJoomlaID().subscribe((result) => {
+		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
 			if (this.characterID == 0) {
 				this.characterID = 1;

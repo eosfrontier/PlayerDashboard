@@ -12,7 +12,7 @@ export class JoomlaIDService {
 	joomlaIDphp = "https://www.eosfrontier.space/id/id.php"
   constructor(private http: HttpClient) { }
 
-	getJoomlaID(): Observable<any> {
+	resolveJoomlaID(): Observable<any> {
 		return this.http.get(this.joomlaIDphp).pipe(
 			map((result: any) => {
 				return result;
