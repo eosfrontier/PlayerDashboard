@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,6 +13,8 @@ export class PalantírService {
 		readonly nameAPI = this.env.API.CHARACTER;
     readonly skillAPI = this.env.API.SKILLS;
     readonly dashboardAPIKey = "uLr19LHV8ccNPW7hBlv3";
+		eosICTime:any;
+		readonly eosICTimeAPI = "https://cic.eosfrontier.space/api/time"
 
     constructor(private http: HttpClient) { }
 
@@ -47,4 +51,15 @@ export class PalantírService {
             );
         });
     }
+
+	getEosICTime(): Observable<any> {
+		return this.http.get(this.eosICTimeAPI).pipe(
+			map((result: any) => {
+				return result;
+			}),
+			catchError((error) => {
+				return error;
+				})
+		)
+	}
 }

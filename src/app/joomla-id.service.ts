@@ -9,9 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class JoomlaIDService {
 
-	theJoomlaID:any;
 	joomlaIDphp = "https://www.eosfrontier.space/id/id.php"
-   constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 	getJoomlaID(): Observable<any> {
 		return this.http.get(this.joomlaIDphp).pipe(

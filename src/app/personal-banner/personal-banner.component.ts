@@ -15,6 +15,7 @@ export class PersonalBannerComponent implements OnInit {
 	characterName:string;
 	characterFaction:string;
 	idZeroWarning:string;
+	eosICTime:any;
 	time = new Date();
 
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService) { }
@@ -24,13 +25,23 @@ export class PersonalBannerComponent implements OnInit {
 		setInterval(() => {
        this.time = new Date();
     }, 1000);
+		this.icTime();
   }
+
+	async icTime() {
+		this.palantirService.getEosICTime().subscribe((result) => {
+			this.eosICTime = result;
+			console.log(this.eosICTime);
+		});
+	}
+
 
 	async resolveSession() {
 		this.joomlaIDService.getJoomlaID().subscribe((result) => {
 			this.characterID = result;
 				if (this.characterID == 0) {
-					this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
+					this.characterID = 1;
+					//this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				}
 			this.characterPersonification();
 		});
