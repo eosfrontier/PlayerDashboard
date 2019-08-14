@@ -31,7 +31,7 @@ export class PalantírService {
         });
     }
 
-    getNameFromAPI(id: string): Promise<any> {
+    getPersonFromAPI(id: string): Promise<any> {
         const body = {
             token: this.dashboardAPIKey,
             char_id: id
@@ -39,8 +39,8 @@ export class PalantírService {
 
         return new Promise((resolve, reject) => {
             this.http.post(this.nameAPI, JSON.stringify(body)).subscribe(
-                (name) => {
-                    resolve(name);
+                (person) => {
+                    resolve(person);
                 }, (error) => {
                     reject(error);
                 }

@@ -28,7 +28,7 @@ export class LinkTileGridComponent implements OnInit {
   }
 	
 	async skillFilter() {
-		this.characterInformation = await this.palantirService.getNameFromAPI('107');
+		this.characterInformation = await this.palantirService.getPersonFromAPI('107');
 		this.characterFaction.push(this.characterInformation.faction);
 		this.characterICCNumber = this.characterInformation.ICC_number;
 		this.skillIndex = await this.palantirService.getSkillsFromAPI('107');

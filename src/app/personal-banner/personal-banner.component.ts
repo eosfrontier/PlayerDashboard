@@ -9,7 +9,7 @@ import { JoomlaIDService } from '../joomla-id.service';
 })
 export class PersonalBannerComponent implements OnInit {
 	
-	theJoomlaID:any;
+	characterID:any;
 	characterInformation:any;
 	characacterRank:string;
 	characterName:string;
@@ -24,16 +24,21 @@ export class PersonalBannerComponent implements OnInit {
        this.time = new Date();
     }, 1000);
   }
-	
 
-	
-	
-	async characterPersonification() {
+	async resolveSession() {
 		this.joomlaIDService.getJoomlaID().subscribe((result) => {
-			this.theJoomlaID = result;
-			console.log(result);
+			this.characterID = result;
+				if (this.characterID == 0) {
+					this.characterID = 1;
+				}
 		});
-		this.characterInformation = await this.palantirService.getNameFromAPI('107');
+	}
+
+
+	async characterPersonification() {
+		this.resolveSession();
+		console.log(this.characterID);
+		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
 		this.characacterRank = this.characterInformation.rank;
 		this.characterName = this.characterInformation.character_name;
 		this.characterFaction = this.characterInformation.faction;
