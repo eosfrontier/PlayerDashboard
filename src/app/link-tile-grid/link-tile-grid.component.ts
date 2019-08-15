@@ -34,7 +34,8 @@ export class LinkTileGridComponent implements OnInit {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
 			if (this.characterID == 0) {
-				this.idZeroTile = true;
+				//this.idZeroTile = true;
+				this.characterID = 1;
 			}
 			this.skillFilter();
 		});

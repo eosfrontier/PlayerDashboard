@@ -41,7 +41,8 @@ export class PersonalBannerComponent implements OnInit {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
 				if (this.characterID == 0) {
-					this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
+					//this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
+					this.characterID = 1;
 				}
 			this.characterPersonification();
 		});

@@ -71,9 +71,9 @@ export class ThemingService {
 			'--bastionFactionFilter':	'hue-rotate(225deg) contrast(65%) saturate(125%)',
 		},
 		seventh: {
-			'--tileAccentColor10'		: 'rgba(00,165,80,0.1)',
-			'--tileAccentColor20'		: 'rgba(00,165,80,0.2)',
-			'--tileAccentColor35'		: 'rgba(00,165,80,0.35)',
+			'--tileAccentColor10'		: 'rgba(240,240,240,0.1)',
+			'--tileAccentColor20'		: 'rgba(00,242,117,0.35)',
+			'--tileAccentColor35'		: 'rgba(240,240,240,0.2)',
 			'--tileAccentColor100'	: '#00A550',
 			'--textColor'						: '#f0f0f0',
 			'--headerColor'					: '#f0f0f0',
