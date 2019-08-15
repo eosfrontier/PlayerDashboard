@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PalantírService } from '../palantír.service';
 import { JoomlaIDService } from '../joomla-id.service';
+import { ThemingService } from '../theming.service';
 
 @Component({
   selector: 'app-personal-banner',
@@ -18,7 +19,7 @@ export class PersonalBannerComponent implements OnInit {
 	eosICTime:any;
 	time = new Date();
 
-  constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService) { }
+  constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService, private themingService: ThemingService) { }
 
   ngOnInit() {
 		this.resolveSession();
@@ -40,8 +41,7 @@ export class PersonalBannerComponent implements OnInit {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
 				if (this.characterID == 0) {
-					this.characterID = 1;
-					//this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
+					this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				}
 			this.characterPersonification();
 		});
@@ -54,6 +54,12 @@ export class PersonalBannerComponent implements OnInit {
 		this.characacterRank = this.characterInformation.rank;
 		this.characterName = this.characterInformation.character_name;
 		this.characterFaction = this.characterInformation.faction;
+		if (this.characterFaction) {
+			this.themingService.setTheme(this.characterFaction);
+			if (this.characterID == 131 || this.characterID == 1 || this.characterID == 133) {
+				this.themingService.setTheme('seventh');
+			}
+		}
 	}
 
 }

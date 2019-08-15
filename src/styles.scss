@@ -27,32 +27,12 @@
 	--tileAccentColor100:#33C0FF;
 	--invisibleColor:rgba(0,0,0,0);
 	--textColor:#ebebeb;
+	--headerColor:#ebebeb;
 	--backgroundColor:#262e3e;
 	--fontHeader:	Roboto, Helvetica, sans-serif;
 	--fontTiles: Roboto, Helvetica, sans-serif;
-
-	--fontAquila: Aquila, Roboto, Helvetica, sans-serif;
-	--fontDugo: Dugo, Roboto, Helvetica, sans-serif;
-	--fontEkanesh: Ekanesh, Roboto, Helvetica, sans-serif;
-	--fontPendzal: Pendzal, Roboto, Helvetica, sans-serif;
-	--fontSona: Sona, Roboto, Helvetica, sans-serif;
-	
-	--Ekanesh_tAC10:rgba(128,157,124,0.1);
-	--Ekanesh_tAC20:rgba(128,157,124,0.2);
-	--Ekanesh_tAC35:rgba(128,157,124,0.35);
-	--Ekanesh_tAC100:#926c56;
-	--Ekanesh_tC:#57774a;
-	--Ekanesh_bC:#000000;
-	
-	
-/*	--tileAccentColor10:var(--Ekanesh_tAC10);
-	--tileAccentColor20:var(--Ekanesh_tAC20);
-	--tileAccentColor35:var(--Ekanesh_tAC35);
-	--tileAccentColor100:var(--Ekanesh_tAC100);
-	--textColor:var(--Ekanesh_tC);
-	--backgroundColor:var(--Ekanesh_bC);
-	--fontHeader:var(--fontEkanesh);
-	--fontTiles:var(--fontEkanesh); */
+	--imgFactionFilter:none;
+	--bastionFactionFilter:grayscale(100%) brightness(359%);
 }
 
 body {

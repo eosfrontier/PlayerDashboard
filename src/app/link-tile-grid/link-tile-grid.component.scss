@@ -9,6 +9,7 @@ a {
 img {
 	max-width: 80%;
 	padding:10%;
+	filter:var(--imgFactionFilter);
 }
 figure {
 	margin: 0;
@@ -16,6 +17,8 @@ figure {
 	color:var(--textColor);
 }
 figcaption {
+	color:var(--headerColor);
+	font-family:var(--fontHeader);
 	margin-top: -24px;
 	padding: 6px;
 	text-align: left;
@@ -25,6 +28,8 @@ figcaption {
 		}
 }
 #ExtraWord {
+	color:var(--headerColor);
+	font-family:var(--fontHeader);
 	margin:0;
 	padding: 6px;
 	text-align: left;

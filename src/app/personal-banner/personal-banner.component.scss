@@ -2,7 +2,7 @@ header {
 	transition:0.3s;
 	width:100%;
 	font-family:var(--fontHeader);
-	color:var(--textColor);
+	color:var(--headerColor);
 	display:grid;
 	grid-template-columns: minmax(84px,15%) 7fr 1.5fr;
 	grid-template-areas: "icon time time" "icon text mail" "bar bar bar";
@@ -11,6 +11,7 @@ img {
 	width:96%;
 	margin:4%;
 	grid-area: icon;
+	filter:var(--bastionFactionFilter);
 }
 time {
 	margin:0.1em;
@@ -81,6 +82,7 @@ aside {
 	float:right;
 }
 .notificationCounter {
+	color:var(--textColor);
 	position:relative;
 	padding:0em 0.2em 0em 0.2em;
 	bottom:0.2em;
