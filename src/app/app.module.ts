@@ -4,7 +4,7 @@ import { NgPipesModule } from 'ng-pipes';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { OptionsMenuComponent } from './options-menu/options-menu.component';
 import { LinkTileGridComponent } from './link-tile-grid/link-tile-grid.component';
 import { PersonalBannerComponent } from './personal-banner/personal-banner.component';
@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
 		HttpClientModule,
+    HttpClientJsonpModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

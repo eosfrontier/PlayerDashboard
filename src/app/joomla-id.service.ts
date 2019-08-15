@@ -13,7 +13,7 @@ export class JoomlaIDService {
   constructor(private http: HttpClient) { }
 
 	resolveJoomlaID(): Observable<any> {
-		return this.http.get(this.joomlaIDphp).pipe(
+		return this.http.jsonp(this.joomlaIDphp, 'callback').pipe(
 			map((result: any) => {
 				return result;
 			}),

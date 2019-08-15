@@ -14,7 +14,7 @@ export class PalantírService {
   readonly skillAPI = this.env.API.SKILLS;
   readonly dashboardAPIKey = "uLr19LHV8ccNPW7hBlv3";
 	eosICTime:any;
-	readonly eosICTimeAPI = "https://cic.eosfrontier.space/api/time"
+	readonly eosICTimeAPI = "https://api.eosfrontier.space/watchtower/time"
 
    constructor(private http: HttpClient) { }
 

@@ -26,7 +26,7 @@ export class PersonalBannerComponent implements OnInit {
 		setInterval(() => {
        this.time = new Date();
     }, 1000);
-		this.icTime();
+		//this.icTime();
   }
 
 	async icTime() {
