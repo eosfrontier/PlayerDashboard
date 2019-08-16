@@ -18,6 +18,7 @@ export class PersonalBannerComponent implements OnInit {
 	idZeroWarning:string;
 	eosICTime:any;
 	time = new Date();
+	icDate:string;
 
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService, private themingService: ThemingService) { }
 
@@ -25,14 +26,14 @@ export class PersonalBannerComponent implements OnInit {
 		setInterval(() => {
        this.time = new Date();
     }, 1000);
-		//this.icTime();
+		this.icTime();
 		this.resolveSession();
   }
 
 	async icTime() {
 		this.palantirService.getEosICTime().subscribe((result) => {
 			this.eosICTime = result;
-			console.log(this.eosICTime);
+			this.icDate = String(this.eosICTime.iDay) + ' ' +  this.eosICTime.iMonthName + ' ' + String(this.eosICTime.iYear) + this.eosICTime.iYearAfter;
 		});
 	}
 
