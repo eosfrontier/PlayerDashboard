@@ -40,11 +40,13 @@ export class PersonalBannerComponent implements OnInit {
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
-				if (this.characterID == 0 || isNaN(this.characterID)) {
-					//this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
-					this.characterID = 1;
-				}
-			this.characterPersonification();
+			if (this.characterID == 0 || isNaN(this.characterID)) {
+				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
+				//this.characterID = 1;
+			}
+			if (!this.idZeroWarning) {
+				this.characterPersonification();
+			}
 		});
 	}
 
