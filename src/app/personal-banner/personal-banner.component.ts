@@ -22,11 +22,11 @@ export class PersonalBannerComponent implements OnInit {
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService, private themingService: ThemingService) { }
 
   ngOnInit() {
-		this.resolveSession();
 		setInterval(() => {
        this.time = new Date();
     }, 1000);
 		//this.icTime();
+		this.resolveSession();
   }
 
 	async icTime() {
@@ -40,7 +40,7 @@ export class PersonalBannerComponent implements OnInit {
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
-				if (this.characterID == 0) {
+				if (this.characterID == 0 || isNaN(this.characterID)) {
 					//this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 					this.characterID = 1;
 				}

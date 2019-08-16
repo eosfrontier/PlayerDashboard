@@ -18,7 +18,7 @@ export class JoomlaIDService {
 				return result;
 			}),
 			catchError((error) => {
-				return error;
+				return '0';
 				})
 		)
 	}
