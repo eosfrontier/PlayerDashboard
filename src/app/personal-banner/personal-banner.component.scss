@@ -72,12 +72,10 @@ aside {
 a, a:visited {
 	text-decoration:none;
 	color:var(--headerColor);
-	transition: 0.3s;
 }
 a:hover, a:active, a:focus {
 	color:var(--tileAccentColor20);
 	text-shadow: 0px 0px var(--headerColor);
-	transition: 0.3s;
 }
 
 .notificationDot {

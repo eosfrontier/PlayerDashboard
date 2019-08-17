@@ -51,7 +51,7 @@ export class PersonalBannerComponent implements OnInit {
 			}
 			if (!this.idZeroWarning) {
 				this.characterPersonification();
-				this.messageServiceAvailable = true;
+				//this.messageServiceAvailable = true;
 			}
 		});
 	}
