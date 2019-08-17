@@ -17,6 +17,9 @@ export class PersonalBannerComponent implements OnInit {
 	characterFaction:string;
 	idZeroWarning:string;
 	eosICTime:any;
+	amountUnreadMessages:number = 0;
+	newMessages:boolean = false;
+	messageServiceAvailable:boolean = false;
 	time = new Date();
 	icDate:string;
 
@@ -42,11 +45,13 @@ export class PersonalBannerComponent implements OnInit {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
 			if (this.characterID == 0 || isNaN(this.characterID)) {
-				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
-				//this.characterID = 1;
+				//this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
+				//this.messageServiceAvailable = false;
+				this.characterID = 1;
 			}
 			if (!this.idZeroWarning) {
 				this.characterPersonification();
+				this.messageServiceAvailable = true;
 			}
 		});
 	}

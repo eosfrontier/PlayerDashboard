@@ -6,12 +6,15 @@
 		<p>Hello{{ this.idZeroWarning }} {{this.characacterRank}} {{this.characterName}}</p>
 	</section>
 	<aside *ngIf="!this.idZeroWarning">
-		<div class="mailIcon">
-		&#x2709;
-			<div class="notificationFloat">
-				<div class="notificationDot"><span class="notificationCounter">7</span></div>
+		<a href="http://mail.eosfrontier.space/" >
+			<div class="mailIcon">
+				&#x2709;
+				<div class="notificationFloat">
+					<div class="notificationDot" *ngIf="this.newMessages"><span class="notificationCounter">{{ this.amountUnreadMessages }}</span></div>
+					<div class="notificationError" *ngIf="!this.messageServiceAvailable"><span class="notificationCounter">&#x274C;</span></div>
+				</div>
 			</div>
-		</div>
+		</a>
 	</aside>
 	<hr>
 </header>
