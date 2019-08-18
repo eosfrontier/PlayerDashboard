@@ -48,12 +48,10 @@ export class PersonalBannerComponent implements OnInit {
 			if (this.characterID == 0 || isNaN(this.characterID)) {
 				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				this.messageServiceAvailable = false;
-				this.messageServiceLink = '';
 				//this.characterID = 1;
 			}
 			if (!this.idZeroWarning) {
 				this.characterPersonification();
-				this.messageServiceAvailable = true;
 			}
 		});
 	}

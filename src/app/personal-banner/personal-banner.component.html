@@ -5,16 +5,21 @@
 		<h1>Bastion Dashboard</h1>
 		<p>Hello{{ this.idZeroWarning }} {{this.characacterRank}} {{this.characterName}}</p>
 	</section>
-	<aside>
+	<aside *ngIf="this.messageServiceAvailable">
 		<a href="{{this.messageServiceLink}}">
 			<div class="mailIcon">
 				&#x2709;
 				<div class="notificationFloat">
 					<div class="notificationDot" *ngIf="this.newMessages"><span class="notificationCounter">{{ this.amountUnreadMessages }}</span></div>
-					<div class="notificationError" *ngIf="!this.messageServiceAvailable"><span class="notificationCounter">&#x274C;</span></div>
 				</div>
 			</div>
 		</a>
+	</aside>
+	<aside *ngIf="!this.messageServiceAvailable">
+		<div class="mailIcon">
+			&#x2709;
+			<div class="notificationDot"><span class="notificationCounter">&#x2621;</span></div>
+		</div>
 	</aside>
 	<hr>
 </header>
