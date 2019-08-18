@@ -5,8 +5,8 @@
 		<h1>Bastion Dashboard</h1>
 		<p>Hello{{ this.idZeroWarning }} {{this.characacterRank}} {{this.characterName}}</p>
 	</section>
-	<aside *ngIf="!this.idZeroWarning">
-		<a href="http://mail.eosfrontier.space/" >
+	<aside>
+		<a href="{{this.messageServiceLink}}">
 			<div class="mailIcon">
 				&#x2709;
 				<div class="notificationFloat">
