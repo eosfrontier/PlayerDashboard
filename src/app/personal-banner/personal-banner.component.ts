@@ -41,6 +41,12 @@ export class PersonalBannerComponent implements OnInit {
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
+			if (result == 0){
+				console.log("JoomlaID 0 - so there was no Joomla ID retrieved.")
+			}
+			if (result > 0){
+				console.log("Hurray! We got a JoomlaID the id is: " +result)
+			}
 			if (this.characterID == 0 || isNaN(this.characterID)) {
 				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				this.messageServiceAvailable = false;
