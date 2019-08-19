@@ -48,7 +48,6 @@ export class PersonalBannerComponent implements OnInit {
 			if (this.characterID == 0 || isNaN(this.characterID)) {
 				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				this.messageServiceAvailable = false;
-				//this.characterID = 1;
 			}
 			if (!this.idZeroWarning) {
 				this.characterPersonification();
@@ -58,7 +57,6 @@ export class PersonalBannerComponent implements OnInit {
 
 
 	async characterPersonification() {
-		console.log(this.characterID);
 		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
 		this.characacterRank = this.characterInformation.rank;
 		this.characterName = this.characterInformation.character_name;
