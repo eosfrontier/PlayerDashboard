@@ -12,9 +12,6 @@ export class PersonalBannerComponent implements OnInit {
 	
 	characterID:any;
 	characterInformation:any;
-	characacterRank:string;
-	characterName:string;
-	characterFaction:string;
 	idZeroWarning:string;
 	eosICTime:any;
 	amountUnreadMessages:number = 0;
@@ -58,11 +55,8 @@ export class PersonalBannerComponent implements OnInit {
 
 	async characterPersonification() {
 		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
-		this.characacterRank = this.characterInformation.rank;
-		this.characterName = this.characterInformation.character_name;
-		this.characterFaction = this.characterInformation.faction;
-		if (this.characterFaction) {
-			this.themingService.setTheme(this.characterFaction);
+		if (this.characterInformation.faction) {
+			this.themingService.setTheme(this.characterInformation.faction);
 			if (this.characterID == 131 || this.characterID == 1 || this.characterID == 133) {
 				this.themingService.setTheme('seventh');
 			}

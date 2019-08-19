@@ -6,6 +6,20 @@ import { Injectable } from '@angular/core';
 export class ThemingService {
 	
 	themes = {
+		default: {
+			'--tileAccentColor10'		: 'rgba(51,192,255,0.1)',
+			'--tileAccentColor20'		: 'rgba(51,192,255,0.2)',
+			'--tileAccentColor35'		: 'rgba(51,192,255,0.35)',
+			'--tileAccentColor100'	: '#33C0FF',
+			'--invisibleColor'			: 'rgba(0,0,0,0)',
+			'--textColor'						: '#ebebeb',
+			'--headerColor'					: '#ebebeb',
+			'--backgroundColor'			: '#262e3e',
+			'--fontHeader'					:	'Roboto, Helvetica, sans-serif',
+			'--fontTiles'						: 'Roboto, Helvetica, sans-serif',
+			'--imgFactionFilter'		: 'none',
+			'--bastionFactionFilter': 'grayscale(100%) brightness(359%)',
+		},
 		aquila: {
 			'--tileAccentColor10'		: 'rgba(229,228,226,0.1)',
 			'--tileAccentColor20'		: 'rgba(145,163,176,0.2)',
