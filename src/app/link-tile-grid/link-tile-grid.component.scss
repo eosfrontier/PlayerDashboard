@@ -39,8 +39,15 @@ figcaption {
 	@media only screen and (min-width: 658px) {
 		font-size:100%;
 		bottom:3.5em;
-	}
-
+	}	
+}
+#beta {
+	position: absolute;
+	color:var(--headerColor);
+	margin:0;
+	padding:6px;
+	opacity: 0.5;
+	font-size: 0.8em;
 }
 aside {
 	display:none;
