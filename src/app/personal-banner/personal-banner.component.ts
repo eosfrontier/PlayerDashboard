@@ -11,7 +11,7 @@ import { ThemingService } from '../theming.service';
 export class PersonalBannerComponent implements OnInit {
 	
 	characterID:any;
-	characterInformation:any;
+	characterInformation:any = {character_name: "", faction: "", rank: "",};
 	idZeroWarning:string;
 	eosICTime:any;
 	amountUnreadMessages:number = 0;
@@ -51,8 +51,6 @@ export class PersonalBannerComponent implements OnInit {
 			}
 		});
 	}
-
-
 	async characterPersonification() {
 		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
 		if (this.characterInformation.faction) {
