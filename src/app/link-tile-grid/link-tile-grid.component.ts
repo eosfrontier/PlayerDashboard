@@ -4,6 +4,7 @@ import { JoomlaIDService } from '../joomla-id.service';
 
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json';
 import researchJson from '../../assets/specialAccessLists/researchSkills.json';
+import CORPJson from '../../assets/specialAccessLists/CORPAccess.json';
 
 @Component({
   selector: 'app-link-tile-grid',
@@ -14,14 +15,15 @@ export class LinkTileGridComponent implements OnInit {
 	
 	conclaveMembers = conclaveListJson.conclaveMembers;
 	researchSkillList = researchJson.researchSkills;
+	corpAccess = CORPJson.corporateAccess;
 	researchUnlocked:boolean = false;
 	
 	skillIndex:any;
 	skillBooleanIndex:any[] = [];
 	characterID:any;
-	characterInformation:any;
+	characterInformation:any = {ICC_number:""};
 	characterFaction:any[] = [];
-	characterICCNumber:string;
+	//characterFaction is an array because otherwise the compare for faction tile does not work
 	idZeroTile:boolean;
 	
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService) { }
@@ -35,7 +37,6 @@ export class LinkTileGridComponent implements OnInit {
 			this.characterID = result;
 			if (this.characterID == 0 || isNaN(this.characterID)) {
 				this.idZeroTile = true;
-				//this.characterID = 1;
 			}
 			if (!this.idZeroTile) {
 				this.skillFilter();
@@ -46,12 +47,10 @@ export class LinkTileGridComponent implements OnInit {
 	async skillFilter() {
 		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
 		this.characterFaction.push(this.characterInformation.faction);
-		this.characterICCNumber = this.characterInformation.ICC_number;
 		this.skillIndex = await this.palantirService.getSkillsFromAPI(this.characterID);
 		for (let skill of this.skillIndex) {
 			this.skillBooleanIndex.push(skill.name)
 		}
 		this.researchUnlocked = this.skillBooleanIndex.some(r=> this.researchSkillList.includes(r))
 	}
-	
 }
