@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PalantírService } from '../palantír.service';
 import { JoomlaIDService } from '../joomla-id.service';
+import { environment } from 'src/environments/environment';
 
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json';
 import researchJson from '../../assets/specialAccessLists/researchSkills.json';
@@ -12,7 +13,8 @@ import CORPJson from '../../assets/specialAccessLists/CORPAccess.json';
   styleUrls: ['./link-tile-grid.component.scss']
 })
 export class LinkTileGridComponent implements OnInit {
-	
+
+	ENV = environment;
 	conclaveMembers = conclaveListJson.conclaveMembers;
 	researchSkillList = researchJson.researchSkills;
 	corpAccess = CORPJson.corporateAccess;

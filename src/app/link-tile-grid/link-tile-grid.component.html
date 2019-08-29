@@ -1,6 +1,6 @@
 <main class="tileGrid">
 
-<a href="https://www.eosfrontier.space/" *ngIf="this.idZeroTile">
+<a [attr.href]="ENV.URL.LOGIN" *ngIf="this.idZeroTile">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -19,7 +19,7 @@
 </div>
 </a>
 
-<a href="https://av.eosfrontier.space/" *ngIf="this.skillBooleanIndex.indexOf('it') !== -1">
+<a [attr.href]="ENV.URL.AV" *ngIf="this.skillBooleanIndex.indexOf('it') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -38,7 +38,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/bic" *ngIf="!this.idZeroTile">
+<a [attr.href]="ENV.URL.BIC" *ngIf="!this.idZeroTile">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -57,7 +57,7 @@
 </div>
 </a>
 
-<a href="https://docs.google.com/spreadsheets/d/1zmblnRPwSAOMcPscwfgfkjx-CqWLg5GklXqPjmoivb4/preview?usp=embed_googleplus" *ngIf="this.skillBooleanIndex.indexOf('engi') !== -1 || this.skillBooleanIndex.indexOf('chem') !== -1">
+<a [attr.href]="ENV.URL.BMS" *ngIf="this.skillBooleanIndex.indexOf('engi') !== -1 || this.skillBooleanIndex.indexOf('chem') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -77,7 +77,7 @@
 </div>
 </a>
 
-<a href="https://beacon.eosfrontier.space">
+<a [attr.href]="ENV.URL.BEACON">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -96,7 +96,7 @@
 </div>
 </a>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSdcULjrZ0_HuOuIoTmVNc8TxcT_umeQni8j52UmfZv2o1u7Uw/viewform">
+<a [attr.href]="ENV.URL.BET">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -115,7 +115,7 @@
 </div>
 </a>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSf9pEf5oXJSmgMasLYgum8-Z_S5lRbMsJIttV8IOFtnAYeJjQ/viewform"  *ngIf="this.conclaveMembers.indexOf(this.characterInformation.ICC_number) !== -1">
+<a [attr.href]="ENV.URL.BSE"  *ngIf="this.conclaveMembers.indexOf(this.characterInformation.ICC_number) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -137,7 +137,7 @@
 
 
 
-<a href="https://cic.eosfrontier.space/">
+<a [attr.href]="ENV.URL.CIC">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -156,7 +156,7 @@
 </div>
 </a>
 
-<a href="https://docs.google.com/spreadsheets/d/14APz8lfAVarJRf_Wgg0YCVAsxpBGADAdhfT2sVtPmEQ/view?rm=minimal" *ngIf="this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.ICC_number) !== -1">
+<a [attr.href]="ENV.URL.CORP" *ngIf="this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.ICC_number) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -177,7 +177,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/eos_douane/index.php" *ngIf="this.skillBooleanIndex.indexOf('doaune') !== -1">
+<a [attr.href]="ENV.URL.CUSTOMS" *ngIf="this.skillBooleanIndex.indexOf('doaune') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -196,7 +196,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/ems" *ngIf="this.characterFaction.includes('dugo')">
+<a [attr.href]="ENV.URL.AIT" *ngIf="this.characterFaction.includes('dugo')">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -205,7 +205,7 @@
 
 	<section class="linkTile">
 			<figure class="icon">
-				<img src="../../assets/images/ems.png" alt="Two Futuristic guns infront of yellow/orange shield">
+				<img src="../../assets/images/ait.png" alt="Two Futuristic guns infront of yellow/orange shield">
 				<figcaption>Armory<br>Inventory<br>Tracker</figcaption>
 			</figure>
 			<aside>
@@ -215,7 +215,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/medicorum" *ngIf="this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
+<a [attr.href]="ENV.URL.MEDICORUM" *ngIf="this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -235,7 +235,7 @@
 </div>
 </a>
 
-<a href="https://docs.google.com/spreadsheets/d/1lg_oiERaR31BnudEzOg08_sQ-4_YZSLCCwsudgdmfo8/view?rm=minimal" *ngIf="this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
+<a [attr.href]="ENV.URL.SURGERY" *ngIf="this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -255,7 +255,7 @@
 </div>
 </a>
 
-<a href="https://www.eosfrontier.space/eos_bank/index.php" >
+<a [attr.href]="ENV.URL.SCB" >
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -274,7 +274,7 @@
 </div>
 </a>
 
-<a href="https://drive.google.com/embeddedfolderview?id=0B_bdsbsVGdzpZDkzQy1YQWdkdWc#list" *ngIf="this.researchUnlocked">
+<a [attr.href]="ENV.URL.RESEARCH" *ngIf="this.researchUnlocked">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>

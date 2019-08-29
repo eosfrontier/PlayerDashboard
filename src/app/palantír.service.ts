@@ -12,7 +12,7 @@ export class PalantírService {
 	readonly ENV = environment;
 	readonly nameAPI = this.ENV.API.CHARACTER;
   readonly skillAPI = this.ENV.API.SKILLS;
-  readonly keyAPI = this.ENV.API.KEY;
+  readonly tokenAPI = this.ENV.API.TOKEN;
 	eosICTime:any;
 	readonly eosICTimeAPI = this.ENV.API.TIME;
 
@@ -20,7 +20,7 @@ export class PalantírService {
 
 	getSkillsFromAPI(id: string): Promise<any> {
 		const body = {
-			token: this.keyAPI,
+			token: this.tokenAPI,
 			id: id
 			};
 
@@ -37,7 +37,7 @@ export class PalantírService {
 
 	getPersonFromAPI(id: string): Promise<any> {
 		const body = {
-			token: this.keyAPI,
+			token: this.tokenAPI,
 			char_id: id
 		};
 
