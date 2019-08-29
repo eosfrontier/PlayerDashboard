@@ -11,10 +11,10 @@
 /node_modules
 
 # design files
-/src/assets/images/workfolder
+src/assets/images/workfolder
 
 # API links & key
-/src/environments
+src/environments
 
 # profiling files
 chrome-profiler-events.json
