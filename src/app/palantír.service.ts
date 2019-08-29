@@ -9,18 +9,18 @@ import { environment } from 'src/environments/environment';
 })
 export class PalantírService {
 		
-	readonly env = environment;
-	readonly nameAPI = this.env.API.CHARACTER;
-  readonly skillAPI = this.env.API.SKILLS;
-  readonly dashboardAPIKey = "uLr19LHV8ccNPW7hBlv3";
+	readonly ENV = environment;
+	readonly nameAPI = this.ENV.API.CHARACTER;
+  readonly skillAPI = this.ENV.API.SKILLS;
+  readonly keyAPI = this.ENV.API.KEY;
 	eosICTime:any;
-	readonly eosICTimeAPI = "https://api.eosfrontier.space/watchtower/time"
+	readonly eosICTimeAPI = this.ENV.API.TIME;
 
    constructor(private http: HttpClient) { }
 
 	getSkillsFromAPI(id: string): Promise<any> {
 		const body = {
-			token: this.dashboardAPIKey,
+			token: this.keyAPI,
 			id: id
 			};
 
@@ -37,7 +37,7 @@ export class PalantírService {
 
 	getPersonFromAPI(id: string): Promise<any> {
 		const body = {
-			token: this.dashboardAPIKey,
+			token: this.keyAPI,
 			char_id: id
 		};
 
