@@ -33,15 +33,15 @@ export class JoomlaIDService {
 		});
 	}
 
-	async getCharacterIDFromSelf() {
-		this.characterInformation = await this.getPersonFromAPI("778");
+	async getCharacterIDFromSelf(joomlaID) {
+		this.characterInformation = await this.getPersonFromAPI(joomlaID);
 	}
 
 	resolveJoomlaID(): Observable<any> {
 		return this.http.get(this.idAPI).pipe(
 			map((result: any) => {
-				this.getCharacterIDFromSelf();
-				console.log(this.characterInformation.characterID);
+				// the 778 value below should be turned into result when debugging is done
+				this.getCharacterIDFromSelf("778");
 				return this.characterInformation.characterID;
 			}),
 			catchError((error) => {
