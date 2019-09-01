@@ -12,7 +12,7 @@ export class PalantírService {
 	readonly ENV = environment;
 	readonly nameAPI = this.ENV.API.CHARACTER;
   readonly skillAPI = this.ENV.API.SKILLS;
-  readonly tokenAPI = this.ENV.API.TOKEN;
+	readonly tokenAPI = this.ENV.API.TOKEN;
 	eosICTime:any;
 	readonly eosICTimeAPI = this.ENV.API.TIME;
 

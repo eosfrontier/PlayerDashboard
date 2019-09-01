@@ -11,12 +11,34 @@ export class JoomlaIDService {
 
 	readonly ENV = environment;
 	readonly idAPI = this.ENV.API.ID;
+	readonly nameAPI = this.ENV.API.CHARACTER;
+	readonly tokenAPI = this.ENV.API.TOKEN;
+	characterInformation:any = {character_name: "", faction: "", rank: "",};
   constructor(private http: HttpClient) { }
+
+	getPersonFromAPI(id: string): Promise<any> {
+		const body = {
+			token: this.tokenAPI,
+			accountID: id
+		};
+
+		return new Promise((resolve, reject) => {
+			this.http.post(this.nameAPI, JSON.stringify(body)).subscribe(
+				(person) => {
+					resolve(person);
+				}, (error) => {
+					reject(error);
+				}
+			);
+		});
+	}
 
 	resolveJoomlaID(): Observable<any> {
 		return this.http.get(this.idAPI).pipe(
 			map((result: any) => {
-				return result;
+				this.characterInformation = this.getPersonFromAPI("778");
+				console.log(this.characterInformation);
+				return 131;
 			}),
 			catchError((error) => {
 				return error;

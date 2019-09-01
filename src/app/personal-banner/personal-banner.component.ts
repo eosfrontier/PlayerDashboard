@@ -41,12 +41,6 @@ export class PersonalBannerComponent implements OnInit {
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.characterID = result;
-			if (result == 0){
-				console.log("JoomlaID 0 - so there was no Joomla ID retrieved.")
-			}
-			if (result > 0){
-				console.log("Hurray! We got a JoomlaID the id is: " +result)
-			}
 			if (this.characterID == 0 || isNaN(this.characterID)) {
 				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				this.messageServiceAvailable = false;
@@ -59,7 +53,7 @@ export class PersonalBannerComponent implements OnInit {
 	
 	async characterPersonification() {
 		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
-		console.log(this.characterInformation);
+		//console.log(this.characterInformation);
 		if (this.characterInformation.faction) {
 			this.themingService.setTheme(this.characterInformation.faction);
 			if (this.characterID == 131 || this.characterID == 1 || this.characterID == 133) {
