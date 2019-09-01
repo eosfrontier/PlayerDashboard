@@ -5,8 +5,8 @@
 		<h1>Bastion Dashboard</h1>
 		<p>Hello{{ this.idZeroWarning }} {{this.characterInformation.rank}} {{this.characterInformation.character_name}}</p>
 	</section>
-	<aside *ngIf="this.messageServiceAvailable">
-		<a href="{{ this.messageServiceLink }}">
+	<aside *ngIf="this.messageServiceOnline">
+		<a [attr.href]="ENV.URL.MAIL">
 			<div class="mailIcon">
 				&#x2709;
 				<div class="notificationFloat">
@@ -15,7 +15,7 @@
 			</div>
 		</a>
 	</aside>
-	<aside *ngIf="!this.messageServiceAvailable">
+	<aside *ngIf="!this.messageServiceOnline && this.messageServiceAvailable">
 		<div class="mailIcon">
 			&#x2709;
 			<div class="notificationDot"><span class="notificationCounter">&#x2621;</span></div>

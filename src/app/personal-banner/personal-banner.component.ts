@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PalantírService } from '../palantír.service';
 import { JoomlaIDService } from '../joomla-id.service';
 import { ThemingService } from '../theming.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-personal-banner',
@@ -10,13 +11,14 @@ import { ThemingService } from '../theming.service';
 })
 export class PersonalBannerComponent implements OnInit {
 	
+	readonly ENV = environment;
 	characterInformation:any = {character_name: "", faction: "", rank: "", accountID: ""};
 	idZeroWarning:string;
 	eosICTime:any;
 	amountUnreadMessages:number = 0;
 	newMessages:boolean = false;
 	messageServiceAvailable:boolean = false;
-	messageServiceLink:string = 'https://mail.eosfrontier.space/';
+	messageServiceOnline:boolean = false;
 	time = new Date();
 	icDate:string;
 
