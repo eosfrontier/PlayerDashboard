@@ -38,7 +38,7 @@ export class PalantírService {
 	getPersonFromAPI(id: string): Promise<any> {
 		const body = {
 			token: this.tokenAPI,
-			char_id: id
+			accountID: id
 		};
 
 		return new Promise((resolve, reject) => {

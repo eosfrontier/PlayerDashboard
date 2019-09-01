@@ -10,8 +10,7 @@ import { ThemingService } from '../theming.service';
 })
 export class PersonalBannerComponent implements OnInit {
 	
-	characterID:any;
-	characterInformation:any = {character_name: "", faction: "", rank: "",};
+	characterInformation:any = {character_name: "", faction: "", rank: "", accountID: ""};
 	idZeroWarning:string;
 	eosICTime:any;
 	amountUnreadMessages:number = 0;
@@ -40,8 +39,8 @@ export class PersonalBannerComponent implements OnInit {
 
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
-			this.characterID = result;
-			if (this.characterID == 0 || isNaN(this.characterID)) {
+			this.characterInformation.accountID = result;
+			if (this.characterInformation.accountID == 0 || isNaN(this.characterInformation.accountID)) {
 				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				this.messageServiceAvailable = false;
 			}
@@ -52,10 +51,10 @@ export class PersonalBannerComponent implements OnInit {
 	}
 	
 	async characterPersonification() {
-		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
+		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
 		if (this.characterInformation.faction) {
 			this.themingService.setTheme(this.characterInformation.faction);
-			if (this.characterID == 131 || this.characterID == 1 || this.characterID == 133) {
+			if (this.characterInformation.characterID == 131 || this.characterInformation.characterID == 1 || this.characterInformation.characterID == 133) {
 				this.themingService.setTheme('seventh');
 			}
 		}

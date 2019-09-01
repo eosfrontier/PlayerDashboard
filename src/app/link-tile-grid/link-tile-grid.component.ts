@@ -22,8 +22,7 @@ export class LinkTileGridComponent implements OnInit {
 	
 	skillIndex:any;
 	skillBooleanIndex:any[] = [];
-	characterID:any;
-	characterInformation:any = {ICC_number:""};
+	characterInformation:any = {characterID: "", ICC_number:"", accountID:"", faction:""};
 	characterFaction:any[] = [];
 	//characterFaction is an array because otherwise the compare for faction tile does not work
 	idZeroTile:boolean;
@@ -36,8 +35,8 @@ export class LinkTileGridComponent implements OnInit {
 	
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
-			this.characterID = result;
-			if (this.characterID == 0 || isNaN(this.characterID)) {
+			this.characterInformation.accountID = result;
+			if (this.characterInformation.accountID == 0 || isNaN(this.characterInformation.accountID)) {
 				this.idZeroTile = true;
 			}
 			if (!this.idZeroTile) {
@@ -47,9 +46,9 @@ export class LinkTileGridComponent implements OnInit {
 	}
 	
 	async skillFilter() {
-		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterID);
+		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
 		this.characterFaction.push(this.characterInformation.faction);
-		this.skillIndex = await this.palantirService.getSkillsFromAPI(this.characterID);
+		this.skillIndex = await this.palantirService.getSkillsFromAPI(this.characterInformation.characterID);
 		for (let skill of this.skillIndex) {
 			this.skillBooleanIndex.push(skill.name)
 		}

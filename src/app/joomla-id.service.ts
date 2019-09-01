@@ -16,33 +16,10 @@ export class JoomlaIDService {
 	characterInformation:any = {characterID: ""};
   constructor(private http: HttpClient) { }
 
-	getPersonFromAPI(id: string): Promise<any> {
-		const body = {
-			token: this.tokenAPI,
-			accountID: id
-		};
-
-		return new Promise((resolve, reject) => {
-			this.http.post(this.nameAPI, JSON.stringify(body)).subscribe(
-				(person) => {
-					resolve(person);
-				}, (error) => {
-					reject(error);
-				}
-			);
-		});
-	}
-
-	async getCharacterIDFromSelf(joomlaID) {
-		this.characterInformation = await this.getPersonFromAPI(joomlaID);
-	}
-
 	resolveJoomlaID(): Observable<any> {
 		return this.http.get(this.idAPI).pipe(
 			map((result: any) => {
-				// the 778 value below should be turned into result when debugging is done
-				this.getCharacterIDFromSelf("778");
-				return this.characterInformation.characterID;
+				return result;
 			}),
 			catchError((error) => {
 				return error;
