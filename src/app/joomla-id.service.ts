@@ -19,6 +19,7 @@ export class JoomlaIDService {
 	resolveJoomlaID(): Observable<any> {
 		return this.http.get(this.idAPI).pipe(
 			map((result: any) => {
+				console.log("Joomla ID >> " + result + " <<");
 				return result;
 			}),
 			catchError((error) => {
