@@ -1,8 +1,8 @@
 {
-  "name": "EosDynamic-PlayerDashboard",
-  "short_name": "EosDynamic-PlayerDashboard",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Bastion App Dashboard",
+  "short_name": "Bastion Apps",
+  "theme_color": "#262e3e",
+  "background_color": "#262e3e",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

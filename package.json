@@ -1,5 +1,5 @@
 {
-  "name": "eos-dynamic-player-dashboard",
+  "name": "bastion-app-dashboard",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
