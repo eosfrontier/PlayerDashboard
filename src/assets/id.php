@@ -1,7 +1,7 @@
 <?php 
 
 	define( '_JEXEC', 1 );
-	define( 'JPATH_BASE', $_SERVER[ 'DOCUMENT_ROOT' ] );
+	define( 'JPATH_BASE', '/opt/bitnami/apache2/htdocs/');
 	
 	// Required Files
 	require_once (JPATH_BASE . '/includes/defines.php');
