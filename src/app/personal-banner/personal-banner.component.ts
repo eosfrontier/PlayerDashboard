@@ -13,6 +13,8 @@ export class PersonalBannerComponent implements OnInit {
 	
 	readonly ENV = environment;
 	characterInformation:any = {character_name: "", faction: "", rank: "", accountID: ""};
+	joomlaInfo:any = {id:"", groups:""};
+	idSpecialCase:string;
 	idZeroWarning:string;
 	eosICTime:any;
 	amountUnreadMessages:number = 0;
@@ -41,12 +43,23 @@ export class PersonalBannerComponent implements OnInit {
 
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
-			this.characterInformation.accountID = result;
-			if (this.characterInformation.accountID == 0 || isNaN(this.characterInformation.accountID)) {
+			this.joomlaInfo = result;
+			if (this.joomlaInfo.groups) {
+				if (this.joomlaInfo.groups.includes("30")) {
+					this.idSpecialCase = " SL. These are all the apps players have access too, depending on their role."
+				}
+				if (this.joomlaInfo.groups.includes("31")) {
+					this.idSpecialCase = " visitor of the Bastion."
+				}
+			}
+			if (this.joomlaInfo.id && !this.idSpecialCase) {
+				this.characterInformation.accountID = this.joomlaInfo.id;
+			}
+			if (!this.joomlaInfo.id) {
 				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
 				this.messageServiceAvailable = false;
 			}
-			if (!this.idZeroWarning) {
+			if (!(this.idSpecialCase || this.idZeroWarning)) {
 				this.characterPersonification();
 			}
 		});

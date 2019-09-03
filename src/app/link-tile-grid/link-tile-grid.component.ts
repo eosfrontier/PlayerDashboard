@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json';
 import researchJson from '../../assets/specialAccessLists/researchSkills.json';
 import CORPJson from '../../assets/specialAccessLists/CORPAccess.json';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-link-tile-grid',
@@ -19,13 +20,14 @@ export class LinkTileGridComponent implements OnInit {
 	researchSkillList = researchJson.researchSkills;
 	corpAccess = CORPJson.corporateAccess;
 	researchUnlocked:boolean = false;
-	
 	skillIndex:any;
 	skillBooleanIndex:any[] = [];
+	joomlaInfo:any = {id:"", groups:""};
 	characterInformation:any = {characterID: "", ICC_number:"", accountID:"", faction:""};
 	characterFaction:any[] = [];
 	//characterFaction is an array because otherwise the compare for faction tile does not work
 	idZeroTile:boolean;
+	idSpecialTile:boolean;
 	
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService) { }
 
@@ -35,16 +37,24 @@ export class LinkTileGridComponent implements OnInit {
 	
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
-			this.characterInformation.accountID = result;
-			if (this.characterInformation.accountID == 0 || isNaN(this.characterInformation.accountID)) {
+			this.joomlaInfo = result;
+			if (this.joomlaInfo.groups) {
+				if (this.joomlaInfo.groups.includes("30") || this.joomlaInfo.groups.includes("31")) {
+					this.idSpecialTile = true;
+				}
+			}
+			if (this.joomlaInfo.id && !this.idSpecialTile) {
+				this.characterInformation.accountID = this.joomlaInfo.id;
+			}
+			if (!this.joomlaInfo.id) {
 				this.idZeroTile = true;
 			}
-			if (!this.idZeroTile) {
+			if (!(this.idSpecialTile || this.idZeroTile)) {
 				this.skillFilter();
 			}
 		});
 	}
-	
+
 	async skillFilter() {
 		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
 		this.characterFaction.push(this.characterInformation.faction);

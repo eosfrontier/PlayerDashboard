@@ -3,7 +3,7 @@
 	<img src="../../assets/images/bastionRed.png" alt="Circle with five circles around it connected by a line adorned with laurels.">
 	<section>
 		<h1>Bastion Dashboard</h1>
-		<p>Hello{{ this.idZeroWarning }} {{this.characterInformation.rank}} {{this.characterInformation.character_name}}</p>
+		<p>Hello{{ this.idSpecialCase }}{{ this.idZeroWarning }} {{this.characterInformation.rank}} {{this.characterInformation.character_name}}</p>
 	</section>
 	<aside *ngIf="this.messageServiceOnline">
 		<a [attr.href]="ENV.URL.MAIL">
