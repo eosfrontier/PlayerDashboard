@@ -18,27 +18,28 @@ figure {
 }
 figcaption {
 	color:var(--headerColor);
-	font-family:var(--fontHeader);
+	font-family: var(--fontFaction);
 	margin-top: -24px;
 	padding: 6px;
 	text-align: left;
-	font-size: 90%;
+	font-size: var(--fontFactionSize);
 		@media only screen and (min-width: 658px) {
-			font-size:100%;
+			font-size:var(--fontFactionSizeBig);
 		}
 }
+
 #ExtraWord {
 	color:var(--headerColor);
-	font-family:var(--fontHeader);
+	font-family:var(--fontFaction);
 	margin:0;
 	padding: 6px;
 	text-align: left;
 	position:absolute;
-	font-size: 90%;
-	bottom:4em;
+	font-size: var(--fontFactionSize);
+	bottom:var(--extraWord);
 	@media only screen and (min-width: 658px) {
-		font-size:100%;
-		bottom:3.5em;
+		font-size:var(--fontFactionSizeBig);
+		bottom:var(--extraWordBig);
 	}	
 }
 #beta {

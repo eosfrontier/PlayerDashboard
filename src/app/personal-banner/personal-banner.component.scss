@@ -26,6 +26,7 @@ section {
 	padding-left:3%
 }
 h1 {
+	font-family:var(--fontFaction);
 	margin-top:0em;
 	font-size:150%;
 	@media(max-width: 932px) and (min-width: 658px) {
