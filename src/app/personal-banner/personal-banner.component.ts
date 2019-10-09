@@ -46,7 +46,7 @@ export class PersonalBannerComponent implements OnInit {
 			this.joomlaInfo = result;
 			if (this.joomlaInfo.groups) {
 				if (this.joomlaInfo.groups.includes("30")) {
-					this.idSpecialCase = " SL. These are all the apps players have access too, depending on their role."
+					this.idSpecialCase = " SL. These are all the apps players have access to if they have the skills that use or require those apps."
 				}
 				if (this.joomlaInfo.groups.includes("31")) {
 					this.idSpecialCase = " visitor of the Bastion."
