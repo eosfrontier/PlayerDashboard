@@ -37,6 +37,7 @@ export class LinkTileGridComponent implements OnInit {
 	
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
+			this.joomlaInfo = result;
 			if (this.joomlaInfo.groups) {
 				if (this.joomlaInfo.groups.includes("30") || this.joomlaInfo.groups.includes("31")) {
 					this.idSpecialTile = true;
