@@ -22,7 +22,7 @@ export class LinkTileGridComponent implements OnInit {
 	researchSkillList = researchJson.researchSkills;
 	corpAccess = CORPJson.corporateAccess;
 	aitAccess = AITJson.armoryInventoryTrackingAccess;
-	customsAccess = DouaneJson.customsAccess;
+	customsAccess = DouaneJson.doauneAccess;
 	researchUnlocked:boolean = false;
 	skillIndex:any;
 	skillBooleanIndex:any[] = [];
