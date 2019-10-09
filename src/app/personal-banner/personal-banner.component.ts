@@ -43,6 +43,7 @@ export class PersonalBannerComponent implements OnInit {
 
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
+			this.joomlaInfo = result;
 			if (this.joomlaInfo.groups) {
 				if (this.joomlaInfo.groups.includes("30")) {
 					this.idSpecialCase = " SL. These are all the apps players have access too, depending on their role."
