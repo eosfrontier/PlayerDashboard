@@ -115,7 +115,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BSE"  *ngIf="this.idSpecialTile || this.conclaveMembers.indexOf(this.characterInformation.ICC_number) !== -1">
+<a [attr.href]="ENV.URL.BSE"  *ngIf="this.idSpecialTile || this.conclaveMembers.indexOf(this.characterInformation.accountID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -156,7 +156,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.CORP" *ngIf="this.idSpecialTile || this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.ICC_number) !== -1">
+<a [attr.href]="ENV.URL.CORP" *ngIf="this.idSpecialTile || this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.accountID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -196,7 +196,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.AIT" *ngIf="this.idSpecialTile || this.characterFaction.includes('dugo')">
+<a [attr.href]="ENV.URL.AIT" *ngIf="this.idSpecialTile || this.aitAccess.indexOf(this.characterInformation.accountID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
