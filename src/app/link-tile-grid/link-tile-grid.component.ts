@@ -7,6 +7,7 @@ import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.js
 import researchJson from '../../assets/specialAccessLists/researchSkills.json';
 import CORPJson from '../../assets/specialAccessLists/CORPAccess.json';
 import AITJson from '../../assets/specialAccessLists/AITAccess.json';
+import DouaneJson from '../../assets/specialAccessLists/DouaneAccess.json';
 import { ThrowStmt } from '@angular/compiler';
 
 @Component({
@@ -21,6 +22,7 @@ export class LinkTileGridComponent implements OnInit {
 	researchSkillList = researchJson.researchSkills;
 	corpAccess = CORPJson.corporateAccess;
 	aitAccess = AITJson.armoryInventoryTrackingAccess;
+	customsAccess = DouaneJson.customsAccess;
 	researchUnlocked:boolean = false;
 	skillIndex:any;
 	skillBooleanIndex:any[] = [];

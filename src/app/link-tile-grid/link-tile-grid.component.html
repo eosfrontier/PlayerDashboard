@@ -177,7 +177,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.CUSTOMS" *ngIf="this.idSpecialTile || this.skillBooleanIndex.indexOf('doaune') !== -1">
+<a [attr.href]="ENV.URL.CUSTOMS" *ngIf="this.idSpecialTile || this.customsAccess.indexOf(this.characterInformation.accountID) !== -1 || this.skillBooleanIndex.indexOf('doaune') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
