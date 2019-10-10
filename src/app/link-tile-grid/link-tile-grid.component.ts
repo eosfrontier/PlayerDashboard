@@ -48,7 +48,7 @@ export class LinkTileGridComponent implements OnInit {
 				}
 			}
 			if (this.joomlaInfo.id && !this.idSpecialTile) {
-				this.characterInformation.characterID = this.joomlaInfo.id;
+				this.characterInformation.accountID = this.joomlaInfo.id;
 			}
 			if (!this.joomlaInfo.id) {
 				this.idZeroTile = true;
