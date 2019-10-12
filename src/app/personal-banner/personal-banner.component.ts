@@ -56,7 +56,7 @@ export class PersonalBannerComponent implements OnInit {
 				this.characterInformation.accountID = this.joomlaInfo.id;
 			}
 			if (!this.joomlaInfo.id) {
-				this.idZeroWarning = ", it is unknown who you are. Customization is not available.";
+				this.idZeroWarning = ", it is unknown who you are. These are the public apps. Certain apps have been hidden from your view.";
 				this.messageServiceAvailable = false;
 			}
 			if (!(this.idSpecialCase || this.idZeroWarning)) {
