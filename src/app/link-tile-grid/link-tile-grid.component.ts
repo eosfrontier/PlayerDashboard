@@ -44,7 +44,6 @@ export class LinkTileGridComponent implements OnInit {
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.joomlaInfo = result;
-			this.joomlaInfo = {id:"2", groups:"30"};
 			if (this.joomlaInfo.groups) {
 				if (this.joomlaInfo.groups.includes("30")) {
 					this.isSpelleider = true;
