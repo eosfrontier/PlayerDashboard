@@ -23,6 +23,7 @@ export class LinkTileGridComponent implements OnInit {
 	corpAccess = CORPJson.corporateAccess;
 	aitAccess = AITJson.armoryInventoryTrackingAccess;
 	customsAccess = DouaneJson.doauneAccess;
+	beaconAccess:string = "3 4 4 7 1";
 	researchUnlocked:boolean = false;
 	skillIndex:any;
 	skillBooleanIndex:any[] = [];
@@ -31,7 +32,8 @@ export class LinkTileGridComponent implements OnInit {
 	characterFaction:any[] = [];
 	//characterFaction is an array because otherwise the compare for faction tile does not work
 	idZeroTile:boolean;
-	idSpecialTile:boolean;
+	isSpelleider:boolean;
+	isFigurant:boolean;
 	
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService) { }
 
@@ -42,18 +44,22 @@ export class LinkTileGridComponent implements OnInit {
 	async resolveSession() {
 		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 			this.joomlaInfo = result;
+			this.joomlaInfo = {id:"2", groups:"30"};
 			if (this.joomlaInfo.groups) {
-				if (this.joomlaInfo.groups.includes("30") || this.joomlaInfo.groups.includes("31")) {
-					this.idSpecialTile = true;
+				if (this.joomlaInfo.groups.includes("30")) {
+					this.isSpelleider = true;
+				}
+				if (this.joomlaInfo.groups.includes("31")) {
+					this.isFigurant = true;
 				}
 			}
-			if (this.joomlaInfo.id && !this.idSpecialTile) {
+			if (this.joomlaInfo.id && !(this.isSpelleider && this.isFigurant)) {
 				this.characterInformation.accountID = this.joomlaInfo.id;
 			}
 			if (!this.joomlaInfo.id) {
 				this.idZeroTile = true;
 			}
-			if (!(this.idSpecialTile || this.idZeroTile)) {
+			if (!(this.isSpelleider || this.isFigurant || this.idZeroTile)) {
 				this.skillFilter();
 			}
 		});

@@ -181,3 +181,15 @@ aside {
 	}
 
 }
+
+hr {
+	transition:0.3s;
+	border-color:var(--tileAccentColor100);
+	width:90%;
+	@media(max-width: 932px) and (min-width: 658px) {
+		width:87.5%;
+	}
+	@media(max-width: 657px) {
+		width:75%;
+	}
+}

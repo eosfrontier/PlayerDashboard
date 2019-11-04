@@ -1,5 +1,190 @@
-<main class="tileGrid">
 
+<section *ngIf="this.isSpelleider" class="tileGrid">
+
+<a [attr.href]="ENV.URL.SL_CUSTOMS">
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/customs.png" alt="Red Circle with dark green horizontal bar and tan checkmark">
+					<figcaption class="flourishFont"><br><br>Douane</figcaption>
+				</figure>
+				<aside>
+					This place allows you to alter character status regarding Faction, Disposition, Threat level, Clearance, and several other things.
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_MEDICORUM">
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/medicorum.png" alt="Stylish M ACME ACME-cura Medicorum">
+					<figcaption class="flourishFont"><br><br>Medicorum</figcaption>
+				</figure>
+				<aside>
+					Here you can hide people / corporations / other things listed in the database from medicorum.
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_BEACON">
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/beacon.png" alt="A circle orbited by a smaller circle with the orbit line visible">
+					<figcaption class="flourishFont"><br><br>Beacon</figcaption>
+				</figure>
+				<aside>
+					Here you can push buttons to make Beacon do things. Your personal access code is:<br>{{this.beaconAccess}}
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_AV">
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/AttackVector.png" alt="Air Alchemy Symbol and Earth Alchemy Symbol">
+					<figcaption class="flourishFont"><br>Attack<br>Vector</figcaption>
+				</figure>
+				<aside>
+					Here you can create Attack Vector Missions, and create accounts for players.
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_CIC">
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/stratios.png" alt="Bisected Hexagon with vertical bar">
+					<figcaption class="flourishFont"><br>Mission<br>Board</figcaption>
+				</figure>
+				<aside>
+					You can plan missions here, and do other CIC stuff.
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_SCB" >
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/bank.png" alt="S C B inside a fortress shape">
+					<figcaption class="flourishFont">System<br>Central<br>Banks</figcaption>
+				</figure>
+				<aside>
+					Here you can credit players or corporations with sonuren, you can add or remove them, and even transfer.
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_SPACEBOOK" >
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/spacebook.png" alt="a spacebutterfly holding a circle that says 'Spacebook'">
+					<figcaption class="flourishFont"><br><br>Spacebook</figcaption>
+				</figure>
+				<aside>
+					Here you will see a list of all players, and their face.
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_NAMEGEN" >
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/frontierEosNameGenerator.png" alt="The letters f E N G in a blue hexagon">
+					<p class="flourishFont" id="ExtraWord">frontier</p>
+					<figcaption class="flourishFont">Eos<br>Name<br>Generator</figcaption>
+				</figure>
+				<aside>
+					You can generate any faction name here.
+				</aside>
+		</section>
+	</div>
+</a>
+
+<a [attr.href]="ENV.URL.SL_MAP" >
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<p id="beta">Admin</p>
+					<img src="../../assets/images/map.png" alt="Three orange yellow four pointed stars">
+					<figcaption class="flourishFont"><br><br>Starmap</figcaption>
+				</figure>
+				<aside>
+					You can alter the description of planets here, and see where they are located.
+				</aside>
+		</section>
+	</div>
+</a>
+
+</section>
+<hr *ngIf="this.isSpelleider">
+<main class="tileGrid">
 <a [attr.href]="ENV.URL.LOGIN" *ngIf="this.idZeroTile">
 <div class="border">
 	<div class="flourish"></div>
@@ -19,7 +204,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.AV" *ngIf="this.idSpecialTile || this.skillBooleanIndex.indexOf('it') !== -1">
+<a [attr.href]="ENV.URL.AV" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('it') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -57,7 +242,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BMS" *ngIf="this.idSpecialTile || this.skillBooleanIndex.indexOf('engi') !== -1 || this.skillBooleanIndex.indexOf('chem') !== -1">
+<a [attr.href]="ENV.URL.BMS" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('engi') !== -1 || this.skillBooleanIndex.indexOf('chem') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -115,7 +300,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BSE"  *ngIf="this.idSpecialTile || this.conclaveMembers.indexOf(this.characterInformation.characterID) !== -1">
+<a [attr.href]="ENV.URL.BSE"  *ngIf="this.isSpelleider || this.isFigurant || this.conclaveMembers.indexOf(this.characterInformation.characterID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -133,9 +318,6 @@
 	</section>
 </div>
 </a>
-
-
-
 
 <a [attr.href]="ENV.URL.CIC">
 <div class="border">
@@ -156,7 +338,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.CORP" *ngIf="this.idSpecialTile || this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.characterID) !== -1">
+<a [attr.href]="ENV.URL.CORP" *ngIf="this.isSpelleider || this.isFigurant || this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.characterID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -177,7 +359,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.CUSTOMS" *ngIf="this.idSpecialTile || this.customsAccess.indexOf(this.characterInformation.characterID) !== -1 || this.skillBooleanIndex.indexOf('doaune') !== -1">
+<a [attr.href]="ENV.URL.CUSTOMS" *ngIf="this.isSpelleider || this.isFigurant || this.customsAccess.indexOf(this.characterInformation.characterID) !== -1 || this.skillBooleanIndex.indexOf('doaune') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -196,7 +378,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.AIT" *ngIf="this.idSpecialTile || this.aitAccess.indexOf(this.characterInformation.characterID) !== -1">
+<a [attr.href]="ENV.URL.AIT" *ngIf="this.isSpelleider || this.isFigurant || this.aitAccess.indexOf(this.characterInformation.characterID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -215,7 +397,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.MEDICORUM" *ngIf="this.idSpecialTile || this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
+<a [attr.href]="ENV.URL.MEDICORUM" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -235,7 +417,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.SURGERY" *ngIf="this.idSpecialTile || this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
+<a [attr.href]="ENV.URL.SURGERY" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -274,7 +456,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.RESEARCH" *ngIf="this.idSpecialTile || this.researchUnlocked">
+<a [attr.href]="ENV.URL.RESEARCH" *ngIf="this.isSpelleider || this.isFigurant || this.researchUnlocked">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -292,6 +474,25 @@
 			</aside>
 	</section>
 </div>
+</a>
+
+<a [attr.href]="ENV.URL.MAP" >
+	<div class="border">
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+		<div class="flourish"></div>
+	
+		<section class="linkTile">
+				<figure class="icon">
+					<img src="../../assets/images/map.png" alt="Three orange yellow four pointed stars">
+					<figcaption class="flourishFont"><br><br>Starmap</figcaption>
+				</figure>
+				<aside>
+					You will never get lost in space with this useful chart!
+				</aside>
+		</section>
+	</div>
 </a>
 
 </main>

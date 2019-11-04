@@ -12,9 +12,10 @@ import { environment } from 'src/environments/environment';
 export class PersonalBannerComponent implements OnInit {
 	
 	readonly ENV = environment;
-	characterInformation:any = {character_name: "", faction: "", rank: "", accountID: ""};
+	characterInformation:any = {character_name: "", faction: "", rank: "", accountID: "", oc_name: ""};
 	joomlaInfo:any = {id:"", groups:""};
-	idSpecialCase:string;
+	idSpelleider:string;
+	idFigurant:string;
 	idZeroWarning:string;
 	eosICTime:any;
 	amountUnreadMessages:number = 0;
@@ -46,20 +47,20 @@ export class PersonalBannerComponent implements OnInit {
 			this.joomlaInfo = result;
 			if (this.joomlaInfo.groups) {
 				if (this.joomlaInfo.groups.includes("30")) {
-					this.idSpecialCase = " SL. These are all the apps players have access to if they have the skills that use or require those apps."
+					this.idSpelleider = " Spelleider " + this.characterInformation.oc_name + ". The dashboard has been adjusted to also contain OC links to admin pages and spelleider resources."
 				}
 				if (this.joomlaInfo.groups.includes("31")) {
-					this.idSpecialCase = " visitor of the Bastion."
+					this.idFigurant = " visitor of the Bastion."
 				}
 			}
-			if (this.joomlaInfo.id && !this.idSpecialCase) {
+			if (this.joomlaInfo.id && !(this.idFigurant && this.idSpelleider)) {
 				this.characterInformation.accountID = this.joomlaInfo.id;
 			}
 			if (!this.joomlaInfo.id) {
 				this.idZeroWarning = ", it is unknown who you are. These are the public apps. Certain apps have been hidden from your view.";
 				this.messageServiceAvailable = false;
 			}
-			if (!(this.idSpecialCase || this.idZeroWarning)) {
+			if (!(this.idFigurant || this.idSpelleider || this.idZeroWarning)) {
 				this.characterPersonification();
 			}
 		});
