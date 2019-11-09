@@ -476,7 +476,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.MAP" >
+<a [attr.href]="ENV.URL.MAP" *ngIf="!this.idZeroTile">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
