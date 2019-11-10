@@ -90,8 +90,8 @@ export class PersonalBannerComponent implements OnInit {
 			this.themingService.setTheme(this.characterInformation.faction);
 			if (this.characterInformation.characterID == 131 || this.characterInformation.characterID == 1 || this.characterInformation.characterID == 133) {
 				this.themingService.setTheme('seventh');
-				localStorage.clear();
 			}
+			localStorage.clear();
 		}
 	}
 }

@@ -71,9 +71,6 @@ export class LinkTileGridComponent implements OnInit {
 			this.characterInformation.accountID = this.joomlaInfo.id;
 			this.hasLoggedIn = true;
 		}
-		if (!(this.isSpelleider || this.isFigurant || this.hasLoggedIn)) {
-			
-		}
 		this.skillFilter();
 	};
 
