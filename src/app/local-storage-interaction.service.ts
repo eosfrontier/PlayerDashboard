@@ -12,30 +12,25 @@ export class LocalStorageInteractionService {
   purgeIfOlderThan:number = 20;
   constructor() { }
 
-deleteOldStorage(){
-  if (localStorage.storageTimeStamp === null) {
-    localStorage.storageTimeStamp, JSON.stringify(this.currrentTimeStamp);
-  }
-  if (localStorage.storageTimeStamp) {
-    this.storageTimeStamp = JSON.parse(localStorage.storageTimeStamp);
-    this.stampDifference = this.currrentTimeStamp - this.storageTimeStamp;
-  }
-  if (this.stampDifference >= this.purgeIfOlderThan) {
-    localStorage.clear();
-  }
-}
-
 setItem(name,value) {
-  this.deleteOldStorage();
   localStorage.setItem(name,JSON.stringify(value));
 }
 getItem(name):string{
-  this.deleteOldStorage();
   return JSON.parse(localStorage.getItem(name));
 }
 removeItem(name){
-  this.deleteOldStorage();
   localStorage.removeItem(name);
 }
+
+checkDelete(){
+  if (localStorage.tiles && localStorage.personalisation){
+    localStorage.removeItem("joomlaInfoBlock");
+    localStorage.removeItem("characterInfoBlock");
+    localStorage.removeItem("skillIndexBlock");
+    localStorage.removeItem("tiles");
+    localStorage.removeItem("personalisation");
+  }
+}
+
 
 }

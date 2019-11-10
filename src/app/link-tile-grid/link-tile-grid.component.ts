@@ -43,17 +43,17 @@ export class LinkTileGridComponent implements OnInit {
   }
 	
 	async resolveSession() {
-		if (this.LSIService.getItem("joomlaInfoBlock")) {
+/*		if (this.LSIService.getItem("joomlaInfoBlock")) {
 			this.joomlaInfo = this.LSIService.getItem("joomlaInfoBlock");
 			this.identifyUser();
 		}
-		else {
+		else { */
 			this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 				this.joomlaInfo = result;
-				this.LSIService.setItem("joomlaInfoBlock", this.joomlaInfo);
+		//		this.LSIService.setItem("joomlaInfoBlock", this.joomlaInfo);
 				this.identifyUser();
 			});
-		}
+	//	}
 	}
 
 	identifyUser() {
@@ -76,24 +76,26 @@ export class LinkTileGridComponent implements OnInit {
 
 
 	async skillFilter() {
-		if (this.LSIService.getItem("characterInfoBlock")) {
+/*		if (this.LSIService.getItem("characterInfoBlock")) {
 			this.characterInformation = this.LSIService.getItem("characterInfoBlock");
 		}
-		else {
+		else { */
 			this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
-			this.LSIService.setItem("characterInfoBlock", this.characterInformation);
-		}
+//			this.LSIService.setItem("characterInfoBlock", this.characterInformation);
+//		}
 		this.characterFaction.push(this.characterInformation.faction);
-		if (this.LSIService.getItem("skillIndexBlock")) {
+/*		if (this.LSIService.getItem("skillIndexBlock")) {
 			this.skillIndex = this.LSIService.getItem("skillIndexBlock");
 		}
-		else {
+		else { */
 			this.skillIndex = await this.palantirService.getSkillsFromAPI(this.characterInformation.characterID);
-			this.LSIService.setItem("skillIndexBlock", this.skillIndex);
-		}
+	//		this.LSIService.setItem("skillIndexBlock", this.skillIndex);
+	//	}
 		for (let skill of this.skillIndex) {
 			this.skillBooleanIndex.push(skill.name)
 		}
 		this.researchUnlocked = this.skillBooleanIndex.some(r=> this.researchSkillList.includes(r))
+	//	this.LSIService.setItem("tiles", true)
+	//	this.LSIService.checkDelete();
 	}
 }

@@ -44,17 +44,17 @@ export class PersonalBannerComponent implements OnInit {
 	}
 
 	async resolveSession() {
-		if (this.LSIService.getItem("joomlaInfoBlock")) {
+	/*	if (this.LSIService.getItem("joomlaInfoBlock")) {
 			this.joomlaInfo = this.LSIService.getItem("joomlaInfoBlock");
 			this.identifyUser();
 		}
-		else {
+		else { */
 			this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 				this.joomlaInfo = result;
-				this.LSIService.setItem("joomlaInfoBlock", this.joomlaInfo);
+	//			this.LSIService.setItem("joomlaInfoBlock", this.joomlaInfo);
 				this.identifyUser();
 			});
-		}
+	//	}
 	}
 
 	identifyUser() {
@@ -79,19 +79,20 @@ export class PersonalBannerComponent implements OnInit {
 	}
 	
 	async characterPersonification() {
-		if (this.LSIService.getItem("characterInfoBlock")) {
+	/*	if (this.LSIService.getItem("characterInfoBlock")) {
 			this.characterInformation = this.LSIService.getItem("characterInfoBlock");
 		}
-		else {
+		else { */
 			this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
-			this.LSIService.setItem("characterInfoBlock", this.characterInformation);
-		}
+	//		this.LSIService.setItem("characterInfoBlock", this.characterInformation);
+	//	}
 		if (this.characterInformation.faction) {
 			this.themingService.setTheme(this.characterInformation.faction);
-			if (this.characterInformation.characterID == 131 || this.characterInformation.characterID == 1 || this.characterInformation.characterID == 133) {
+					if (this.characterInformation.characterID == 131 || this.characterInformation.characterID == 1 || this.characterInformation.characterID == 133) {
 				this.themingService.setTheme('seventh');
 			}
-			localStorage.clear();
+	//		this.LSIService.setItem("personalisation", true)
+	//		this.LSIService.checkDelete();
 		}
 	}
 }
