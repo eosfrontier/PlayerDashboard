@@ -32,7 +32,7 @@ export class LinkTileGridComponent implements OnInit {
 	characterInformation:any = {characterID: "", ICC_number:"", accountID:"", faction:""};
 	characterFaction:any[] = [];
 	//characterFaction is an array because otherwise the compare for faction tile does not work
-	idZeroTile:boolean;
+	idZeroTile:boolean = false;
 	isSpelleider:boolean;
 	isFigurant:boolean;
 	
