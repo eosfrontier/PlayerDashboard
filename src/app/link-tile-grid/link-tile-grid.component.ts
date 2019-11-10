@@ -32,9 +32,9 @@ export class LinkTileGridComponent implements OnInit {
 	characterInformation:any = {characterID: "", ICC_number:"", accountID:"", faction:""};
 	characterFaction:any[] = [];
 	//characterFaction is an array because otherwise the compare for faction tile does not work
-	idZeroTile:boolean = false;
 	isSpelleider:boolean;
 	isFigurant:boolean;
+	hasLoggedIn:boolean = false;
 	
   constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService, private LSIService: LocalStorageInteractionService) { }
 
@@ -60,18 +60,18 @@ export class LinkTileGridComponent implements OnInit {
 		if (this.joomlaInfo.groups) {
 			if (this.joomlaInfo.groups.includes("30")) {
 				this.isSpelleider = true;
+				this.hasLoggedIn = true;
 			}
 			if (this.joomlaInfo.groups.includes("31")) {
 				this.isFigurant = true;
+				this.hasLoggedIn = true;
 			}
 		}
 		if (this.joomlaInfo.id && !(this.isSpelleider && this.isFigurant)) {
 			this.characterInformation.accountID = this.joomlaInfo.id;
+			this.hasLoggedIn = true;
 		}
-		if (!this.joomlaInfo.id) {
-			this.idZeroTile = true;
-		}
-		if (!(this.isSpelleider || this.isFigurant || this.idZeroTile)) {
+		if (!(this.isSpelleider || this.isFigurant || this.hasLoggedIn)) {
 			this.skillFilter();
 		}
 	};

@@ -185,7 +185,7 @@
 </section>
 <hr *ngIf="this.isSpelleider">
 <main class="tileGrid">
-<a [attr.href]="ENV.URL.LOGIN" *ngIf="this.idZeroTile">
+<a [attr.href]="ENV.URL.LOGIN" *ngIf="!this.hasLoggedIn">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -223,7 +223,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BIC" *ngIf="!this.idZeroTile">
+<a [attr.href]="ENV.URL.BIC" *ngIf="this.hasLoggedIn">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -476,7 +476,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.MAP" *ngIf="!this.idZeroTile">
+<a [attr.href]="ENV.URL.MAP" *ngIf="this.hasLoggedIn">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
