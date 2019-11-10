@@ -50,7 +50,6 @@ export class LinkTileGridComponent implements OnInit {
 		else {
 			this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
 				this.joomlaInfo = result;
-				this.joomlaInfo = {"id":"778","groups":["2","11","27","28","37"]};
 				this.LSIService.setItem("joomlaInfoBlock", this.joomlaInfo);
 				this.identifyUser();
 			});
