@@ -13,7 +13,6 @@ export class JoomlaIDService {
 	readonly idAPI = this.ENV.API.ID;
 	readonly nameAPI = this.ENV.API.CHARACTER;
 	readonly tokenAPI = this.ENV.API.TOKEN;
-	characterInformation:any = {characterID: ""};
   constructor(private http: HttpClient) { }
 
 	resolveJoomlaID(): Observable<any> {
