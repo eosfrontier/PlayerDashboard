@@ -5,9 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class LocalStorageInteractionService {
 
+  //The timestamping is done in minutes
   currrentTimeStamp:number = Math.floor(Date.now() / 100000);
   storageTimeStamp:number;
   stampDifference:number;
+  purgeIfOlderThan:number = 20;
   constructor() { }
 
 deleteOldStorage(){
@@ -18,7 +20,7 @@ deleteOldStorage(){
     this.storageTimeStamp = JSON.parse(localStorage.storageTimeStamp);
     this.stampDifference = this.currrentTimeStamp - this.storageTimeStamp;
   }
-  if (this.stampDifference >= 20) {
+  if (this.stampDifference >= this.purgeIfOlderThan) {
     localStorage.clear();
   }
 }
