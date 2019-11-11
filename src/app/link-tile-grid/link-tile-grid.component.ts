@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PalantírService } from '../palantír.service';
 import { JoomlaIDService } from '../joomla-id.service';
-import { LocalStorageInteractionService } from '../local-storage-interaction.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -36,25 +35,19 @@ export class LinkTileGridComponent implements OnInit {
 	isFigurant:boolean;
 	hasLoggedIn:boolean = false;
 	
-  constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService, private LSIService: LocalStorageInteractionService) { }
+  constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService) { }
 
   ngOnInit() {
 		this.resolveSession();
   }
 	
 	async resolveSession() {
-/*		if (this.LSIService.getItem("joomlaInfoBlock")) {
-			this.joomlaInfo = this.LSIService.getItem("joomlaInfoBlock");
+		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
+			this.joomlaInfo = result;
 			this.identifyUser();
-		}
-		else { */
-			this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
-				this.joomlaInfo = result;
-		//		this.LSIService.setItem("joomlaInfoBlock", this.joomlaInfo);
-				this.identifyUser();
-			});
-	//	}
+		});
 	}
+	
 
 	identifyUser() {
 		if (this.joomlaInfo.groups) {
@@ -76,26 +69,12 @@ export class LinkTileGridComponent implements OnInit {
 
 
 	async skillFilter() {
-/*		if (this.LSIService.getItem("characterInfoBlock")) {
-			this.characterInformation = this.LSIService.getItem("characterInfoBlock");
-		}
-		else { */
-			this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
-//			this.LSIService.setItem("characterInfoBlock", this.characterInformation);
-//		}
+		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
 		this.characterFaction.push(this.characterInformation.faction);
-/*		if (this.LSIService.getItem("skillIndexBlock")) {
-			this.skillIndex = this.LSIService.getItem("skillIndexBlock");
-		}
-		else { */
-			this.skillIndex = await this.palantirService.getSkillsFromAPI(this.characterInformation.characterID);
-	//		this.LSIService.setItem("skillIndexBlock", this.skillIndex);
-	//	}
+		this.skillIndex = await this.palantirService.getSkillsFromAPI(this.characterInformation.characterID);
 		for (let skill of this.skillIndex) {
 			this.skillBooleanIndex.push(skill.name)
 		}
 		this.researchUnlocked = this.skillBooleanIndex.some(r=> this.researchSkillList.includes(r))
-	//	this.LSIService.setItem("tiles", true)
-	//	this.LSIService.checkDelete();
 	}
 }

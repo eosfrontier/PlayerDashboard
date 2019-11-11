@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import { OptionsMenuComponent } from './options-menu/options-menu.component';
 import { LinkTileGridComponent } from './link-tile-grid/link-tile-grid.component';
 import { PersonalBannerComponent } from './personal-banner/personal-banner.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -12,7 +11,6 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    OptionsMenuComponent,
     LinkTileGridComponent,
     PersonalBannerComponent
   ],

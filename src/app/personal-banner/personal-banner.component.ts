@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PalantírService } from '../palantír.service';
 import { JoomlaIDService } from '../joomla-id.service';
-import { LocalStorageInteractionService } from '../local-storage-interaction.service';
 import { ThemingService } from '../theming.service';
 import { environment } from 'src/environments/environment';
 
@@ -26,7 +25,7 @@ export class PersonalBannerComponent implements OnInit {
 	time = new Date();
 	icDate:string;
 
-  constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService, private LSIService: LocalStorageInteractionService, private themingService: ThemingService) { }
+  constructor(private palantirService: PalantírService, private joomlaIDService: JoomlaIDService, private themingService: ThemingService) { }
 
   ngOnInit() {
 		setInterval(() => {
@@ -44,18 +43,12 @@ export class PersonalBannerComponent implements OnInit {
 	}
 
 	async resolveSession() {
-	/*	if (this.LSIService.getItem("joomlaInfoBlock")) {
-			this.joomlaInfo = this.LSIService.getItem("joomlaInfoBlock");
+		this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
+			this.joomlaInfo = result;
 			this.identifyUser();
-		}
-		else { */
-			this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
-				this.joomlaInfo = result;
-	//			this.LSIService.setItem("joomlaInfoBlock", this.joomlaInfo);
-				this.identifyUser();
-			});
-	//	}
+		});
 	}
+	
 
 	identifyUser() {
 		if (this.joomlaInfo.groups) {
@@ -79,20 +72,12 @@ export class PersonalBannerComponent implements OnInit {
 	}
 	
 	async characterPersonification() {
-	/*	if (this.LSIService.getItem("characterInfoBlock")) {
-			this.characterInformation = this.LSIService.getItem("characterInfoBlock");
-		}
-		else { */
-			this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
-	//		this.LSIService.setItem("characterInfoBlock", this.characterInformation);
-	//	}
+		this.characterInformation = await this.palantirService.getPersonFromAPI(this.characterInformation.accountID);
 		if (this.characterInformation.faction) {
 			this.themingService.setTheme(this.characterInformation.faction);
-					if (this.characterInformation.characterID == 131 || this.characterInformation.characterID == 1 || this.characterInformation.characterID == 133) {
+			if (this.characterInformation.characterID == 131 || this.characterInformation.characterID == 1 || this.characterInformation.characterID == 133) {
 				this.themingService.setTheme('seventh');
 			}
-	//		this.LSIService.setItem("personalisation", true)
-	//		this.LSIService.checkDelete();
 		}
 	}
 }
