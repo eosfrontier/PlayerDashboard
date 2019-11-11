@@ -1,7 +1,7 @@
 
 <section *ngIf="this.isSpelleider" class="tileGrid">
 
-<a [attr.href]="ENV.URL.SL_CUSTOMS">
+<a [attr.href]="ENV.URL.SL_CUSTOMS" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -21,7 +21,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_MEDICORUM">
+<a [attr.href]="ENV.URL.SL_MEDICORUM" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -41,7 +41,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_BEACON">
+<a [attr.href]="ENV.URL.SL_BEACON" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -61,7 +61,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_AV">
+<a [attr.href]="ENV.URL.SL_AV" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -81,7 +81,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_CIC">
+<a [attr.href]="ENV.URL.SL_CIC" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -101,7 +101,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_SCB" >
+<a [attr.href]="ENV.URL.SL_SCB" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -121,7 +121,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_SPACEBOOK" >
+<a [attr.href]="ENV.URL.SL_SPACEBOOK" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -141,7 +141,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_NAMEGEN" >
+<a [attr.href]="ENV.URL.SL_NAMEGEN" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -162,7 +162,7 @@
 	</div>
 </a>
 
-<a [attr.href]="ENV.URL.SL_MAP" >
+<a [attr.href]="ENV.URL.SL_MAP" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -242,7 +242,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BMS" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('engi') !== -1 || this.skillBooleanIndex.indexOf('chem') !== -1">
+<a [attr.href]="ENV.URL.BMS" target="_blank" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('engi') !== -1 || this.skillBooleanIndex.indexOf('chem') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -262,7 +262,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BEACON">
+<a [attr.href]="ENV.URL.BEACON" >
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -281,7 +281,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BET">
+<a [attr.href]="ENV.URL.BET" target="_blank">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -300,7 +300,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.BSE"  *ngIf="this.isSpelleider || this.isFigurant || this.conclaveMembers.indexOf(this.characterInformation.characterID) !== -1">
+<a [attr.href]="ENV.URL.BSE" target="_blank" *ngIf="this.isSpelleider || this.isFigurant || this.conclaveMembers.indexOf(this.characterInformation.characterID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -338,7 +338,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.CORP" *ngIf="this.isSpelleider || this.isFigurant || this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.characterID) !== -1">
+<a [attr.href]="ENV.URL.CORP" target="_blank" *ngIf="this.isSpelleider || this.isFigurant || this.characterFaction.includes('sona') || this.corpAccess.indexOf(this.characterInformation.characterID) !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -417,7 +417,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.SURGERY" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
+<a [attr.href]="ENV.URL.SURGERY" target="_blank" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
@@ -456,7 +456,7 @@
 </div>
 </a>
 
-<a [attr.href]="ENV.URL.RESEARCH" *ngIf="this.isSpelleider || this.isFigurant || this.researchUnlocked">
+<a [attr.href]="ENV.URL.RESEARCH" target="_blank" *ngIf="this.isSpelleider || this.isFigurant || this.researchUnlocked">
 <div class="border">
 	<div class="flourish"></div>
 	<div class="flourish"></div>
