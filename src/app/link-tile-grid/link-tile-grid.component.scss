@@ -52,6 +52,7 @@ figcaption {
 }
 aside {
 	display:none;
+	font-family: var(--fontTiles);
 	@media only screen and (min-width: 658px) {
 		display:block;
 		position:absolute;
