@@ -51,7 +51,7 @@ export class LinkTileGridComponent implements OnInit {
 
 	identifyUser() {
 		if (this.joomlaInfo.groups) {
-			if (this.joomlaInfo.groups.includes("30")) {
+			if (this.joomlaInfo.groups.includes("30")||this.joomlaInfo.groups.includes("8")) {
 				this.isSpelleider = true;
 				this.hasLoggedIn = true;
 			}
