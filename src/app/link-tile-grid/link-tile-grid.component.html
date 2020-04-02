@@ -397,6 +397,26 @@
 </div>
 </a>
 
+<a [attr.href]="ENV.URL.ROSTER" *ngIf="this.hasLoggedIn">
+<div class="border">
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+	<div class="flourish"></div>
+
+	<section class="linkTile">
+			<figure class="icon">
+				<img src="../../assets/images/peopleRoster.png" alt="Stylish PR ACME ACME-tech People Roster">
+				<figcaption class="flourishFont"><br>People<br>Roster</figcaption>
+			</figure>
+			<aside>
+				Made possible by ACME-Tech,<br>making your job as painless as possible.
+				<br><small>ACME-Tech is part of the ACME-group</small>
+			</aside>
+	</section>
+</div>
+</a>
+  
 <a [attr.href]="ENV.URL.MEDICORUM" *ngIf="this.isSpelleider || this.isFigurant || this.skillBooleanIndex.indexOf('surgery') !== -1 || this.skillBooleanIndex.indexOf('firstaid') !== -1">
 <div class="border">
 	<div class="flourish"></div>
