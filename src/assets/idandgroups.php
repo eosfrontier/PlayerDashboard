@@ -15,6 +15,17 @@ error_reporting(E_ALL);
 
 	$app = JFactory::getApplication('site');
 	$user = JFactory::getUser();
+
+  if ($user->get('guest')) {
+      $cookieName = 'joomla_remember_me_' . JUserHelper::getShortHashedUserAgent();
+      // Check for the cookie
+      if ($app->input->cookie->get($cookieName))
+      {
+          $app->login(array('username' => ''), array('silent' => true));
+          $user = JFactory::getUser();
+      }
+  }
+
 	$myobj = new \stdClass();
 	$myobj->id = $user->get('id');
 	$myobj->groups = $user->get('groups');
