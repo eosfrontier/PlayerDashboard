@@ -12,6 +12,16 @@
 	$app = JFactory::getApplication('site');
 	$user = JFactory::getUser();
 
+  if ($user->get('guest')) {
+      $cookieName = 'joomla_remember_me_' . JUserHelper::getShortHashedUserAgent();
+      // Check for the cookie
+      if ($app->input->cookie->get($cookieName))
+      {
+          $app->login(array('username' => ''), array('silent' => true));
+          $user = JFactory::getUser();
+      }
+  }
+
 	echo json_encode($user->get('id'));
 	
 ?>
