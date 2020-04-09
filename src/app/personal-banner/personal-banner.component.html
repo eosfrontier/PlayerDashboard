@@ -1,25 +1,41 @@
 <header onload="startTime()">
-	<time>{{ time | date: 'EE' | uppercase }} {{ this.icDate | uppercase }} - {{ time | date: 'HH:mm' }} ETC</time>
-	<img src="../../assets/images/bastionRed.png" alt="Circle with five circles around it connected by a line adorned with laurels.">
-	<section>
-		<h1>Bastion Dashboard</h1>
-		<p>Hello{{this.idSpelleider}}{{ this.idFigurant }}{{ this.idZeroWarning }} {{this.characterInformation.rank}} {{this.characterInformation.character_name}}</p>
-	</section>
-	<aside *ngIf="this.messageServiceOnline">
-		<a [attr.href]="ENV.URL.MAIL">
-			<div class="mailIcon">
-				&#x2709;
-				<div class="notificationFloat">
-					<div class="notificationDot" *ngIf="this.newMessages"><span class="notificationCounter">{{ this.amountUnreadMessages }}</span></div>
-				</div>
-			</div>
-		</a>
-	</aside>
-	<aside *ngIf="!this.messageServiceOnline && this.messageServiceAvailable">
-		<div class="mailIcon">
-			&#x2709;
-			<div class="notificationDot"><span class="notificationCounter">&#x2621;</span></div>
-		</div>
-	</aside>
-	<hr>
+  <time>
+    {{ time | date: 'EE' | uppercase }} {{ this.icDate | uppercase }} -
+    {{ time | date: 'HH:mm' }} ETC
+  </time>
+  <img
+    src="../../assets/images/bastionRed.png"
+    alt="Circle with five circles around it connected by a line adorned with laurels."
+  />
+  <section>
+    <h1>Bastion Dashboard</h1>
+    <p>
+      Hello{{ this.idSpelleider }}{{ this.idFigurant }}{{ this.idZeroWarning }}
+      {{ this.characterInformation.rank }}
+      {{ this.characterInformation.character_name }}
+    </p>
+  </section>
+  <aside *ngIf="this.messageServiceOnline">
+    <a [attr.href]="ENV.URL.MAIL">
+      <div class="mailIcon">
+        &#x2709;
+        <div class="notificationFloat">
+          <div class="notificationDot" *ngIf="this.newMessages">
+            <span class="notificationCounter">
+              {{ this.amountUnreadMessages }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </aside>
+  <aside *ngIf="!this.messageServiceOnline && this.messageServiceAvailable">
+    <div class="mailIcon">
+      &#x2709;
+      <div class="notificationDot">
+        <span class="notificationCounter">&#x2621;</span>
+      </div>
+    </div>
+  </aside>
+  <hr />
 </header>

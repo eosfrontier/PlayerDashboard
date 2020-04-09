@@ -1,116 +1,119 @@
 header {
-	transition:0.3s;
-	width:100%;
-	font-family:var(--fontHeader);
-	color:var(--headerColor);
-	display:grid;
-	grid-template-columns: minmax(84px,15%) 7fr 1.5fr;
-	grid-template-areas: "icon time time" "icon text mail" "bar bar bar";
+  transition: 0.3s;
+  width: 100%;
+  font-family: var(--fontHeader);
+  color: var(--headerColor);
+  display: grid;
+  grid-template-columns: minmax(84px, 15%) 7fr 1.5fr;
+  grid-template-areas: 'icon time time' 'icon text mail' 'bar bar bar';
 }
 img {
-	width:96%;
-	margin:4%;
-	grid-area: icon;
-	filter:var(--bastionFactionFilter);
+  width: 96%;
+  margin: 4%;
+  grid-area: icon;
+  filter: var(--bastionFactionFilter);
 }
 time {
-	margin:0.1em;
-	grid-area: time;
-	text-align:right;
+  margin: 0.1em;
+  grid-area: time;
+  text-align: right;
 }
 section {
-	transition:0.3s;
-	width:100%;
-	grid-area: text;
-	overflow: hidden;
-	padding-left:3%
+  transition: 0.3s;
+  width: 100%;
+  grid-area: text;
+  overflow: hidden;
+  padding-left: 3%;
 }
 h1 {
-	font-family:var(--fontFaction);
-	margin-top:0em;
-	font-size:150%;
-	@media(max-width: 932px) and (min-width: 658px) {
-		font-size: 125%;
-	}
-	@media(max-width: 657px) and (min-width: 376px) {
-		font-size:100%;
-	}
-	@media(max-width: 375px) {
-		font-size:75%;
-	}
+  font-family: var(--fontFaction);
+  margin-top: 0em;
+  font-size: 150%;
+  @media (max-width: 932px) and (min-width: 658px) {
+    font-size: 125%;
+  }
+  @media (max-width: 657px) and (min-width: 376px) {
+    font-size: 100%;
+  }
+  @media (max-width: 375px) {
+    font-size: 75%;
+  }
 }
-p, time {
-	font-size:125%;
-	@media(max-width: 932px) and (min-width: 658px) {
-		font-size: 100%;
-	}
-	@media(max-width: 657px) and (min-width: 376px) {
-		font-size:75%;
-	}
-	@media(max-width: 375px) {
-		font-size:66.7%;
-	}
+p,
+time {
+  font-size: 125%;
+  @media (max-width: 932px) and (min-width: 658px) {
+    font-size: 100%;
+  }
+  @media (max-width: 657px) and (min-width: 376px) {
+    font-size: 75%;
+  }
+  @media (max-width: 375px) {
+    font-size: 66.7%;
+  }
 }
-
 
 aside {
-	grid-area: mail;
+  grid-area: mail;
 }
 .mailIcon {
-	transition:0.3s;
-	position:relative;
-	margin:auto;
-	font-size:400%;
-	width:1em;
-	@media(max-width: 932px) and (min-width: 658px) {
-		font-size: 300%;
-	}
-	@media(max-width: 657px) {
-		font-size:200%;
-	}
+  transition: 0.3s;
+  position: relative;
+  margin: auto;
+  font-size: 400%;
+  width: 1em;
+  @media (max-width: 932px) and (min-width: 658px) {
+    font-size: 300%;
+  }
+  @media (max-width: 657px) {
+    font-size: 200%;
+  }
 }
 
-a, a:visited {
-	grid-area: mail;
-	text-decoration:none;
-	color:var(--headerColor);
-	width:100%;
-	height:100%;
+a,
+a:visited {
+  grid-area: mail;
+  text-decoration: none;
+  color: var(--headerColor);
+  width: 100%;
+  height: 100%;
 }
-a:hover, a:active, a:focus {
-	color:var(--tileAccentColor20);
-	text-shadow: 0px 0px var(--headerColor);
+a:hover,
+a:active,
+a:focus {
+  color: var(--tileAccentColor20);
+  text-shadow: 0px 0px var(--headerColor);
 }
 
 .notificationDot {
-	position:absolute;
-	background:var(--tileAccentColor100);
-	text-align:center;
-	border-radius: 0.5em;
-	min-width:1em;
-	height:1em;
-	font-size:0.438em;
-	top:3%;
-	right:-6%;
-	float:right;
+  position: absolute;
+  background: var(--tileAccentColor100);
+  text-align: center;
+  border-radius: 0.5em;
+  min-width: 1em;
+  height: 1em;
+  font-size: 0.438em;
+  top: 3%;
+  right: -6%;
+  float: right;
 }
 .notificationCounter {
-	color:var(--textColor);
-	position:relative;
-	padding:0em 0.2em 0em 0.2em;
-	bottom:0.2em;
-	font-size:0.8em;
+  color: var(--textColor);
+  position: relative;
+  padding: 0em 0.2em 0em 0.2em;
+  bottom: 0.2em;
+  font-size: 0.8em;
 }
 
 hr {
-	grid-area: bar;
-	transition:0.3s;
-	border-color:var(--tileAccentColor100);
-	width:90%;
-	@media(max-width: 932px) and (min-width: 658px) {
-		width:87.5%;
-	}
-	@media(max-width: 657px) {
-		width:75%;
-	}
+  grid-area: bar;
+  transition: 0.3s;
+  border-color: var(--tileAccentColor100);
+  width: 90%;
+  @media (max-width: 932px) and (min-width: 658px) {
+    width: 87.5%;
+  }
+  @media (max-width: 657px) {
+    width: 75%;
+  }
 }
