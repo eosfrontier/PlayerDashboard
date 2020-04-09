@@ -1,8 +1,8 @@
 <section *ngIf="this.isSpelleider" class="tileGrid">
   <!--
-for each SL app in SLAPPlist
 
-<a [attr.href]="ENV.URL.{{APPLINK}}" target="_blank">
+
+<a *ngFor="let SLAPP of SLAPPlist$" [attr.href]="ENV.URL.{{SLAPP.LINK}}" target="_blank">
 	<div class="border">
 		<div class="flourish"></div>
 		<div class="flourish"></div>
@@ -10,12 +10,12 @@ for each SL app in SLAPPlist
 		<div class="flourish"></div>
 		<section class="linkTile">
 				<figure class="icon">
-					<p id="beta">{{CORNERTAG}}</p>
-					<img src="../../assets/images/{{APPICONNAME}}.png" alt="{{APPICONALTDESCRIPTION}}">
-					<figcaption class="flourishFont">{{APPNAME}}</figcaption>
+					<p id="beta">{{SLAPP.CORNERTAG}}</p>
+					<img src="../../assets/images/{{SLAPP.ICONNAME}}.png" alt="{{SLAPP.ICONALTDESCRIPTION}}">
+					<figcaption class="flourishFont">{{SLAPP.NAME}}</figcaption>
 				</figure>
 				<aside>
-					{{APPDESCRIPTION}}
+					{{SLAPP.DESCRIPTION}}
 				</aside>
 		</section>
 	</div>
