@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "\n\nDouane",
+      "link": "SL_CUSTOMS",
+      "description": "This place allows you to alter character status regarding Faction, Disposition, Threat level, Clearance, and several other things.",
+      "icon": "customs",
+      "iconAlt": "Red Circle with dark green horizontal bar and tan checkmark",
+      "cornertag": "Admin",
+      "showIf": "!this.hasLoggedIn"
+    }
+  ]
+}

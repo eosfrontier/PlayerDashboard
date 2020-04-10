@@ -1,288 +1,53 @@
 <section *ngIf="this.isSpelleider" class="tileGrid">
-  <!--
-
-
-<a *ngFor="let SLAPP of SLAPPlist$" [attr.href]="ENV.URL.{{SLAPP.LINK}}" target="_blank">
-	<div class="border">
-		<div class="flourish"></div>
-		<div class="flourish"></div>
-		<div class="flourish"></div>
-		<div class="flourish"></div>
-		<section class="linkTile">
-				<figure class="icon">
-					<p id="beta">{{SLAPP.CORNERTAG}}</p>
-					<img src="../../assets/images/{{SLAPP.ICONNAME}}.png" alt="{{SLAPP.ICONALTDESCRIPTION}}">
-					<figcaption class="flourishFont">{{SLAPP.NAME}}</figcaption>
-				</figure>
-				<aside>
-					{{SLAPP.DESCRIPTION}}
-				</aside>
-		</section>
-	</div>
-</a>
-
--->
-
-  <a [attr.href]="ENV.URL.SL_CUSTOMS" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/customs.png"
-            alt="Red Circle with dark green horizontal bar and tan checkmark"
-          />
-          <figcaption class="flourishFont">
-            <br />
-            <br />
-            Douane
-          </figcaption>
-        </figure>
-        <aside>
-          This place allows you to alter character status regarding Faction,
-          Disposition, Threat level, Clearance, and several other things.
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_MEDICORUM" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/medicorum.png"
-            alt="Stylish M ACME ACME-cura Medicorum"
-          />
-          <figcaption class="flourishFont">
-            <br />
-            <br />
-            Medicorum
-          </figcaption>
-        </figure>
-        <aside>
-          Here you can hide people / corporations / other things listed in the
-          database from medicorum.
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_BEACON" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/beacon.png"
-            alt="A circle orbited by a smaller circle with the orbit line visible"
-          />
-          <figcaption class="flourishFont">
-            <br />
-            <br />
-            Beacon
-          </figcaption>
-        </figure>
-        <aside>
-          Here you can push buttons to make Beacon do things. Your personal
-          access code is:
-          <br />
-          {{ this.beaconAccess }}
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_AV" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/AttackVector.png"
-            alt="Air Alchemy Symbol and Earth Alchemy Symbol"
-          />
-          <figcaption class="flourishFont">
-            <br />
-            Attack
-            <br />
-            Vector
-          </figcaption>
-        </figure>
-        <aside>
-          Here you can create Attack Vector Missions, and create accounts for
-          players.
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_CIC" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/stratios.png"
-            alt="Bisected Hexagon with vertical bar"
-          />
-          <figcaption class="flourishFont">
-            <br />
-            Mission
-            <br />
-            Board
-          </figcaption>
-        </figure>
-        <aside>
-          You can plan missions here, and do other CIC stuff.
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_SCB" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/bank.png"
-            alt="S C B inside a fortress shape"
-          />
-          <figcaption class="flourishFont">
-            System
-            <br />
-            Central
-            <br />
-            Banks
-          </figcaption>
-        </figure>
-        <aside>
-          Here you can credit players or corporations with sonuren, you can add
-          or remove them, and even transfer.
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_SPACEBOOK" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/spacebook.png"
-            alt="a spacebutterfly holding a circle that says 'Spacebook'"
-          />
-          <figcaption class="flourishFont">
-            <br />
-            <br />
-            Spacebook
-          </figcaption>
-        </figure>
-        <aside>
-          Here you will see a list of all players, and their face.
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_NAMEGEN" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/frontierEosNameGenerator.png"
-            alt="The letters f E N G in a blue hexagon"
-          />
-          <p class="flourishFont" id="ExtraWord">frontier</p>
-          <figcaption class="flourishFont">
-            Eos
-            <br />
-            Name
-            <br />
-            Generator
-          </figcaption>
-        </figure>
-        <aside>
-          You can generate any faction name here.
-        </aside>
-      </section>
-    </div>
-  </a>
-
-  <a [attr.href]="ENV.URL.SL_MAP" target="_blank">
-    <div class="border">
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-      <div class="flourish"></div>
-
-      <section class="linkTile">
-        <figure class="icon">
-          <p id="beta">Admin</p>
-          <img
-            src="../../assets/images/map.png"
-            alt="Three orange yellow four pointed stars"
-          />
-          <figcaption class="flourishFont">
-            <br />
-            <br />
-            Starmap
-          </figcaption>
-        </figure>
-        <aside>
-          You can alter the description of planets here, and see where they are
-          located.
-        </aside>
-      </section>
-    </div>
-  </a>
+  <ng-container *ngFor="let SLAPP of SLAPPLIST">
+    <a [attr.href]="SLAPP.link" target="_blank">
+      <div class="border">
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <section class="linkTile">
+          <figure class="icon">
+            <p id="beta">{{ SLAPP.cornertag }}</p>
+            <img
+              src="../../assets/images/{{ SLAPP.icon }}.png"
+              alt="{{ SLAPP.iconAlt }}"
+            />
+            <figcaption class="flourishFont">{{ SLAPP.name }}</figcaption>
+          </figure>
+          <aside>
+            {{ SLAPP.description }}
+          </aside>
+        </section>
+      </div>
+    </a>
+  </ng-container>
 </section>
 <hr *ngIf="this.isSpelleider" />
 <main class="tileGrid">
+  <ng-container *ngFor="let APP of APPLIST">
+    <a [attr.href]="APP.link" [ngIf]="[APP.showIf]">
+      <div class="border">
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <section class="linkTile">
+          <figure class="icon">
+            <p id="beta">{{ APP.cornertag }}</p>
+            <img
+              src="../../assets/images/{{ APP.icon }}.png"
+              alt="{{ APP.iconAlt }}"
+            />
+            <figcaption class="flourishFont">{{ APP.name }}</figcaption>
+          </figure>
+          <aside>
+            {{ APP.description }}
+          </aside>
+        </section>
+      </div>
+    </a>
+  </ng-container>
   <a [attr.href]="ENV.URL.LOGIN" *ngIf="!this.hasLoggedIn">
     <div class="border">
       <div class="flourish"></div>

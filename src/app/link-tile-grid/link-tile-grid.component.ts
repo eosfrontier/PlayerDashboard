@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
+import spelerApps from '../../assets/apps/playerAppsList.json';
+import spelleiderApps from '../../assets/apps/spelleiderAppsList.json';
 import AITJson from '../../assets/specialAccessLists/AITAccess.json';
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json';
 import CORPJson from '../../assets/specialAccessLists/CORPAccess.json';
@@ -21,6 +23,8 @@ export class LinkTileGridComponent implements OnInit {
   corpAccess = CORPJson.corporateAccess
   aitAccess = AITJson.armoryInventoryTrackingAccess
   customsAccess = DouaneJson.doauneAccess
+  SLAPPLIST = spelleiderApps.apps
+  APPLIST = spelerApps.apps
   beaconAccess: string = '3 4 4 7 1'
   researchUnlocked: boolean = false
   skillIndex: any
@@ -45,6 +49,12 @@ export class LinkTileGridComponent implements OnInit {
 
   ngOnInit() {
     this.resolveSession()
+    for (let SLAPP of this.SLAPPLIST) {
+      SLAPP.link = this.ENV.URL[SLAPP.link]
+    }
+    for (let APP of this.APPLIST) {
+      APP.link = this.ENV.URL[APP.link]
+    }
   }
 
   async resolveSession() {
