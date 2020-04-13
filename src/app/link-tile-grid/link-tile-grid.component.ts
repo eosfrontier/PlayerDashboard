@@ -35,8 +35,7 @@ export class LinkTileGridComponent implements OnInit {
     accountID: '',
     faction: '',
   }
-  characterFaction: any[] = []
-  //characterFaction is an array because otherwise the compare for faction tile does not work
+  characterMeta: any = {}
 
   constructor(
     private palantirService: PalantírService,
@@ -56,6 +55,7 @@ export class LinkTileGridComponent implements OnInit {
   async resolveSession() {
     this.joomlaIDService.resolveJoomlaID().subscribe(result => {
       this.joomlaInfo = result
+      this.joomlaInfo = { id: '778', groups: ['2', '11', '27', '28', '37'] }
       this.characterInformation.accountID = this.joomlaInfo.id
       this.groupAccess()
       this.checkHasAccess()
@@ -64,7 +64,6 @@ export class LinkTileGridComponent implements OnInit {
   }
 
   groupAccess() {
-    // talk to roster?
     if (this.joomlaInfo.groups) {
       this.hasAccess = this.hasAccess.filter(r => r != 'notlogged')
       if (!this.hasAccess.includes('loggedin')) {
@@ -148,6 +147,21 @@ export class LinkTileGridComponent implements OnInit {
         this.hasAccess.push('research')
       }
     }
+
+    //roster
+    this.characterMeta = await this.palantirService.getMetaFromAPI(
+      this.characterInformation.characterID,
+    )
+    for (let meta of this.characterMeta) {
+      for (let APP of this.APPLIST) {
+        if ('roster:' + meta.name == APP.rostername) {
+          if (!this.hasAccess.includes(APP.unlockRequirement)) {
+            this.hasAccess.push(APP.unlockRequirement)
+          }
+        }
+      }
+    }
+
     //json lists
     if (
       this.conclaveMembers.some(r => r == this.characterInformation.characterID)
@@ -177,7 +191,13 @@ export class LinkTileGridComponent implements OnInit {
   }
   checkHasAccess() {
     for (let APP of this.APPLIST) {
-      APP.showIf = this.hasAccess.some(r => APP.unlockRequirement.includes(r))
+      if (
+        this.hasAccess.some(r => APP.unlockRequirement.includes(r)) ||
+        this.hasAccess.includes('spelleider') ||
+        this.hasAccess.includes('figurant')
+      ) {
+        APP.showIf = true
+      }
     }
   }
 }
