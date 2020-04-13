@@ -39,9 +39,9 @@
               src="../../assets/images/{{ APP.icon }}.png"
               alt="{{ APP.iconAlt }}"
             />
-            <figcaption class="flourishFont">{{ APP.name }}</figcaption>
+            <figcaption class="flourishFont"><span class="appName">{{ APP.name }}</span></figcaption>
           </figure>
-          <aside>
+          <aside [innerHTML]="APP.description">
             {{ APP.description }}
           </aside>
         </section>

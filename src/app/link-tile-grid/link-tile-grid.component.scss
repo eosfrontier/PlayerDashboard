@@ -20,7 +20,9 @@ figure {
 figcaption {
   color: var(--headerColor);
   font-family: var(--fontFaction);
-  margin-top: -24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   padding: 6px;
   text-align: left;
   font-size: var(--fontFactionSize);
@@ -29,20 +31,6 @@ figcaption {
   }
 }
 
-#ExtraWord {
-  color: var(--headerColor);
-  font-family: var(--fontFaction);
-  margin: 0;
-  padding: 6px;
-  text-align: left;
-  position: absolute;
-  font-size: var(--fontFactionSize);
-  bottom: var(--extraWord);
-  @media only screen and (min-width: 658px) {
-    font-size: var(--fontFactionSizeBig);
-    bottom: var(--extraWordBig);
-  }
-}
 #beta {
   position: absolute;
   color: var(--headerColor);
@@ -52,10 +40,11 @@ figcaption {
   font-size: 0.8em;
 }
 aside {
-  display: none;
-  font-family: var(--fontTiles);
   @media only screen and (min-width: 658px) {
     display: block;
+  }
+  display: none;
+  font-family: var(--fontTiles);
     position: absolute;
     padding: 6px;
     margin: 3px;
@@ -90,6 +79,19 @@ aside {
       }
     }
   }
+a:hover aside, a:active aside, a:focus aside {
+  @media only screen and (max-width: 658px) {
+    display: block;
+    background: linear-gradient(
+      var(--backgroundColor) 0%,
+      var(--backgroundColor) 100%
+    );
+    left:0px;
+  }
+}
+
+.appName {
+  vertical-align:text-bottom;
 }
 
 .tileGrid {
@@ -164,6 +166,7 @@ aside {
   @media only screen and (min-width: 658px) {
     width: 140px;
   }
+  min-height: 184px;
   height: calc(100% - 6px);
   margin: 3px;
   transition: 0.3s;
