@@ -163,7 +163,7 @@ export class LinkTileGridComponent implements OnInit {
       }
     }
 
-    //json lists
+    //json lists LEGACY do not add new ones - and remove if possible
     if (
       this.conclaveMembers.some(r => r == this.characterInformation.characterID)
     ) {
