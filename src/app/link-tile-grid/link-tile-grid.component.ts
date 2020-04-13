@@ -56,9 +56,11 @@ export class LinkTileGridComponent implements OnInit {
     this.joomlaIDService.resolveJoomlaID().subscribe(result => {
       this.joomlaInfo = result
       this.characterInformation.accountID = this.joomlaInfo.id
-      this.groupAccess()
+      if (this.joomlaInfo.id) {
+        this.groupAccess()
+        this.characterAccess()
+      }
       this.checkHasAccess()
-      this.characterAccess()
     })
   }
 
