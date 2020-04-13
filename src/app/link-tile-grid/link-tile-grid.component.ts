@@ -65,7 +65,7 @@ export class LinkTileGridComponent implements OnInit {
 
   groupAccess() {
     // talk to roster?
-    if (this.joomlaInfo.groups.length > 0) {
+    if (this.joomlaInfo.groups) {
       this.hasAccess = this.hasAccess.filter(r => r != 'notlogged')
       if (!this.hasAccess.includes('loggedin')) {
         this.hasAccess.push('loggedin')
