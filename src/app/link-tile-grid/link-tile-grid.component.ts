@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
+import spelerApps from '../../assets/apps/playerAppsList.json';
+import spelleiderApps from '../../assets/apps/spelleiderAppsList.json';
 import AITJson from '../../assets/specialAccessLists/AITAccess.json';
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json';
 import CORPJson from '../../assets/specialAccessLists/CORPAccess.json';
@@ -21,11 +23,12 @@ export class LinkTileGridComponent implements OnInit {
   corpAccess = CORPJson.corporateAccess
   aitAccess = AITJson.armoryInventoryTrackingAccess
   customsAccess = DouaneJson.doauneAccess
+  SLAPPLIST = spelleiderApps.apps
+  APPLIST = spelerApps.apps
   beaconAccess: string = '3 4 4 7 1'
-  researchUnlocked: boolean = false
+  hasAccess: any[] = ['everyone', 'notlogged']
   skillIndex: any
-  skillBooleanIndex: any[] = []
-  joomlaInfo: any = { id: '', groups: '' }
+  joomlaInfo: any = { id: '', groups: [] }
   characterInformation: any = {
     characterID: '',
     ICC_number: '',
@@ -34,9 +37,6 @@ export class LinkTileGridComponent implements OnInit {
   }
   characterFaction: any[] = []
   //characterFaction is an array because otherwise the compare for faction tile does not work
-  isSpelleider: boolean
-  isFigurant: boolean
-  hasLoggedIn: boolean = false
 
   constructor(
     private palantirService: PalantírService,
@@ -45,49 +45,139 @@ export class LinkTileGridComponent implements OnInit {
 
   ngOnInit() {
     this.resolveSession()
+    for (let SLAPP of this.SLAPPLIST) {
+      SLAPP.link = this.ENV.URL[SLAPP.link]
+    }
+    for (let APP of this.APPLIST) {
+      APP.link = this.ENV.URL[APP.link]
+    }
   }
 
   async resolveSession() {
     this.joomlaIDService.resolveJoomlaID().subscribe(result => {
       this.joomlaInfo = result
-      this.identifyUser()
+      this.characterInformation.accountID = this.joomlaInfo.id
+      this.groupAccess()
+      this.checkHasAccess()
+      this.characterAccess()
     })
   }
 
-  identifyUser() {
-    if (this.joomlaInfo.groups) {
+  groupAccess() {
+    // talk to roster?
+    if (this.joomlaInfo.groups.length > 0) {
+      this.hasAccess = this.hasAccess.filter(r => r != 'notlogged')
+      if (!this.hasAccess.includes('loggedin')) {
+        this.hasAccess.push('loggedin')
+      }
+      // special groups
       if (
         this.joomlaInfo.groups.includes('30') ||
         this.joomlaInfo.groups.includes('8')
       ) {
-        this.isSpelleider = true
-        this.hasLoggedIn = true
+        if (!this.hasAccess.includes('spelleider')) {
+          this.hasAccess.push('spelleider')
+        }
       }
       if (this.joomlaInfo.groups.includes('31')) {
-        this.isFigurant = true
-        this.hasLoggedIn = true
+        if (!this.hasAccess.includes('figurant')) {
+          this.hasAccess.push('figurant')
+        }
+      }
+      // game groups
+      if (this.joomlaInfo.groups.includes('42')) {
+        if (!this.hasAccess.includes('cic')) {
+          this.hasAccess.push('cic')
+        }
+      }
+      if (this.joomlaInfo.groups.includes('24')) {
+        if (!this.hasAccess.includes('conclave')) {
+          this.hasAccess.push('conclave')
+        }
+      }
+      if (this.joomlaInfo.groups.includes('35')) {
+        if (!this.hasAccess.includes('diplomat')) {
+          this.hasAccess.push('diplomat')
+        }
+      }
+      if (this.joomlaInfo.groups.includes('27')) {
+        if (!this.hasAccess.includes('firstaid' || 'surgery')) {
+          this.hasAccess.push('firstaid', 'surgery')
+        }
+      }
+      if (this.joomlaInfo.groups.includes('37')) {
+        if (!this.hasAccess.includes('doaune')) {
+          this.hasAccess.push('doaune')
+        }
+      }
+      if (this.joomlaInfo.groups.includes('26')) {
+        if (!this.hasAccess.includes('engi' || 'chem')) {
+          this.hasAccess.push('engi', 'chem')
+        }
+      }
+      if (this.joomlaInfo.groups.includes('28')) {
+        if (!this.hasAccess.includes('it')) {
+          this.hasAccess.push('it')
+        }
+      }
+      if (this.joomlaInfo.groups.includes('33')) {
+        if (!this.hasAccess.includes('research')) {
+          this.hasAccess.push('research')
+        }
       }
     }
-    if (this.joomlaInfo.id && !(this.isSpelleider && this.isFigurant)) {
-      this.characterInformation.accountID = this.joomlaInfo.id
-      this.hasLoggedIn = true
-    }
-    this.skillFilter()
   }
 
-  async skillFilter() {
+  async characterAccess() {
     this.characterInformation = await this.palantirService.getPersonFromAPI(
       this.characterInformation.accountID,
     )
-    this.characterFaction.push(this.characterInformation.faction)
+    if (!this.hasAccess.includes(this.characterInformation.faction)) {
+      this.hasAccess.push(this.characterInformation.faction)
+    }
     this.skillIndex = await this.palantirService.getSkillsFromAPI(
       this.characterInformation.characterID,
     )
     for (let skill of this.skillIndex) {
-      this.skillBooleanIndex.push(skill.name)
+      if (!this.hasAccess.includes(skill.name)) {
+        this.hasAccess.push(skill.name)
+      }
     }
-    this.researchUnlocked = this.skillBooleanIndex.some(r =>
-      this.researchSkillList.includes(r),
-    )
+    if (this.hasAccess.some(r => this.researchSkillList.includes(r))) {
+      if (!this.hasAccess.includes('research')) {
+        this.hasAccess.push('research')
+      }
+    }
+    //json lists
+    if (
+      this.conclaveMembers.some(r => r == this.characterInformation.characterID)
+    ) {
+      if (!this.hasAccess.includes('conclave')) {
+        this.hasAccess.push('conclave')
+      }
+    }
+    if (this.corpAccess.some(r => r == this.characterInformation.characterID)) {
+      if (!this.hasAccess.includes('corporation')) {
+        this.hasAccess.push('corporation')
+      }
+    }
+    if (this.aitAccess.some(r => r == this.characterInformation.characterID)) {
+      if (!this.hasAccess.includes('armory')) {
+        this.hasAccess.push('armory')
+      }
+    }
+    if (
+      this.customsAccess.some(r => r == this.characterInformation.characterID)
+    ) {
+      if (!this.hasAccess.includes('doaune')) {
+        this.hasAccess.push('doaune')
+      }
+    }
+    this.checkHasAccess()
+  }
+  checkHasAccess() {
+    for (let APP of this.APPLIST) {
+      APP.showIf = this.hasAccess.some(r => APP.unlockRequirement.includes(r))
+    }
   }
 }

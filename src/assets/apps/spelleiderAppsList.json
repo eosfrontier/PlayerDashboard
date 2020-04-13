@@ -1,0 +1,84 @@
+{
+  "apps": [
+    {
+      "name": "\n\nDouane",
+      "link": "SL_CUSTOMS",
+      "description": "This place allows you to alter character status regarding Faction, Disposition, Threat level, Clearance, and several other things.",
+      "icon": "customs",
+      "iconAlt": "Red Circle with dark green horizontal bar and tan checkmark",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\n\nMedicorum",
+      "link": "SL_MEDICORUM",
+      "description": "Here you can hide people / corporations / other things listed in the database from medicorum.",
+      "icon": "medicorum",
+      "iconAlt": "Stylish M ACME ACME-cura Medicorum",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\n\nBeacon",
+      "link": "SL_BEACON",
+      "description": "Here you can push buttons to make Beacon do things. Your personal access code is:\n",
+      "icon": "beacon",
+      "iconAlt": "A circle orbited by a smaller circle with the orbit line visible",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\nAttack\nVector",
+      "link": "SL_AV",
+      "description": "Here you can create Attack Vector Missions, and create accounts for players.",
+      "icon": "AttackVector",
+      "iconAlt": "Air Alchemy Symbol and Earth Alchemy Symbol",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\nMission\nBoard",
+      "link": "SL_CIC",
+      "description": "You can plan missions here, and do other CIC stuff.",
+      "icon": "stratios",
+      "iconAlt": "Bisected Hexagon with vertical bar",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "System\nCentral\nBank",
+      "link": "SL_SCB",
+      "description": "Here you can credit players or corporations with sonuren, you can add or remove them, and even transfer.",
+      "icon": "bank",
+      "iconAlt": "S C B inside a fortress shape",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\n\nSpacebook",
+      "link": "SL_SPACEBOOK",
+      "description": "Here you will see a list of all players, and their face.",
+      "icon": "spacebook",
+      "iconAlt": "a spacebutterfly holding a circle that says 'Spacebook'",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\nPeople\nRoster",
+      "link": "ROSTER",
+      "description": "player created rosters of players with spesific jobs or skill types",
+      "icon": "peopleRoster",
+      "iconAlt": "Stylish PR ACME ACME-tech People Roster",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\nName\nGenerator",
+      "link": "SL_NAMEGEN",
+      "description": "You can generate any faction name here.",
+      "icon": "frontierEosNameGenerator",
+      "iconAlt": "The letters f E N G in a blue hexagon",
+      "cornertag": "Admin"
+    },
+    {
+      "name": "\n\nStarmap",
+      "link": "SL_CUSTOMS",
+      "description": "You can alter the description of planets here, and see where they are located.",
+      "icon": "map",
+      "iconAlt": "Three orange yellow four pointed stars",
+      "cornertag": "Admin"
+    }
+  ]
+}
