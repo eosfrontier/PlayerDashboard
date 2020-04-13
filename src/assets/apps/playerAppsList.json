@@ -1,13 +1,224 @@
 {
-  "apps": [
-    {
-      "name": "\n\nDouane",
-      "link": "SL_CUSTOMS",
-      "description": "This place allows you to alter character status regarding Faction, Disposition, Threat level, Clearance, and several other things.",
-      "icon": "customs",
-      "iconAlt": "Red Circle with dark green horizontal bar and tan checkmark",
-      "cornertag": "Admin",
-      "showIf": "!this.hasLoggedIn"
-    }
-  ]
+	"apps": [{
+			"link": "LOGIN",
+			"unlockRequirement": "hasLoggedIn",
+			"cornertag": "",
+			"icon": "CustomDashboard",
+			"iconAlt": "A hexagon made out of simplified keys with a wifi symbol in the center",
+			"name": "Enable\nPersonalized\nDashboard",
+			"description": "To enable your personalized dashboard, please log in here.\nIf you already have, the system can't identify you.",
+			"showIf": "true"
+		},
+		{
+			"link": "AV",
+			"unlockRequirement": [
+				"isSpelleider",
+				"isFigurant",
+				"hasSkill_it"
+			],
+			"cornertag": "",
+			"icon": "AttackVector",
+			"iconAlt": "Air Alchemy Symbol and Earth Alchemy Symbol",
+			"name": "\nAttack\nVector",
+			"description": "A specialized environment running in Verdant OS.\nAllowing for extracurricular network activities.",
+			"showIf": "true"
+		},
+		{
+			"link": "BIC",
+			"unlockRequirement": "hasLoggedIn",
+			"cornertag": "",
+			"icon": "bic",
+			"iconAlt": "B i C",
+			"name": "Bastion\nInformation\nCenter",
+			"description": "A wealth of information about the Bastion, for the colonists, maintained by the colonists.",
+			"showIf": "true"
+		},
+		{
+			"link": "BMS",
+			"target": "_blank",
+			"unlockRequirement": [
+				"isSpelleider",
+				"isFigurant",
+				"hasSkill_engi",
+				"hasSkill_chem"
+			],
+			"cornerTag": "&#x3b2;eta",
+			"cornertag": "",
+			"icon": "maintenance",
+			"iconAlt": "Orange fist holding a spanner",
+			"name": "Bastion\nMaintenance\nStatus",
+			"description": "The status of critical physical systems tasks can be viewed and updated here.",
+			"showIf": "true"
+		},
+		{
+			"link": "BEACON",
+			"cornertag": "",
+			"icon": "beacon",
+			"iconAlt": "A circle orbited by a smaller circle with the orbit line visible",
+			"name": "\n\nBeacon",
+			"description": "The interfactional service for displaying & propagating information to the entire base, colony or ship.",
+			"showIf": "true"
+		},
+		{
+			"link": "BET",
+			"target": "_blank",
+			"cornertag": "",
+			"icon": "bestellijst",
+			"iconAlt": "A purple paper with red dotted a list",
+			"name": "Bastion\nEos\nTransfer",
+			"description": "All regulated goods can be ordered, and will be shipped usually within a day.",
+			"showIf": "true"
+		},
+		{
+			"link": "BSE",
+			"target": "_blank",
+			"unlockRequirement": [
+				"isSpelleider",
+				"isFigurant",
+				"hasAccess_conclave"
+			],
+
+			"cornertag": "",
+			"icon": "invoice",
+			"iconAlt": "A purple paper with red items and a green checkmark",
+			"name": "Budget\nSpending\nEos",
+			"description": "As Conclave member you can asign your budget sonuren through this application.",
+			"showIf": "true"
+		},
+		{
+			"link": "CIC",
+			"cornertag": "",
+			"icon": "stratios",
+			"iconAlt": "Bisected Hexagon with vertical bar",
+			"name": "\nMission\nBoard",
+			"description": "You can view planned missions here. Users with elevated rights can use this to plan missions.",
+			"showIf": "true"
+		},
+		{
+			"link": "CORP",
+			"target": "_blank",
+			"unlockRequirement": [
+				"isSpelleider",
+				"isFigurant",
+				"isFaction_sona",
+				"hasAccess_corporation"
+			],
+
+			"cornerTag": "&#x3b2;eta",
+			"cornertag": "",
+			"icon": "corp",
+			"iconAlt": "C O R P",
+			"name": "Company\nOrganizational\nResource\nPlanner",
+			"description": "CORP allows you to maintain company assets and allocation ofresources.",
+			"showIf": "true"
+		},
+		{
+			"link": "CUSTOMS",
+			"unlockRequirement": [
+				"isSpelleider",
+				"isFigurant",
+				"hasAccess_douane",
+				"hasSkill_doaune"
+			],
+
+			"cornertag": "",
+			"icon": "customs",
+			"iconAlt": "Red Circle with dark green horizontal bar and tan checkmark",
+			"name": "\n\nDouane",
+			"description": "Customs officers can use this connection to ICC Old Space to check persons and goods.",
+			"showIf": "true"
+		},
+		{
+			"link": "AIT",
+			"unlockRequirement": [
+				"isSpelleider",
+				"isFigurant",
+				"hasAccess_armory"
+			],
+
+			"cornertag": "",
+			"icon": "ait",
+			"iconAlt": "Two Futuristic guns infront of yellow/orange shield",
+			"name": "Armory\nInventory\nTracker",
+			"description": "The logistics management for the armory, tracking weapons, munitions, protective vests, and other combat related gear.",
+			"showIf": "true"
+		},
+		{
+			"link": "ROSTER",
+			"unlockRequirement": "hasLoggedIn",
+			"cornertag": "",
+			"icon": "peopleRoster",
+			"iconAlt": "Stylish PR ACME ACME-tech People Roster",
+			"name": "\nPeople\nRoster",
+			"description": "Made possible by ACME-Tech,\nmaking your job as painless as possible.\n<small>ACME-Tech is part of the ACME-group</small>",
+			"showIf": "true"
+		},
+		{
+			"link": "MEDICORUM",
+			"unlockRequirement": [
+				"isSpelleider",
+				"isFigurant",
+				"hasSkill_surgery",
+				"hasSkill_firstaid"
+			],
+			"cornertag": "",
+			"icon": "medicorum",
+			"iconAlt": "Stylish M ACME ACME-cura Medicorum",
+			"name": "\n\nMedicorum",
+			"description": "Made possible by ACME-Cura,\nwhere healthcare meets the future.\n<small>ACME-Cura is part of the ACME-group</small>",
+			"showIf": "true"
+		},
+		{
+			"link": "SURGERY",
+			"target": "_blank",
+			"unlockRequirement": [
+        "isSpelleider",
+        "isFigurant",
+        "hasSkill_surgery",
+        "hasSkill_firstaid"
+      ],
+			"cornerTag": "&#x3b2;eta",
+			"cornertag": "",
+			"icon": "med-roller",
+			"iconAlt": "Green plus and red heart with heart monitor pulse",
+			"name": "\nSurgical\nSystem",
+			"description": "The tool to use for surgeons to ensure the medical tools are set to their proper requirements for the surgical procedure.",
+			"showIf": "true"
+		},
+		{
+			"link": "SCB",
+			"cornertag": "",
+			"icon": "bank",
+			"iconAlt": "S C B inside a fortress shape",
+			"name": "System\nCentral\nBanks",
+			"description": "All your banking needs are supplied by the SCB.",
+			"showIf": "true"
+		},
+		{
+			"link": "RESEARCH",
+			"target": "_blank",
+			"unlockRequirement": [
+        "isSpelleider",
+        "isFigurant",
+        "researchUnlocked"
+      ],
+			"cornerTag": "&#x3b2;eta",
+			"cornertag": "",
+			"icon": "research",
+			"iconAlt": "Three stacked books with a bookmark in the middle one",
+			"name": "\nResearch\nSystem",
+			"description": "You can access the research system here.",
+			"showIf": "true"
+		},
+		{
+			"link": "MAP",
+			"unlockRequirement": "hasLoggedIn",
+			"cornertag": "",
+			"icon": "map",
+			"iconAlt": "Three orange yellow four pointed stars",
+			"name": "\n\nStarmap",
+			"description": "You will never get lost in space with this useful chart!",
+			"showIf": "true"
+		}
+	]
 }
