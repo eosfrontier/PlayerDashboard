@@ -55,7 +55,6 @@ export class LinkTileGridComponent implements OnInit {
   async resolveSession() {
     this.joomlaIDService.resolveJoomlaID().subscribe(result => {
       this.joomlaInfo = result
-      this.joomlaInfo = { id: '778', groups: ['2', '11', '27', '28', '37'] }
       this.characterInformation.accountID = this.joomlaInfo.id
       this.groupAccess()
       this.checkHasAccess()
