@@ -1,4 +1,4 @@
-<section *ngIf="this.isSpelleider" class="tileGrid">
+<section *ngIf="this.hasAccess.includes('spelleider')" class="tileGrid">
   <ng-container *ngFor="let SLAPP of SLAPPLIST">
     <a [attr.href]="SLAPP.link" target="_blank">
       <div class="border">
@@ -23,7 +23,7 @@
     </a>
   </ng-container>
 </section>
-<hr *ngIf="this.isSpelleider" />
+<hr *ngIf="this.hasAccess.includes('spelleider')" />
 <main class="tileGrid">
   <ng-container *ngFor="let APP of APPLIST">
     <a [attr.href]="APP.link" target="APP.target" *ngIf="APP.showIf">
@@ -39,7 +39,9 @@
               src="../../assets/images/{{ APP.icon }}.png"
               alt="{{ APP.iconAlt }}"
             />
-            <figcaption class="flourishFont"><span class="appName">{{ APP.name }}</span></figcaption>
+            <figcaption class="flourishFont">
+              <span class="appName">{{ APP.name }}</span>
+            </figcaption>
           </figure>
           <aside [innerHTML]="APP.description">
             {{ APP.description }}

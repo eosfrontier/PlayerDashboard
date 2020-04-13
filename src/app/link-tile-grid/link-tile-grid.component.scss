@@ -45,53 +45,55 @@ aside {
   }
   display: none;
   font-family: var(--fontTiles);
+  position: absolute;
+  padding: 6px;
+  margin: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--tileAccentColor10) 0%,
+    var(--invisibleColor) 50%,
+    var(--invisibleColor) 100%
+  );
+  top: 0;
+  left: 150px;
+  width: auto;
+  min-width: 110px;
+  height: calc(100% - 18px);
+  color: var(--textColor);
+  &:before {
+    content: '';
+    height: calc(100% - 6px);
+    width: 2px;
     position: absolute;
-    padding: 6px;
-    margin: 3px;
-    background: linear-gradient(
-      90deg,
-      var(--tileAccentColor10) 0%,
-      var(--invisibleColor) 50%,
-      var(--invisibleColor) 100%
-    );
-    top: 0;
-    left: 150px;
-    width: auto;
-    min-width: 110px;
-    height: calc(100% - 18px);
-    color: var(--textColor);
-    &:before {
-      content: '';
-      height: calc(100% - 6px);
-      width: 2px;
-      position: absolute;
-      top: 3px;
-      left: -6px;
-      background: var(--tileAccentColor10);
-      transition: 0.3s;
-    }
+    top: 3px;
+    left: -6px;
+    background: var(--tileAccentColor10);
+    transition: 0.3s;
+  }
 
-    &:hover,
-    &:active,
-    &:focus {
-      &:after {
-        background: var(--tileAccentColor20);
-      }
+  &:hover,
+  &:active,
+  &:focus {
+    &:after {
+      background: var(--tileAccentColor20);
     }
   }
-a:hover aside, a:active aside, a:focus aside {
+}
+a:hover aside,
+a:active aside,
+a:focus aside {
   @media only screen and (max-width: 658px) {
     display: block;
     background: linear-gradient(
       var(--backgroundColor) 0%,
       var(--backgroundColor) 100%
     );
-    left:0px;
+    left: 0px;
   }
 }
 
 .appName {
-  vertical-align:text-bottom;
+  vertical-align: text-bottom;
 }
 
 .tileGrid {
