@@ -36,7 +36,7 @@ export class LinkTileGridComponent implements OnInit {
     faction: '',
   }
   characterMeta: any = {}
-  
+
   constructor(
     private palantirService: PalantírService,
     private joomlaIDService: JoomlaIDService,
@@ -155,9 +155,9 @@ export class LinkTileGridComponent implements OnInit {
     )
     for (let meta of this.characterMeta) {
       for (let APP of this.APPLIST) {
-        if ('roster:' + meta.name == APP.rostername) {
-          if (!this.hasAccess.includes(APP.unlockRequirement)) {
-            this.hasAccess.push(APP.unlockRequirement)
+        if (meta.name == 'roster:' + APP.rostername) {
+          if (!this.hasAccess.includes(APP.unlockRequirement[0])) {
+            this.hasAccess.push(APP.unlockRequirement[0])
           }
         }
       }
