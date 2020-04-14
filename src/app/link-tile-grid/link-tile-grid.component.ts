@@ -36,7 +36,7 @@ export class LinkTileGridComponent implements OnInit {
     faction: '',
   }
   characterMeta: any = {}
-
+  
   constructor(
     private palantirService: PalantírService,
     private joomlaIDService: JoomlaIDService,
