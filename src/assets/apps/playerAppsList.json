@@ -76,9 +76,9 @@
       "icon": "invoice",
       "iconAlt": "A purple paper with red items and a green checkmark",
       "name": "Budget\nSpending\nEos",
-      "description": "As Conclave member you can asign your budget sonuren through this application.",
+      "description": "As conclave member or assistant you can asign budget sonuren through this application.",
       "showIf": false,
-      "rostername": ""
+      "rostername": "conclave_portfolio"
     },
     {
       "link": "CIC",
@@ -101,7 +101,7 @@
       "name": "Company\nOrganizational\nResource\nPlanner",
       "description": "CORP allows you to maintain company assets and allocation ofresources.",
       "showIf": false,
-      "rostername": ""
+      "rostername": "company_name"
     },
     {
       "link": "CUSTOMS",
