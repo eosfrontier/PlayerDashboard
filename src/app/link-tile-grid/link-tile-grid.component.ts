@@ -31,7 +31,6 @@ export class LinkTileGridComponent implements OnInit {
   joomlaInfo: any = { id: '', groups: [] }
   characterInformation: any = {
     characterID: '',
-    ICC_number: '',
     accountID: '',
     faction: '',
   }
@@ -126,18 +125,32 @@ export class LinkTileGridComponent implements OnInit {
         }
       }
     }
+    this.checkHasAccess()
   }
 
   async characterAccess() {
-    this.characterInformation = await this.palantirService.getPersonFromAPI(
-      this.characterInformation.accountID,
-    )
+    try {
+      this.characterInformation = await this.palantirService.getPersonFromAPI(
+        this.characterInformation.accountID,
+      )
+    } catch {
+      this.characterInformation = {
+        characterID: '0',
+        faction: 'notlogged',
+      }
+    } finally {
+    }
     if (!this.hasAccess.includes(this.characterInformation.faction)) {
       this.hasAccess.push(this.characterInformation.faction)
     }
-    this.skillIndex = await this.palantirService.getSkillsFromAPI(
-      this.characterInformation.characterID,
-    )
+    try {
+      this.skillIndex = await this.palantirService.getSkillsFromAPI(
+        this.characterInformation.characterID,
+      )
+    } catch {
+      this.skillIndex = []
+    } finally {
+    }
     for (let skill of this.skillIndex) {
       if (!this.hasAccess.includes(skill.name)) {
         this.hasAccess.push(skill.name)
@@ -148,11 +161,16 @@ export class LinkTileGridComponent implements OnInit {
         this.hasAccess.push('research')
       }
     }
-
+    this.checkHasAccess()
     //roster
-    this.characterMeta = await this.palantirService.getMetaFromAPI(
-      this.characterInformation.characterID,
-    )
+    try {
+      this.characterMeta = await this.palantirService.getMetaFromAPI(
+        this.characterInformation.characterID,
+      )
+    } catch {
+      this.characterMeta = []
+    } finally {
+    }
     for (let meta of this.characterMeta) {
       for (let APP of this.APPLIST) {
         if (meta.name == 'roster:' + APP.rostername) {
@@ -162,6 +180,7 @@ export class LinkTileGridComponent implements OnInit {
         }
       }
     }
+    this.checkHasAccess()
 
     //json lists LEGACY do not add new ones - and remove if possible
     if (

@@ -29,7 +29,7 @@ export class PalantírService {
           resolve(skills)
         },
         error => {
-          reject(error)
+          //reject(error)
         },
       )
     })
@@ -47,7 +47,7 @@ export class PalantírService {
           resolve(person)
         },
         error => {
-          reject(error)
+          //reject(error)
         },
       )
     })
@@ -64,7 +64,7 @@ export class PalantírService {
           resolve(meta)
         },
         error => {
-          reject(error)
+          //reject(error)
         },
       )
     })

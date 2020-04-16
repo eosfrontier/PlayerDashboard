@@ -67,9 +67,16 @@ export class PersonalBannerComponent implements OnInit {
 
   identifyUser() {
     if (this.joomlaInfo.groups) {
-      if (this.joomlaInfo.groups.includes('30')) {
+      if (this.joomlaInfo.groups.includes('30' || '8')) {
+        let typeUser: string = ''
+        if (this.joomlaInfo.groups.includes('30')) {
+          typeUser = 'Spelleider'
+        }
+        if (this.joomlaInfo.groups.includes('8')) {
+          typeUser = 'Super User'
+        }
         this.idSpelleider =
-          ' Spelleider ' +
+          typeUser +
           this.characterInformation.oc_name +
           '. The dashboard has been adjusted to also contain OC links to admin pages and spelleider resources.'
       }

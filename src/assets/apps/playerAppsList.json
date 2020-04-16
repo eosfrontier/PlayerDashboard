@@ -138,26 +138,26 @@
     },
     {
       "link": "MEDICORUM",
-      "unlockRequirement": ["surgery", "firstaid"],
+      "unlockRequirement": ["medical", "surgery", "firstaid"],
       "cornertag": "",
       "icon": "medicorum",
       "iconAlt": "Stylish M ACME ACME-cura Medicorum",
       "name": "\n\nMedicorum",
       "description": "Made possible by ACME-Cura,\nwhere healthcare meets the future.\n<small>ACME-Cura is part of the ACME-group</small>",
       "showIf": false,
-      "rostername": ""
+      "rostername": "medical_title"
     },
     {
       "link": "SURGERY",
       "target": "_blank",
-      "unlockRequirement": ["surgery", "firstaid"],
+      "unlockRequirement": ["medical", "surgery", "firstaid"],
       "cornertag": "βeta",
       "icon": "med-roller",
       "iconAlt": "Green plus and red heart with heart monitor pulse",
       "name": "\nSurgical\nSystem",
       "description": "The tool to use for surgeons to ensure the medical tools are set to their proper requirements for the surgical procedure.",
       "showIf": false,
-      "rostername": ""
+      "rostername": "medical_title"
     },
     {
       "link": "SCB",
