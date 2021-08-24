@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core'
+import { environment } from 'src/environments/environment'
 
-import spelerApps from '../../assets/apps/playerAppsList.json';
-import spelleiderApps from '../../assets/apps/spelleiderAppsList.json';
-import AITJson from '../../assets/specialAccessLists/AITAccess.json';
-import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json';
-import CORPJson from '../../assets/specialAccessLists/CORPAccess.json';
-import DouaneJson from '../../assets/specialAccessLists/DouaneAccess.json';
-import researchJson from '../../assets/specialAccessLists/researchSkills.json';
-import { JoomlaIDService } from '../joomla-id.service';
-import { PalantírService } from '../palantír.service';
+import spelerApps from '../../assets/apps/playerAppsList.json'
+import spelleiderApps from '../../assets/apps/spelleiderAppsList.json'
+import AITJson from '../../assets/specialAccessLists/AITAccess.json'
+import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json'
+import CORPJson from '../../assets/specialAccessLists/CORPAccess.json'
+import DouaneJson from '../../assets/specialAccessLists/DouaneAccess.json'
+import researchJson from '../../assets/specialAccessLists/researchSkills.json'
+import { JoomlaIDService } from '../joomla-id.service'
+import { PalantírService } from '../palantír.service'
 
 @Component({
   selector: 'app-link-tile-grid',
@@ -52,7 +52,7 @@ export class LinkTileGridComponent implements OnInit {
   }
 
   async resolveSession() {
-    this.joomlaIDService.resolveJoomlaID().subscribe(result => {
+    this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
       this.joomlaInfo = result
       this.characterInformation.accountID = this.joomlaInfo.id
       if (this.joomlaInfo.id) {
@@ -65,7 +65,7 @@ export class LinkTileGridComponent implements OnInit {
 
   groupAccess() {
     if (this.joomlaInfo.groups) {
-      this.hasAccess = this.hasAccess.filter(r => r != 'notlogged')
+      this.hasAccess = this.hasAccess.filter((r) => r != 'notlogged')
       if (!this.hasAccess.includes('loggedin')) {
         this.hasAccess.push('loggedin')
       }
@@ -156,7 +156,7 @@ export class LinkTileGridComponent implements OnInit {
         this.hasAccess.push(skill.name)
       }
     }
-    if (this.hasAccess.some(r => this.researchSkillList.includes(r))) {
+    if (this.hasAccess.some((r) => this.researchSkillList.includes(r))) {
       if (!this.hasAccess.includes('research')) {
         this.hasAccess.push('research')
       }
@@ -184,24 +184,30 @@ export class LinkTileGridComponent implements OnInit {
 
     //json lists LEGACY do not add new ones - and remove if possible
     if (
-      this.conclaveMembers.some(r => r == this.characterInformation.characterID)
+      this.conclaveMembers.some(
+        (r) => r == this.characterInformation.characterID,
+      )
     ) {
       if (!this.hasAccess.includes('conclave')) {
         this.hasAccess.push('conclave')
       }
     }
-    if (this.corpAccess.some(r => r == this.characterInformation.characterID)) {
+    if (
+      this.corpAccess.some((r) => r == this.characterInformation.characterID)
+    ) {
       if (!this.hasAccess.includes('corporation')) {
         this.hasAccess.push('corporation')
       }
     }
-    if (this.aitAccess.some(r => r == this.characterInformation.characterID)) {
+    if (
+      this.aitAccess.some((r) => r == this.characterInformation.characterID)
+    ) {
       if (!this.hasAccess.includes('armory')) {
         this.hasAccess.push('armory')
       }
     }
     if (
-      this.customsAccess.some(r => r == this.characterInformation.characterID)
+      this.customsAccess.some((r) => r == this.characterInformation.characterID)
     ) {
       if (!this.hasAccess.includes('doaune')) {
         this.hasAccess.push('doaune')
@@ -212,7 +218,7 @@ export class LinkTileGridComponent implements OnInit {
   checkHasAccess() {
     for (let APP of this.APPLIST) {
       if (
-        this.hasAccess.some(r => APP.unlockRequirement.includes(r)) ||
+        this.hasAccess.some((r) => APP.unlockRequirement.includes(r)) ||
         this.hasAccess.includes('spelleider') ||
         this.hasAccess.includes('figurant')
       ) {
