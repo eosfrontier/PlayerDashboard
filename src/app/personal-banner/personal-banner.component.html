@@ -1,8 +1,5 @@
 <header onload="startTime()">
-  <time>
-    {{ time | date: 'EE' | uppercase }} {{ this.icDate | uppercase }} -
-    {{ time | date: 'HH:mm' }} ETC
-  </time>
+  <time>{{ this.icDate | uppercase }} - {{ time | date: 'HH:mm' }} ETC</time>
   <img
     src="../../assets/images/bastionRed.png"
     alt="Circle with five circles around it connected by a line adorned with laurels."
