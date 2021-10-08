@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core'
+import { environment } from 'src/environments/environment'
 
-import { JoomlaIDService } from '../joomla-id.service';
-import { PalantírService } from '../palantír.service';
-import { ThemingService } from '../theming.service';
+import { JoomlaIDService } from '../joomla-id.service'
+import { PalantírService } from '../palantír.service'
+import { ThemingService } from '../theming.service'
 
 @Component({
   selector: 'app-personal-banner',
@@ -46,9 +46,11 @@ export class PersonalBannerComponent implements OnInit {
   }
 
   async icTime() {
-    this.palantirService.getEosICTime().subscribe(result => {
+    this.palantirService.getEosICTime().subscribe((result) => {
       this.eosICTime = result
       this.icDate =
+        String(this.eosICTime.iDayName.slice(0, 3)) +
+        ' ' +
         String(this.eosICTime.iDay) +
         ' ' +
         this.eosICTime.iMonthName +
@@ -59,7 +61,7 @@ export class PersonalBannerComponent implements OnInit {
   }
 
   async resolveSession() {
-    this.joomlaIDService.resolveJoomlaID().subscribe(result => {
+    this.joomlaIDService.resolveJoomlaID().subscribe((result) => {
       this.joomlaInfo = result
       this.identifyUser()
     })

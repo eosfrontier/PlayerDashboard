@@ -9,6 +9,14 @@
       "cornertag": "Admin"
     },
     {
+      "name": "\n\nTalon",
+      "link": "SL_TALON",
+      "description": "This app is for Plotball management, to create plot that does not perse require figurants.",
+      "icon": "talon",
+      "iconAlt": "An orgigami bird",
+      "cornertag": "Admin"
+    },
+    {
       "name": "\n\nMedicorum",
       "link": "SL_MEDICORUM",
       "description": "Here you can hide people / corporations / other things listed in the database from medicorum.",

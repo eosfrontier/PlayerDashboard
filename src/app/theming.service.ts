@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,7 @@ export class ThemingService {
       '--extraWord': '3.9em',
       '--extraWordBig': '3.5em',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
-      '--imgFactionFilter': 'none',
+      '--imgFactionFilter': 'sepia(75%) hue-rotate(60deg) contrast(80%)',
       '--bastionFactionFilter': 'grayscale(100%) brightness(359%)',
     },
     aquila: {
@@ -33,13 +33,13 @@ export class ThemingService {
       '--headerColor': '#91A3B0',
       '--backgroundColor': '#343434',
       '--fontFaction': 'Aquila, Roboto, Helvetica, sans-serif',
-      '--fontFactionSize': '49%',
-      '--fontFactionSizeBig': '67.5%',
+      '--fontFactionSize': '0.9em',
+      '--fontFactionSizeBig': '1em',
       '--extraWord': '3.9em',
-      '--extraWordBig': '5.1em',
+      '--extraWordBig': '3.5em',
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
-      '--imgFactionFilter': 'grayscale(95%) contrast(90%)',
+      '--imgFactionFilter': 'grayscale(15%) contrast(80%)',
       '--bastionFactionFilter':
         'hue-rotate(-153deg) saturate(0.1) brightness(1.8)',
     },
@@ -53,13 +53,13 @@ export class ThemingService {
       '--backgroundColor': '#000000',
       '--fontFaction': 'Dugo, Roboto, Helvetica, sans-serif',
       '--fontFactionSize': '0.9em',
-      '--fontFactionSizeBig': '1.2em',
-      '--extraWord': '3.1em',
-      '--extraWordBig': '2.9em',
+      '--fontFactionSizeBig': '1em',
+      '--extraWord': '3.9em',
+      '--extraWordBig': '3.5em',
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
       '--imgFactionFilter':
-        'saturate(25%) sepia(50%) drop-shadow(0px 0px 2px #B31B1B) drop-shadow(2px 2px 1px #65000B)',
+        'saturate(75%) sepia(10%) drop-shadow(2px 2px 1px #65000B)',
       '--bastionFactionFilter': 'saturate(1.3) brightness(0.85)',
     },
     ekanesh: {
@@ -71,13 +71,13 @@ export class ThemingService {
       '--headerColor': '#57774a',
       '--backgroundColor': '#000000',
       '--fontFaction': 'Ekanesh, Roboto, Helvetica, sans-serif',
-      '--fontFactionSize': '0.67em',
-      '--fontFactionSizeBig': '0.9em',
+      '--fontFactionSize': '0.9em',
+      '--fontFactionSizeBig': '1em',
       '--extraWord': '3.9em',
-      '--extraWordBig': '3.9em',
+      '--extraWordBig': '3.5em',
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
-      '--imgFactionFilter': 'sepia(75%) hue-rotate(60deg) contrast(80%)',
+      '--imgFactionFilter': 'sepia(25%) contrast(80%)',
       '--bastionFactionFilter':
         'hue-rotate(-255deg) saturate(0.3) brightness(1.4)',
     },
@@ -90,10 +90,10 @@ export class ThemingService {
       '--headerColor': '#fab500',
       '--backgroundColor': '#282114',
       '--fontFaction': 'Pendzal, Roboto, Helvetica, sans-serif',
-      '--fontFactionSize': '0.88em',
-      '--fontFactionSizeBig': '1.2em',
-      '--extraWord': '2.95em',
-      '--extraWordBig': '2.95em',
+      '--fontFactionSize': '0.9em',
+      '--fontFactionSizeBig': '1em',
+      '--extraWord': '3.9em',
+      '--extraWordBig': '3.5em',
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
       '--bastionFactionFilter':
@@ -109,14 +109,14 @@ export class ThemingService {
       '--headerColor': '#D4AF37',
       '--backgroundColor': '#2e263e',
       '--fontFaction': 'Sona, Roboto, Helvetica, sans-serif',
-      '--fontFactionSize': '1em',
+      '--fontFactionSize': '0.9em',
       '--fontFactionSizeBig': '1em',
-      '--extraWord': '3.75em',
-      '--extraWordBig': '3.4em',
+      '--extraWord': '3.9em',
+      '--extraWordBig': '3.5em',
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
       '--imgFactionFilter':
-        'hue-rotate(120deg) sepia(0.85) saturate(1.65) brightness(1.4) drop-shadow(2px 1px 0px #D4AF37)',
+        'saturate(1.2) brightness(1.2) drop-shadow(0px 0px 2px #D4AF37)',
       '--bastionFactionFilter':
         'hue-rotate(60deg) saturate(0.65) brightness(2.5)',
     },
@@ -146,7 +146,7 @@ export class ThemingService {
 
   setTheme(themeName): void {
     this.selectedTheme = this.themes[themeName]
-    Object.keys(this.selectedTheme).forEach(property => {
+    Object.keys(this.selectedTheme).forEach((property) => {
       document.documentElement.style.setProperty(
         property,
         this.selectedTheme[property],

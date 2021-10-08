@@ -12,6 +12,17 @@
       "rostername": ""
     },
     {
+      "link": "TALON",
+      "unlockRequirement": ["loggedin"],
+      "cornertag": "βeta",
+      "icon": "talon",
+      "iconAlt": "An orgigami bird",
+      "name": "\n\nTalon",
+      "description": "A secured VI platform for virtual assistants that aid the bastion in becoming a success for the ICC and humanity as a whole.",
+      "showIf": false,
+      "rostername": ""
+    },
+    {
       "link": "AV",
       "unlockRequirement": ["it"],
       "cornertag": "",
