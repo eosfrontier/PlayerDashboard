@@ -39,7 +39,7 @@ export class ThemingService {
       '--extraWordBig': '3.5em',
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
-      '--imgFactionFilter': 'grayscale(25%) contrast(80%)',
+      '--imgFactionFilter': 'grayscale(15%) contrast(80%)',
       '--bastionFactionFilter':
         'hue-rotate(-153deg) saturate(0.1) brightness(1.8)',
     },
@@ -77,7 +77,7 @@ export class ThemingService {
       '--extraWordBig': '3.5em',
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
-      '--imgFactionFilter': 'sepia(50%) contrast(80%)',
+      '--imgFactionFilter': 'sepia(25%) contrast(80%)',
       '--bastionFactionFilter':
         'hue-rotate(-255deg) saturate(0.3) brightness(1.4)',
     },
@@ -116,7 +116,7 @@ export class ThemingService {
       '--fontHeader': 'Roboto, Helvetica, sans-serif',
       '--fontTiles': 'Roboto, Helvetica, sans-serif',
       '--imgFactionFilter':
-        'sepia(0.35) saturate(1.05) brightness(1.1) drop-shadow(1px 1px 3px #D4AF37)',
+        'saturate(1.2) brightness(1.2) drop-shadow(0px 0px 2px #D4AF37)',
       '--bastionFactionFilter':
         'hue-rotate(60deg) saturate(0.65) brightness(2.5)',
     },
