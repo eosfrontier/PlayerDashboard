@@ -12,15 +12,15 @@
       "rostername": ""
     },
     {
-      "link": "TALON",
-      "unlockRequirement": ["loggedin"],
-      "cornertag": "βeta",
-      "icon": "talon",
-      "iconAlt": "An orgigami bird",
-      "name": "\n\nTalon",
-      "description": "A secured VI platform for virtual assistants that aid the bastion in becoming a success for the ICC and humanity as a whole.",
+      "link": "AIT",
+      "unlockRequirement": ["armory"],
+      "cornertag": "",
+      "icon": "ait",
+      "iconAlt": "Two Futuristic guns infront of yellow/orange shield",
+      "name": "Armory\nInventory\nTracker",
+      "description": "The logistics management for the armory, tracking weapons, munitions, protective vests, and other combat related gear.",
       "showIf": false,
-      "rostername": ""
+      "rostername": "access_armory"
     },
     {
       "link": "AV",
@@ -30,6 +30,29 @@
       "iconAlt": "Air Alchemy Symbol and Earth Alchemy Symbol",
       "name": "\nAttack\nVector",
       "description": "A specialized environment running in Verdant OS.\nAllowing for extracurricular network activities.",
+      "showIf": false,
+      "rostername": ""
+    },
+    {
+      "link": "SCB",
+      "unlockRequirement": ["everyone"],
+      "cornertag": "",
+      "icon": "bank",
+      "iconAlt": "S C B inside a fortress shape",
+      "name": "System\nCentral\nBanks",
+      "description": "All your banking needs are supplied by the SCB.",
+      "showIf": false,
+      "rostername": ""
+    },
+    {
+      "link": "BET",
+      "unlockRequirement": ["loggedin"],
+      "target": "_blank",
+      "cornertag": "βeta",
+      "icon": "bestellijst",
+      "iconAlt": "A purple paper with red dotted a list",
+      "name": "Bastion\nEos\nTransfer",
+      "description": "All regulated goods can be ordered, and will be shipped usually within a day.",
       "showIf": false,
       "rostername": ""
     },
@@ -64,18 +87,6 @@
       "iconAlt": "A circle orbited by a smaller circle with the orbit line visible",
       "name": "\n\nBeacon",
       "description": "The interfactional service for displaying & propagating information to the entire base, colony or ship.",
-      "showIf": false,
-      "rostername": ""
-    },
-    {
-      "link": "BET",
-      "unlockRequirement": ["loggedin"],
-      "target": "_blank",
-      "cornertag": "βeta",
-      "icon": "bestellijst",
-      "iconAlt": "A purple paper with red dotted a list",
-      "name": "Bastion\nEos\nTransfer",
-      "description": "All regulated goods can be ordered, and will be shipped usually within a day.",
       "showIf": false,
       "rostername": ""
     },
@@ -126,17 +137,6 @@
       "rostername": "police_rank"
     },
     {
-      "link": "AIT",
-      "unlockRequirement": ["armory"],
-      "cornertag": "",
-      "icon": "ait",
-      "iconAlt": "Two Futuristic guns infront of yellow/orange shield",
-      "name": "Armory\nInventory\nTracker",
-      "description": "The logistics management for the armory, tracking weapons, munitions, protective vests, and other combat related gear.",
-      "showIf": false,
-      "rostername": "access_armory"
-    },
-    {
       "link": "ROSTER",
       "unlockRequirement": ["loggedin"],
       "cornertag": "",
@@ -171,13 +171,13 @@
       "rostername": "medical_title"
     },
     {
-      "link": "SCB",
-      "unlockRequirement": ["everyone"],
+      "link": "TALON",
+      "unlockRequirement": ["loggedin"],
       "cornertag": "",
-      "icon": "bank",
-      "iconAlt": "S C B inside a fortress shape",
-      "name": "System\nCentral\nBanks",
-      "description": "All your banking needs are supplied by the SCB.",
+      "icon": "talon",
+      "iconAlt": "An orgigami bird",
+      "name": "\n\nTalon",
+      "description": "A secured VI platform for virtual assistants that aid the bastion in becoming a success for the ICC and humanity as a whole.",
       "showIf": false,
       "rostername": ""
     },
