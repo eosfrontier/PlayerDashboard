@@ -110,7 +110,7 @@
       "icon": "corp",
       "iconAlt": "C O R P",
       "name": "Company\nOrganizational\nResource\nPlanner",
-      "description": "CORP allows you to maintain company assets and allocation ofresources.",
+      "description": "CORP allows you to maintain company assets and allocation of resources.",
       "showIf": false,
       "rostername": "company_name"
     },
