@@ -92,6 +92,18 @@
       "rostername": "conclave_portfolio"
     },
     {
+      "link": "CONCLAVE",
+      "target": "_blank",
+      "unlockRequirement": ["conclave"],
+      "cornertag": "βeta",
+      "icon": "invoice",
+      "iconAlt": "A purple paper with red items and a green checkmark",
+      "name": "Conclave\nBudget\nDashboard",
+      "description": "As conclave member or assistant you can view the current budget sonuren status.",
+      "showIf": false,
+      "rostername": "conclave_portfolio"
+    },
+    {
       "link": "CIC",
       "unlockRequirement": ["everyone"],
       "cornertag": "",
