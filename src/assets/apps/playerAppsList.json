@@ -103,6 +103,18 @@
       "rostername": "conclave_portfolio"
     },
     {
+      "link": "CONCLAVE",
+      "target": "_blank",
+      "unlockRequirement": ["conclave"],
+      "cornertag": "βeta",
+      "icon": "invoice",
+      "iconAlt": "A purple paper with red items and a green checkmark",
+      "name": "Conclave\nBudget\nDashboard",
+      "description": "As conclave member or assistant you can view the current budget sonuren status.",
+      "showIf": false,
+      "rostername": "conclave_portfolio"
+    },
+    {
       "link": "CIC",
       "unlockRequirement": ["everyone"],
       "cornertag": "",
@@ -121,7 +133,7 @@
       "icon": "corp",
       "iconAlt": "C O R P",
       "name": "Company\nOrganizational\nResource\nPlanner",
-      "description": "CORP allows you to maintain company assets and allocation ofresources.",
+      "description": "CORP allows you to maintain company assets and allocation of resources.",
       "showIf": false,
       "rostername": "company_name"
     },

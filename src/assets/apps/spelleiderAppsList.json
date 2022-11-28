@@ -82,7 +82,7 @@
     },
     {
       "name": "\n\nStarmap",
-      "link": "SL_CUSTOMS",
+      "link": "SL_MAP",
       "description": "You can alter the description of planets here, and see where they are located.",
       "icon": "map",
       "iconAlt": "Three orange yellow four pointed stars",
