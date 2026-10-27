@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { Observable, firstValueFrom } from 'rxjs'
+import { catchError, map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment'
 
 @Injectable({
@@ -17,43 +19,43 @@ export class PalantírService {
 
   constructor(private http: HttpClient) {}
 
-  getSkillsFromAPI(id: string): Promise<any> {
+  async getSkillsFromAPI(id: string): Promise<any> {
     const headers = new HttpHeaders()
       .set('token', this.tokenAPI)
       .set('id', id)
 
-    return new Promise((resolve, reject) => {
-      this.http.get(this.skillAPI, { headers }).subscribe({
-        next: (skills) => resolve(skills),
-        error: (error) => { /* reject(error) */ }
-      })
-    })
+    try {
+      return await firstValueFrom(this.http.get(this.skillAPI, { headers }))
+    } catch (error) {
+      console.error('Error fetching skills:', error)
+      throw error
+    }
   }
 
-  getPersonFromAPI(id: string): Promise<any> {
+  async getPersonFromAPI(id: string): Promise<any> {
     const headers = new HttpHeaders()
       .set('token', this.tokenAPI)
       .set('accountID', id)
 
-    return new Promise((resolve, reject) => {
-      this.http.get(this.nameAPI, { headers }).subscribe({
-        next: (person) => resolve(person),
-        error: (error) => { /* reject(error) */ }
-      })
-    })
+    try {
+      return await firstValueFrom(this.http.get(this.nameAPI, { headers }))
+    } catch (error) {
+      console.error('Error fetching person:', error)
+      throw error
+    }
   }
 
-  getMetaFromAPI(id: string): Promise<any> {
+  async getMetaFromAPI(id: string): Promise<any> {
     const headers = new HttpHeaders()
       .set('token', this.tokenAPI)
       .set('id', id)
 
-    return new Promise((resolve, reject) => {
-      this.http.get(this.metaAPI, { headers }).subscribe({
-        next: (meta) => resolve(meta),
-        error: (error) => { /* reject(error) */ }
-      })
-    })
+    try {
+      return await firstValueFrom(this.http.get(this.metaAPI, { headers }))
+    } catch (error) {
+      console.error('Error fetching meta:', error)
+      throw error
+    }
   }
 
   getEosICTime(): Observable<any> {
@@ -62,7 +64,8 @@ export class PalantírService {
         return result
       }),
       catchError((error) => {
-        return error
+        console.error('Error fetching EOS IC time:', error)
+        throw error
       }),
     )
   }
