@@ -56,6 +56,18 @@ export class PalantírService {
         error: (error) => { /* reject(error) */ }
       })
     })
+
+  getEosICTime(): Observable<any> {
+    return this.http.get(this.eosICTimeAPI).pipe(
+      map((result: any) => {
+        return result
+      }),
+      catchError((error) => {
+        return error
+      }),
+    )
+  }
+}
   }
 
   // ... rest of your code
