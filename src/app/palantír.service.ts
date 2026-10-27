@@ -19,10 +19,18 @@ export class PalantírService {
 
   constructor(private http: HttpClient) {}
 
-  async getSkillsFromAPI(id: string): Promise<any> {
+async getSkillsFromAPI(id: string): Promise<any> {
     const headers = new HttpHeaders()
       .set('token', this.tokenAPI)
       .set('id', id)
+
+    // Log the specific header to the console
+    console.log('Sending ID header:', headers.get('id'));
+    
+    // Or log all headers as an object for debugging:
+    // const loggedHeaders: any = {};
+    // headers.keys().forEach(key => loggedHeaders[key] = headers.get(key));
+    // console.log('All request headers:', loggedHeaders);
 
     try {
       return await this.http.get(this.skillAPI, { headers }).toPromise()
