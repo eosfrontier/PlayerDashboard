@@ -215,6 +215,18 @@
       "description": "You will never get lost in space with this useful chart!",
       "showIf": false,
       "rostername": ""
+    },
+    {
+      "link": "POEMS",
+      "unlockRequirement": ["loggedin"],
+      "target": "_blank",
+      "cornertag": "",
+      "icon": "poems",
+      "iconAlt": "A cube with rainbow coloured faces",
+      "name": "\nPoem\nAnalyzer",
+      "description": "Analysis of alien poems.",
+      "showIf": false,
+      "rostername": ""
     }
   ]
 }
