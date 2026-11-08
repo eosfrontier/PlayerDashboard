@@ -34,6 +34,7 @@ $myobj->groups = $user->get('groups');
 //echo "Groups:", json_encode($myobj->groups), "\n";
 
 //Generate pretty Json array for Silvester to use
+$array1 = [];
 foreach ($myobj->groups as $array) {
     $array1[] = $array;
 }
