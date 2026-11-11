@@ -27,14 +27,14 @@ export class LinkTileGridComponent implements OnInit {
   APPLIST = spelerApps.apps
   beaconAccess: string = '3 4 4 7 1'
   hasAccess: any[] = ['everyone', 'notlogged']
-  skillIndex: any
+  skillIndex: any = []
   joomlaInfo: any = { id: '', groups: [] }
   characterInformation: any = {
     characterID: '',
     accountID: '',
     faction: '',
   }
-  characterMeta: any = {}
+  characterMeta: any = []
 
   constructor(
     private palantirService: PalantírService,
@@ -151,9 +151,11 @@ export class LinkTileGridComponent implements OnInit {
       this.skillIndex = []
     } finally {
     }
-    for (let skill of this.skillIndex) {
-      if (!this.hasAccess.includes(skill.name)) {
-        this.hasAccess.push(skill.name)
+    if (Array.isArray(this.skillIndex)) {
+      for (let skill of this.skillIndex) {
+        if (!this.hasAccess.includes(skill.name)) {
+          this.hasAccess.push(skill.name)
+        }
       }
     }
     if (this.hasAccess.some((r) => this.researchSkillList.includes(r))) {
@@ -171,11 +173,13 @@ export class LinkTileGridComponent implements OnInit {
       this.characterMeta = []
     } finally {
     }
-    for (let meta of this.characterMeta) {
-      for (let APP of this.APPLIST) {
-        if (meta.name == 'roster:' + APP.rostername) {
-          if (!this.hasAccess.includes(APP.unlockRequirement[0])) {
-            this.hasAccess.push(APP.unlockRequirement[0])
+    if (Array.isArray(this.characterMeta)) {
+      for (let meta of this.characterMeta) {
+        for (let APP of this.APPLIST) {
+          if (meta.name == 'roster:' + APP.rostername) {
+            if (!this.hasAccess.includes(APP.unlockRequirement[0])) {
+              this.hasAccess.push(APP.unlockRequirement[0])
+            }
           }
         }
       }

@@ -19,10 +19,13 @@ export class PalantírService {
 
   constructor(private http: HttpClient) {}
 
-async getSkillsFromAPI(id: string): Promise<any> {
+  async getSkillsFromAPI(id: string | number): Promise<any> {
+    if (id == null || id === '') {
+      return []
+    }
     const headers = new HttpHeaders()
-      .set('token', this.tokenAPI)
-      .set('id', id)
+      .set('token', String(this.tokenAPI))
+      .set('id', String(id))
 
     // Log the specific header to the console
     console.log('Sending ID header:', headers.get('id'));
@@ -40,10 +43,13 @@ async getSkillsFromAPI(id: string): Promise<any> {
     }
   }
 
-  async getPersonFromAPI(id: string): Promise<any> {
+  async getPersonFromAPI(id: string | number): Promise<any> {
+    if (id == null || id === '') {
+      return null
+    }
     const headers = new HttpHeaders()
-      .set('token', this.tokenAPI)
-      .set('accountID', id)
+      .set('token', String(this.tokenAPI))
+      .set('accountID', String(id))
 
     try {
       return await this.http.get(this.nameAPI, { headers }).toPromise()
@@ -53,10 +59,13 @@ async getSkillsFromAPI(id: string): Promise<any> {
     }
   }
 
-  async getMetaFromAPI(id: string): Promise<any> {
+  async getMetaFromAPI(id: string | number): Promise<any> {
+    if (id == null || id === '') {
+      return []
+    }
     const headers = new HttpHeaders()
-      .set('token', this.tokenAPI)
-      .set('id', id)
+      .set('token', String(this.tokenAPI))
+      .set('id', String(id))
 
     try {
       return await this.http.get(this.metaAPI, { headers }).toPromise()
