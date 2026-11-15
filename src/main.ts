@@ -1,13 +1,21 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core'
+import { bootstrapApplication } from '@angular/platform-browser'
+import { provideHttpClient, withJsonpSupport } from '@angular/common/http'
+import { provideServiceWorker } from '@angular/service-worker'
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import { AppComponent } from './app/app.component'
+import { environment } from './environments/environment'
 
 if (environment.production) {
   enableProdMode()
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch(err => console.error(err))
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideHttpClient(withJsonpSupport()),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+  ],
+}).catch((err) => console.error(err))

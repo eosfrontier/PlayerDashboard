@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { environment } from 'src/environments/environment'
 
@@ -7,6 +8,8 @@ import { ThemingService } from '../theming.service'
 
 @Component({
   selector: 'app-personal-banner',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './personal-banner.component.html',
   styleUrls: ['./personal-banner.component.scss'],
 })

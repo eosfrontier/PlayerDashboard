@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { environment } from 'src/environments/environment'
 
@@ -14,6 +15,8 @@ import { PalantírService } from '../palantír.service'
 
 @Component({
   selector: 'app-link-tile-grid',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './link-tile-grid.component.html',
   styleUrls: ['./link-tile-grid.component.scss'],
 })

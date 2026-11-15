@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Observable, firstValueFrom } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment'
 
@@ -36,7 +36,7 @@ export class PalantírService {
     // console.log('All request headers:', loggedHeaders);
 
     try {
-      return await this.http.get(this.skillAPI, { headers }).toPromise()
+      return await firstValueFrom(this.http.get(this.skillAPI, { headers }))
     } catch (error) {
       console.error('Error fetching skills:', error)
       throw error
@@ -52,7 +52,7 @@ export class PalantírService {
       .set('accountID', String(id))
 
     try {
-      return await this.http.get(this.nameAPI, { headers }).toPromise()
+      return await firstValueFrom(this.http.get(this.nameAPI, { headers }))
     } catch (error) {
       console.error('Error fetching person:', error)
       throw error
@@ -68,7 +68,7 @@ export class PalantírService {
       .set('id', String(id))
 
     try {
-      return await this.http.get(this.metaAPI, { headers }).toPromise()
+      return await firstValueFrom(this.http.get(this.metaAPI, { headers }))
     } catch (error) {
       console.error('Error fetching meta:', error)
       throw error

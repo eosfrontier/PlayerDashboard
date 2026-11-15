@@ -89,14 +89,6 @@
       "cornertag": "Admin"
     },
     {
-      "name": "\n\nStarmap",
-      "link": "SL_MAP",
-      "description": "You can alter the description of planets here, and see where they are located.",
-      "icon": "map",
-      "iconAlt": "Three orange yellow four pointed stars",
-      "cornertag": "Admin"
-    },
-    {
       "name": "\n\nFiguGid",
       "link": "SL_FIGUGID",
       "description": "You can read the Figurantengids here.",

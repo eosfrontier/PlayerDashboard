@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "root": "",
@@ -20,9 +20,8 @@
             "outputPath": "dist/EosDynamic-PlayerDashboard",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "outputHashing": "all",
             "assets": [
               "src/favicon.ico",
@@ -37,7 +36,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -55,42 +53,34 @@
               ],
               "serviceWorker": true,
               "ngswConfigPath": "ngsw-config.json"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "EosDynamic-PlayerDashboard:build"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "EosDynamic-PlayerDashboard:build:production"
+              "buildTarget": "EosDynamic-PlayerDashboard:build:production"
+            },
+            "development": {
+              "buildTarget": "EosDynamic-PlayerDashboard:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "EosDynamic-PlayerDashboard:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "buildTarget": "EosDynamic-PlayerDashboard:build"
           }
         }
       }
     }
-  },
-  "defaultProject": "EosDynamic-PlayerDashboard",
-  "cli": {
-    "analytics": "992ede88-d986-490b-a538-4ed1b11ab4a9"
   }
 }
