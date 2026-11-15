@@ -23,6 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "outputHashing": "all",
             "assets": [
               "src/favicon.ico",
               "src/assets",

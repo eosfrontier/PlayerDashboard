@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "name": "\n\nFiguGid",
+      "link": "SL_FIGUGID",
+      "description": "You can read the Figurantengids here.",
+      "icon": "book",
+      "iconAlt": "A colorful book",
+      "cornertag": "Figu"
+    }
+  ]
+}

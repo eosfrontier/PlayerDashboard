@@ -69,7 +69,7 @@ export class PersonalBannerComponent implements OnInit {
 
   identifyUser() {
     if (this.joomlaInfo.groups) {
-      if (this.joomlaInfo.groups.includes('30' || '8')) {
+      if (this.joomlaInfo.groups.includes( '30' || '8')) {
         let typeUser: string = ''
         if (this.joomlaInfo.groups.includes('30')) {
           typeUser = 'Spelleider'
@@ -78,11 +78,13 @@ export class PersonalBannerComponent implements OnInit {
           typeUser = 'Super User'
         }
         this.idSpelleider =
-          typeUser +
+          ' Spelleider' +
           this.characterInformation.oc_name +
           '. The dashboard has been adjusted to also contain OC links to admin pages and spelleider resources.'
       }
       if (this.joomlaInfo.groups.includes('31')) {
+        let typeUser: string = ''
+        typeUser = 'Figurant'
         this.idFigurant = ' visitor of the Bastion.'
       }
     }

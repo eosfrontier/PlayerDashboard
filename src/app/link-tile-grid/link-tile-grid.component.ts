@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment'
 
 import spelerApps from '../../assets/apps/playerAppsList.json'
 import spelleiderApps from '../../assets/apps/spelleiderAppsList.json'
+import figuApps from '../../assets/apps/figurantAppsList.json'
 import AITJson from '../../assets/specialAccessLists/AITAccess.json'
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json'
 import CORPJson from '../../assets/specialAccessLists/CORPAccess.json'
@@ -24,17 +25,18 @@ export class LinkTileGridComponent implements OnInit {
   aitAccess = AITJson.armoryInventoryTrackingAccess
   customsAccess = DouaneJson.doauneAccess
   SLAPPLIST = spelleiderApps.apps
+  FIGUAPPLIST = figuApps.apps
   APPLIST = spelerApps.apps
   beaconAccess: string = '3 4 4 7 1'
   hasAccess: any[] = ['everyone', 'notlogged']
-  skillIndex: any
+  skillIndex: any = []
   joomlaInfo: any = { id: '', groups: [] }
   characterInformation: any = {
     characterID: '',
     accountID: '',
     faction: '',
   }
-  characterMeta: any = {}
+  characterMeta: any = []
 
   constructor(
     private palantirService: PalantírService,
@@ -136,7 +138,7 @@ export class LinkTileGridComponent implements OnInit {
     } catch {
       this.characterInformation = {
         characterID: '0',
-        faction: 'notlogged',
+        faction: this.hasAccess.includes('loggedin') ? 'none' : 'notlogged',
       }
     } finally {
     }
@@ -151,9 +153,11 @@ export class LinkTileGridComponent implements OnInit {
       this.skillIndex = []
     } finally {
     }
-    for (let skill of this.skillIndex) {
-      if (!this.hasAccess.includes(skill.name)) {
-        this.hasAccess.push(skill.name)
+    if (Array.isArray(this.skillIndex)) {
+      for (let skill of this.skillIndex) {
+        if (!this.hasAccess.includes(skill.name)) {
+          this.hasAccess.push(skill.name)
+        }
       }
     }
     if (this.hasAccess.some((r) => this.researchSkillList.includes(r))) {
@@ -171,11 +175,13 @@ export class LinkTileGridComponent implements OnInit {
       this.characterMeta = []
     } finally {
     }
-    for (let meta of this.characterMeta) {
-      for (let APP of this.APPLIST) {
-        if (meta.name == 'roster:' + APP.rostername) {
-          if (!this.hasAccess.includes(APP.unlockRequirement[0])) {
-            this.hasAccess.push(APP.unlockRequirement[0])
+    if (Array.isArray(this.characterMeta)) {
+      for (let meta of this.characterMeta) {
+        for (let APP of this.APPLIST) {
+          if (meta.name == 'roster:' + APP.rostername) {
+            if (!this.hasAccess.includes(APP.unlockRequirement[0])) {
+              this.hasAccess.push(APP.unlockRequirement[0])
+            }
           }
         }
       }
@@ -217,12 +223,20 @@ export class LinkTileGridComponent implements OnInit {
   }
   checkHasAccess() {
     for (let APP of this.APPLIST) {
+      if (APP.unlockRequirement.includes('notlogged')) {
+        APP.showIf =
+          this.hasAccess.includes('notlogged') &&
+          !this.hasAccess.includes('loggedin')
+        continue
+      }
       if (
         this.hasAccess.some((r) => APP.unlockRequirement.includes(r)) ||
         this.hasAccess.includes('spelleider') ||
         this.hasAccess.includes('figurant')
       ) {
         APP.showIf = true
+      } else {
+        APP.showIf = false
       }
     }
   }

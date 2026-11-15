@@ -4,14 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
+    "build:dev": "ng build",
     "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
     "@angular/common": "11.0.0",
     "@angular/compiler": "11.0.0",
-    "@angular/core": "11.0.5",
+    "@angular/core": "11.0.0",
     "@angular/platform-browser": "11.0.0",
     "@angular/platform-browser-dynamic": "11.0.0",
     "@angular/service-worker": "11.0.0",
