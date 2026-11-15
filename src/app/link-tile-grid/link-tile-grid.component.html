@@ -23,6 +23,31 @@
     </a>
   </ng-container>
 </section>
+<section *ngIf="this.hasAccess.includes('figurant')" class="tileGrid">
+  <ng-container *ngFor="let FIGUAPP of FIGUAPPLIST">
+    <a [attr.href]="FIGUAPP.link" target="_blank">
+      <div class="border">
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <div class="flourish"></div>
+        <section class="linkTile">
+          <figure class="icon">
+            <p id="beta">{{ FIGUAPP.cornertag }}</p>
+            <img
+              src="../../assets/images/{{ FIGUAPP.icon }}.png"
+              alt="{{ FIGUAPP.iconAlt }}"
+            />
+            <figcaption class="flourishFont">{{ FIGUAPP.name }}</figcaption>
+          </figure>
+          <aside>
+            {{ FIGUAPP.description }}
+          </aside>
+        </section>
+      </div>
+    </a>
+  </ng-container>
+</section>
 <hr *ngIf="this.hasAccess.includes('spelleider')" />
 <main class="tileGrid">
   <ng-container *ngFor="let APP of APPLIST">

@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment'
 
 import spelerApps from '../../assets/apps/playerAppsList.json'
 import spelleiderApps from '../../assets/apps/spelleiderAppsList.json'
+import figuApps from '../../assets/apps/figurantAppsList.json'
 import AITJson from '../../assets/specialAccessLists/AITAccess.json'
 import conclaveListJson from '../../assets/specialAccessLists/conclaveMembers.json'
 import CORPJson from '../../assets/specialAccessLists/CORPAccess.json'
@@ -24,6 +25,7 @@ export class LinkTileGridComponent implements OnInit {
   aitAccess = AITJson.armoryInventoryTrackingAccess
   customsAccess = DouaneJson.doauneAccess
   SLAPPLIST = spelleiderApps.apps
+  FIGUAPPLIST = figuApps.apps
   APPLIST = spelerApps.apps
   beaconAccess: string = '3 4 4 7 1'
   hasAccess: any[] = ['everyone', 'notlogged']
