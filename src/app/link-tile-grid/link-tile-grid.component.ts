@@ -138,7 +138,7 @@ export class LinkTileGridComponent implements OnInit {
     } catch {
       this.characterInformation = {
         characterID: '0',
-        faction: 'notlogged',
+        faction: this.hasAccess.includes('loggedin') ? 'none' : 'notlogged',
       }
     } finally {
     }
@@ -223,12 +223,20 @@ export class LinkTileGridComponent implements OnInit {
   }
   checkHasAccess() {
     for (let APP of this.APPLIST) {
+      if (APP.unlockRequirement.includes('notlogged')) {
+        APP.showIf =
+          this.hasAccess.includes('notlogged') &&
+          !this.hasAccess.includes('loggedin')
+        continue
+      }
       if (
         this.hasAccess.some((r) => APP.unlockRequirement.includes(r)) ||
         this.hasAccess.includes('spelleider') ||
         this.hasAccess.includes('figurant')
       ) {
         APP.showIf = true
+      } else {
+        APP.showIf = false
       }
     }
   }
